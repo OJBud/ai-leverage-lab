@@ -505,12 +505,12 @@ const Practice = () => {
                  Simple. Adult. No packages. If this resonates, we can talk.
               </p>
               <div className="space-y-4">
-                 <div className="bg-jet p-4 rounded border border-white/5 text-white font-mono text-sm hover:border-lime transition-colors cursor-pointer">
-                    christian@aileveragelab.com
-                 </div>
-                 <div className="bg-jet p-4 rounded border border-white/5 text-white font-mono text-sm hover:border-lime transition-colors cursor-pointer">
-                    Connect on LinkedIn
-                 </div>
+                <a href="mailto:budappuk@gmail.com" className="block bg-jet p-4 rounded border border-white/5 text-white font-mono text-sm hover:border-lime transition-colors">
+   budappuk@gmail.com
+</a>
+<a href="https://www.linkedin.com/in/budapp/" target="_blank" rel="noopener noreferrer" className="block bg-jet p-4 rounded border border-white/5 text-white font-mono text-sm hover:border-lime transition-colors">
+   Connect on LinkedIn
+</a> 
               </div>
            </div>
         </div>
