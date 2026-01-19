@@ -522,153 +522,174 @@ const Practice = () => {
 const Kit = () => {
   return (
     <div className="pt-24">
-      {/* Hero */}
-      <Section className="text-center">
+      {/* HERO: Standard Dark */}
+      <Section className="text-center pb-12">
         <FadeIn>
           <Badge>The Entry Point</Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mt-6 mb-8">The Starter Kit.</h1>
-          <p className="text-xl text-steel max-w-2xl mx-auto mb-12 leading-relaxed">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mt-6 mb-8">The Starter Kit.</h1>
+          <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed">
             The gap between people who "get" AI and everyone else isn't intelligence. It's approach.
-            Most people treat AI as a search engine. The ones who extract leverage treat it as a thinking partner.
           </p>
         </FadeIn>
       </Section>
 
-      {/* Section 1: What Actually Works */}
+      {/* SECTION 1: What Actually Works (Spaced Out) */}
       <Section>
-        <div className="max-w-4xl mx-auto space-y-16">
+        <div className="max-w-4xl mx-auto space-y-32"> {/* Massive vertical spacing */}
+            
             <FadeIn>
-                <h2 className="text-3xl font-bold text-white mb-6">What's actually different.</h2>
-                <p className="text-steel mb-8 text-lg">Forget "prompt engineering." The real shift is simpler and harder: change how you show up to the conversation.</p>
+                <div className="border-l-2 border-lime pl-6 mb-12">
+                    <h2 className="text-3xl font-bold text-white mb-2">What's actually different.</h2>
+                    <p className="text-steel text-lg">Forget "prompt engineering." Change how you show up.</p>
+                </div>
                 
-                {/* Point 1 */}
-                <div className="mb-12">
-                    <h3 className="text-xl font-bold text-white mb-4"><span className="text-lime">1.</span> Signal intent, not just queries</h3>
-                    <p className="text-steel mb-6">Most people ask questions. That gets you answers. Instead, declare your posture. Share the stakes. Give permission to challenge.</p>
-                    
-                    <div className="bg-charcoal border border-white/10 rounded-xl overflow-hidden">
-                        <div className="grid grid-cols-1 md:grid-cols-2">
-                            <div className="p-6 border-b md:border-b-0 md:border-r border-white/10 bg-white/5">
-                                <h4 className="text-xs font-mono uppercase tracking-widest text-steel mb-4">Instead of...</h4>
-                                <ul className="space-y-4 text-sm text-steel/70">
-                                    <li>"What should I do about X?"</li>
-                                    <li className="pt-4 border-t border-white/5">"Write me a marketing email"</li>
-                                    <li className="pt-4 border-t border-white/5">"Is this a good idea?"</li>
-                                </ul>
-                            </div>
-                            <div className="p-6 bg-lime/5">
-                                <h4 className="text-xs font-mono uppercase tracking-widest text-lime mb-4">Try...</h4>
-                                <ul className="space-y-4 text-sm text-white">
-                                    <li>"I'm facing a decision on X. The stakes are Y. I'm leaning toward Z but I'm not sure. Push back on my assumptions."</li>
-                                    <li className="pt-4 border-t border-white/5">"I need to convert skeptical enterprise buyers. They've heard every pitch. I want something that earns attention, not demands it."</li>
-                                    <li className="pt-4 border-t border-white/5">"I'm about to commit to this. Tell me what I'm not seeing. What would make this fail?"</li>
-                                </ul>
+                {/* Point 1: Intent */}
+                <div className="grid md:grid-cols-12 gap-8">
+                    <div className="md:col-span-4">
+                        <h3 className="text-2xl font-bold text-white mb-2"><span className="text-lime">01.</span> Signal Intent</h3>
+                        <p className="text-steel text-sm">Don't just ask questions. Declare your posture. Share the stakes.</p>
+                    </div>
+                    <div className="md:col-span-8">
+                        <div className="bg-charcoal border border-white/10 rounded-xl overflow-hidden">
+                            <div className="grid grid-cols-1 md:grid-cols-2">
+                                <div className="p-6 border-b md:border-b-0 md:border-r border-white/10 bg-white/5">
+                                    <h4 className="text-xs font-mono uppercase tracking-widest text-steel mb-4">Instead of...</h4>
+                                    <ul className="space-y-4 text-sm text-steel/60 font-medium">
+                                        <li>"What should I do about X?"</li>
+                                        <li className="pt-4 border-t border-white/5">"Write me a marketing email"</li>
+                                    </ul>
+                                </div>
+                                <div className="p-6 bg-lime/5">
+                                    <h4 className="text-xs font-mono uppercase tracking-widest text-lime mb-4">Try...</h4>
+                                    <ul className="space-y-4 text-sm text-white font-medium">
+                                        <li>"I'm facing a decision on X. The stakes are Y. Push back on my assumptions."</li>
+                                        <li className="pt-4 border-t border-white/5">"I need to convert skeptical enterprise buyers. They've heard every pitch. I want something that earns attention."</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {/* Point 2 */}
-                <div className="mb-12">
-                     <h3 className="text-xl font-bold text-white mb-4"><span className="text-lime">2.</span> Build relationships, not sessions</h3>
-                     <p className="text-steel mb-4">The people who extract real leverage aren't starting fresh every time. They're building accumulated context.</p>
-                     <div className="bg-charcoal p-6 rounded-xl border border-white/10">
-                        <p className="text-white text-sm"><span className="text-lime font-bold">The Practical Version:</span> Pick one AI platform. Use it consistently for one type of work (strategy, writing, analysis). Let the relationship develop. Notice how the quality changes over weeks.</p>
-                     </div>
-                </div>
-
-                {/* Point 3 */}
-                <div className="mb-12">
-                     <h3 className="text-xl font-bold text-white mb-4"><span className="text-lime">3.</span> Route intelligence between platforms</h3>
-                     <p className="text-steel mb-4">Different AI platforms have different strengths. The real unlock is designing how they inform each other.</p>
-                     <ul className="space-y-3 text-steel text-sm ml-4 border-l-2 border-lime pl-6">
-                        <li>1. Give Platform A a problem with no context. Ask for a cold read.</li>
-                        <li>2. Take that output to Platform B (who has your context). Ask it to review against what it knows.</li>
-                        <li>3. Take Platform B's synthesis back to Platform A. Now it has richer context.</li>
-                     </ul>
-                </div>
-
-                {/* Point 4 */}
-                <div className="mb-12">
-                     <h3 className="text-xl font-bold text-white mb-4"><span className="text-lime">4.</span> Allow tension</h3>
-                     <p className="text-steel mb-4">Most people collapse into agreement too fast. The better move: Stay in the discomfort longer.</p>
-                     <p className="text-white font-medium italic">"If every AI interaction feels smooth and affirming, you're probably not getting the real value."</p>
-                </div>
             </FadeIn>
-        </div>
-      </Section>
 
-      {/* Section 2: The Shift */}
-      <Section>
-        <FadeIn>
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">The shift that matters.</h2>
-            <div className="max-w-3xl mx-auto bg-charcoal border border-white/10 rounded-2xl overflow-hidden">
-                <div className="grid grid-cols-2 text-sm">
-                    <div className="p-4 border-b border-r border-white/10 bg-white/5 text-steel font-mono uppercase tracking-widest text-center">Most People</div>
-                    <div className="p-4 border-b border-white/10 bg-lime/10 text-lime font-mono uppercase tracking-widest text-center">Power Users</div>
-                    
-                    <div className="p-4 border-b border-r border-white/10 text-center text-steel">Ask questions</div>
-                    <div className="p-4 border-b border-white/10 text-center text-white font-bold">Declare posture</div>
-
-                    <div className="p-4 border-b border-r border-white/10 text-center text-steel">Start fresh each time</div>
-                    <div className="p-4 border-b border-white/10 text-center text-white font-bold">Build accumulated context</div>
-
-                    <div className="p-4 border-b border-r border-white/10 text-center text-steel">Use one tool</div>
-                    <div className="p-4 border-b border-white/10 text-center text-white font-bold">Route between platforms</div>
-
-                    <div className="p-4 border-b border-r border-white/10 text-center text-steel">Seek agreement</div>
-                    <div className="p-4 border-b border-white/10 text-center text-white font-bold">Allow tension</div>
-
-                    <div className="p-4 border-r border-white/10 text-center text-steel">Extract answers</div>
-                    <div className="p-4 text-center text-white font-bold">Co-develop clarity</div>
-                </div>
-            </div>
-            <div className="text-center mt-12">
-                <p className="text-xl text-white font-display">"Most people want answers. The ones who extract leverage <span className="text-lime border-b border-lime">want a better way to think.</span>"</p>
-            </div>
-        </FadeIn>
-      </Section>
-
-      {/* Section 3: Start Here */}
-      <Section>
-        <div className="max-w-3xl mx-auto">
+            {/* Point 2 & 3: Context & Routing (Grouped) */}
             <FadeIn>
-                <div className="bg-white text-black p-8 md:p-12 rounded-sm shadow-2xl relative">
-                    <div className="absolute top-0 left-0 w-full h-2 bg-lime"></div>
-                    <h2 className="text-3xl font-bold mb-6 font-display uppercase">Start Here</h2>
-                    <p className="text-gray-600 mb-8 text-lg">You don't need a course. You need practice. Try this prompt on a real decision this week:</p>
-                    
-                    <div className="bg-gray-100 p-6 rounded border border-gray-200 font-mono text-sm leading-relaxed mb-8">
-                        "I'm going to share a decision I'm facing. Before you give me advice, I want you to ask me the questions that will help you understand the real situation — not just the surface problem. Push past my first answers. Then, once you understand, tell me what you think I'm not seeing."
+                <div className="grid md:grid-cols-2 gap-12">
+                    <div>
+                         <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">02.</span> Accumulate Context</h3>
+                         <p className="text-steel mb-6 leading-relaxed">The people who extract real leverage aren't starting fresh every time. Pick one platform. Use it consistently for one type of work. Let it learn you.</p>
+                         <div className="bg-charcoal p-6 rounded-xl border border-white/10">
+                            <p className="text-white text-sm font-mono">"Treat it like a colleague who knows your situation, not a stranger you're briefing from scratch."</p>
+                         </div>
                     </div>
-                    
-                    <p className="text-gray-600 text-sm">Notice what happens. Notice how different it feels from asking "what should I do?" That's the shift.</p>
+                    <div>
+                         <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">03.</span> Route Intelligence</h3>
+                         <p className="text-steel mb-6 leading-relaxed">Different platforms have different strengths. The unlock is designing how they inform each other.</p>
+                         <ul className="space-y-4 text-sm">
+                            <li className="flex gap-4">
+                                <span className="w-6 h-6 rounded-full bg-jet border border-white/10 flex items-center justify-center text-xs text-steel shrink-0">A</span>
+                                <span className="text-steel">Give Platform A a problem with no context (Cold Read).</span>
+                            </li>
+                            <li className="flex gap-4">
+                                <span className="w-6 h-6 rounded-full bg-jet border border-white/10 flex items-center justify-center text-xs text-steel shrink-0">B</span>
+                                <span className="text-steel">Take output to Platform B (Context Aware). Ask it to review.</span>
+                            </li>
+                            <li className="flex gap-4">
+                                <span className="w-6 h-6 rounded-full bg-lime text-black flex items-center justify-center text-xs font-bold shrink-0">C</span>
+                                <span className="text-white">Synthesis. Now you have both angles.</span>
+                            </li>
+                         </ul>
+                    </div>
                 </div>
             </FadeIn>
+
+            {/* Point 4: Tension */}
+            <FadeIn>
+                <div className="border-t border-white/10 pt-12">
+                     <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">04.</span> Allow Tension</h3>
+                     <p className="text-steel text-lg max-w-2xl">
+                        Most people collapse into agreement too fast. Sit with the discomfort. If every interaction feels smooth, you aren't getting leverage.
+                     </p>
+                </div>
+            </FadeIn>
+
         </div>
       </Section>
 
-      {/* Section 4: What this isn't & Go Deeper */}
-      <Section>
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+      {/* SECTION 2: THE SHIFT (Dark Grey Block) */}
+      <div className="bg-surface border-y border-white/5 mt-24">
+        <Section className="py-24">
             <FadeIn>
-                <h3 className="text-white font-bold text-xl mb-4">What this isn't</h3>
-                <ul className="space-y-3 text-steel text-sm">
-                    <li className="flex gap-2"><X className="text-signal flex-shrink-0" size={16}/> A prompt library (prompts are tactics, not strategy)</li>
-                    <li className="flex gap-2"><X className="text-signal flex-shrink-0" size={16}/> A course you need to buy (the skill is free)</li>
-                    <li className="flex gap-2"><X className="text-signal flex-shrink-0" size={16}/> A hack or shortcut (this compounds over time)</li>
-                    <li className="flex gap-2"><X className="text-signal flex-shrink-0" size={16}/> About replacing your judgment</li>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-white">The shift that matters.</h2>
+                </div>
+                <div className="max-w-3xl mx-auto bg-black/40 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <div className="grid grid-cols-2 text-sm">
+                        <div className="p-5 border-b border-r border-white/10 bg-white/5 text-steel font-mono uppercase tracking-widest text-center">Most People</div>
+                        <div className="p-5 border-b border-white/10 bg-lime/10 text-lime font-mono uppercase tracking-widest text-center">Power Users</div>
+                        
+                        <div className="p-5 border-b border-r border-white/10 text-center text-steel/70">Ask questions</div>
+                        <div className="p-5 border-b border-white/10 text-center text-white font-bold">Declare posture</div>
+
+                        <div className="p-5 border-b border-r border-white/10 text-center text-steel/70">Start fresh each time</div>
+                        <div className="p-5 border-b border-white/10 text-center text-white font-bold">Build accumulated context</div>
+
+                        <div className="p-5 border-b border-r border-white/10 text-center text-steel/70">Seek agreement</div>
+                        <div className="p-5 border-b border-white/10 text-center text-white font-bold">Allow tension</div>
+
+                        <div className="p-5 border-r border-white/10 text-center text-steel/70">Extract answers</div>
+                        <div className="p-5 text-center text-white font-bold">Co-develop clarity</div>
+                    </div>
+                </div>
+                <div className="text-center mt-12">
+                    <p className="text-xl text-white font-display">"Most people want answers. The ones who extract leverage <span className="text-lime border-b border-lime">want a better way to think.</span>"</p>
+                </div>
+            </FadeIn>
+        </Section>
+      </div>
+
+      {/* SECTION 3: START HERE (LIME BLOCK) */}
+      <div className="bg-lime text-jet py-24">
+        <div className="max-w-3xl mx-auto px-6">
+            <FadeIn>
+                <div className="border-l-4 border-black pl-8">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display uppercase tracking-tight text-black">Start Here.</h2>
+                    <p className="text-black/80 mb-8 text-xl font-medium">You don't need a course. You need practice. Try this prompt on a real decision this week:</p>
+                </div>
+                
+                <div className="bg-black/90 p-8 rounded-2xl shadow-xl border border-black/10 relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 p-4 opacity-50"><Terminal className="text-lime" /></div>
+                    <p className="text-white/90 font-mono text-sm md:text-base leading-relaxed">
+                        "I'm going to share a decision I'm facing. Before you give me advice, I want you to ask me the questions that will help you understand the real situation — not just the surface problem. Push past my first answers. Then, once you understand, tell me what you think I'm not seeing."
+                    </p>
+                </div>
+                
+                <p className="text-black/60 text-sm mt-8 font-medium text-center">
+                    Notice what happens. Notice how different it feels from asking "what should I do?"
+                </p>
+            </FadeIn>
+        </div>
+      </div>
+
+      {/* SECTION 4: What this isn't (Return to Dark) */}
+      <Section>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 pt-12">
+            <FadeIn>
+                <h3 className="text-white font-bold text-xl mb-6">What this isn't</h3>
+                <ul className="space-y-4 text-steel text-sm">
+                    <li className="flex gap-3"><X className="text-signal flex-shrink-0" size={18}/> A prompt library (prompts are tactics, not strategy)</li>
+                    <li className="flex gap-3"><X className="text-signal flex-shrink-0" size={18}/> A course you need to buy (the skill is free)</li>
+                    <li className="flex gap-3"><X className="text-signal flex-shrink-0" size={18}/> A hack or shortcut (this compounds over time)</li>
                 </ul>
             </FadeIn>
 
              <FadeIn delay={0.1}>
-                <h3 className="text-white font-bold text-xl mb-4">Go Deeper</h3>
-                <p className="text-steel text-sm mb-6">The Starter Kit is the entry point. If you want to understand the full system — how one person can operate at the scale of a small team — that's what the rest of this site is for.</p>
-                <div className="space-y-2">
-                    <Link to="/system" className="block text-sm text-lime hover:underline">→ The System: How I structure AI collaboration</Link>
-                    <Link to="/method" className="block text-sm text-lime hover:underline">→ The Method: How this works in practice</Link>
-                    <Link to="/session" className="block text-sm text-lime hover:underline">→ Inside a Session: Real example</Link>
-                    <Link to="/practice" className="block text-sm text-lime hover:underline">→ Working With Me</Link>
+                <h3 className="text-white font-bold text-xl mb-6">Go Deeper</h3>
+                <p className="text-steel text-sm mb-6 leading-relaxed">The Starter Kit is the entry point. If you want to understand the full system — how one person can operate at the scale of a small team — that's what the rest of this site is for.</p>
+                <div className="space-y-3">
+                    <Link to="/system" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> The System: Structure</Link>
+                    <Link to="/session" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> Inside a Session: Real example</Link>
+                    <Link to="/practice" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> Working With Me</Link>
                 </div>
             </FadeIn>
         </div>
