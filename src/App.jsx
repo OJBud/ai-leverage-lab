@@ -36,7 +36,7 @@ const Nav = () => {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="text-lg font-display font-bold text-white tracking-tight flex items-center gap-2">
           <div className="w-3 h-3 bg-lime rounded-full shadow-[0_0_10px_rgba(182,255,46,0.5)]"></div>
-          AI Leverage Lab
+          AI Levels Lab
         </Link>
         <div className="hidden lg:flex gap-6">
           {links.map(l => (
@@ -304,7 +304,7 @@ const Method = () => {
                     <p className="text-white text-sm italic mb-4">"You're essentially training the interaction to operate above default altitude."</p>
                  </div>
               </div>
-              <p className="mt-8 text-white font-bold text-center">Most people want answers. This system produces leverage.</p>
+              <p className="mt-8 text-white font-bold text-center">Most people want answers. This system produces value.</p>
            </div>
         </div>
       </Section>
@@ -577,7 +577,7 @@ const Kit = () => {
                 <div className="grid md:grid-cols-2 gap-12">
                     <div>
                          <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">02.</span> Accumulate Context</h3>
-                         <p className="text-steel mb-6 leading-relaxed">The people who extract real leverage aren't starting fresh every time. Pick one platform. Use it consistently for one type of work. Let it learn you.</p>
+                         <p className="text-steel mb-6 leading-relaxed">The people who extract real value aren't starting fresh every time. Pick one platform. Use it consistently for one type of work. Let it learn you.</p>
                          <div className="bg-charcoal p-6 rounded-xl border border-white/10">
                             <p className="text-white text-sm font-mono">"Treat it like a colleague who knows your situation, not a stranger you're briefing from scratch."</p>
                          </div>
@@ -608,7 +608,7 @@ const Kit = () => {
                 <div className="border-t border-white/10 pt-12">
                      <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">04.</span> Allow Tension</h3>
                      <p className="text-steel text-lg max-w-2xl">
-                        Most people collapse into agreement too fast. Sit with the discomfort. If every interaction feels smooth, you aren't getting leverage.
+                        Most people collapse into agreement too fast. Sit with the discomfort. If every interaction feels smooth, you aren't getting value.
                      </p>
                 </div>
             </FadeIn>
@@ -642,7 +642,7 @@ const Kit = () => {
                     </div>
                 </div>
                 <div className="text-center mt-12">
-                    <p className="text-xl text-white font-display">"Most people want answers. The ones who extract leverage <span className="text-lime border-b border-lime">want a better way to think.</span>"</p>
+                    <p className="text-xl text-white font-display">"Most people want answers. The ones who extract value <span className="text-lime border-b border-lime">want a better way to think.</span>"</p>
                 </div>
             </FadeIn>
         </Section>
@@ -716,7 +716,7 @@ function App() {
         </Routes>
         <footer className="py-12 text-center border-t border-white/5 mt-12">
           <p className="text-steel/40 text-[10px] font-mono uppercase tracking-widest">
-            AI Leverage Lab • Human Governance System
+            AI Levels Lab • Human Governance System
           </p>
         </footer>
       </div>
