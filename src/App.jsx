@@ -376,7 +376,7 @@ const Session = () => {
                  </div>
               </div>
               <div>
-                 <h3 className="text-xl font-bold text-white mb-2">Step 4: Human Decision</h3>
+                 <h3 className="text-xl font-bold text-white mb-2">Step 3: Human Decision</h3>
                  <p className="text-steel text-sm mb-4">I took Claude's recommendations back to ChatGPT to implement the fix. I decided to defer the DB scaling.</p>
                  <p className="text-white font-medium">AI produced options. The flow between tools produced better options. Judgment remained human.</p>
               </div>
