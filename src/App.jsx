@@ -360,7 +360,7 @@ const Session = () => {
                  <p className="text-steel text-sm mb-4">I took that analysis to Claude—who holds the BudApp roadmap and constraints. "Review this report against our current stage."</p>
                  <div className="bg-black/40 p-4 rounded text-xs font-mono text-purple-200">
                     {'>'} REVIEW: The DB scaling risk is valid but low priority for &lt;10k users. <br/>
-                    {'>'} The Auth risk, however, conflicts with the Dogs Trust partnership requirements. Fix that now.
+                    {'>'} The Auth risk, however, conflicts with the partnership requirements. Fix that now.
                  </div>
               </div>
            </div>
@@ -390,7 +390,7 @@ const Session = () => {
               <h3 className="text-white font-bold text-lg">Pressure Testing with Boardy.ai</h3>
            </div>
            <p className="text-steel text-sm mb-6">
-              Before the Dogs Trust partnership pitch, I didn't just refine words. I used Boardy.ai to role-play a sceptical decision-maker.
+              Before mission critical partnership pitch, I didn't just refine words. I used Boardy.ai to role-play a sceptical decision-maker.
            </p>
            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-black/30 p-4 rounded">
@@ -437,7 +437,7 @@ const BudApp = () => {
                  <h3 className="text-white font-bold text-lg mb-2">The Outcomes</h3>
                  <ul className="text-steel text-sm space-y-2">
                     <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> 500+ Active Users</li>
-                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Dogs Trust Partnership</li>
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Mission Aligned Partnerships</li>
                     <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> National TV Coverage</li>
                  </ul>
               </div>
@@ -456,7 +456,7 @@ const BudApp = () => {
               </div>
               <div className="bg-charcoal border border-white/10 p-6 rounded-2xl">
                  <h3 className="font-bold text-white mb-2">Operations</h3>
-                 <p className="text-steel text-sm mb-4">Process design and automation allowed me to handle the Dogs Trust diligence without a team.</p>
+                 <p className="text-steel text-sm mb-4">Process design and automation allowed me to handle the Partnerships diligence without a team.</p>
                  <div className="h-1 w-full bg-jet rounded-full overflow-hidden"><div className="h-full w-1/2 bg-purple-500"></div></div>
               </div>
            </div>
