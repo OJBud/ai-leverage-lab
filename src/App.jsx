@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, Menu, X, Search, BrainCircuit, Share2, Image as ImageIcon, 
   Rocket, PenTool, BookOpen, Mic, User, Activity, Cpu, ShieldAlert, 
-  GitBranch, CheckCircle2, Users
+  GitBranch, CheckCircle2, Terminal
 } from 'lucide-react';
 
 // --- SHARED COMPONENTS ---
@@ -22,7 +22,7 @@ const Nav = () => {
   if (location.pathname === '/demo') return null;
 
   const links = [
-    { name: 'The Philosophy', path: '/philosophy' },
+    { name: 'The Practice', path: '/philosophy' },
     { name: 'The Loop', path: '/loop' },
     { name: 'In Session', path: '/session' },
     { name: 'BudApp Proof', path: '/budapp' },
@@ -131,26 +131,26 @@ const Home = () => {
   );
 };
 
-// --- 2. THE PHILOSOPHY (Formerly System) ---
+// --- 2. THE PRACTICE (Formerly Philosophy/System) ---
 
 const Philosophy = () => {
   const [activeNode, setActiveNode] = useState(null);
 
   const tools = [
-    { id: 'claude', role: 'Long-term Partner', tool: 'Claude', icon: BrainCircuit, desc: 'Holds the history. Knows the mission. My primary colleague for strategy and development.', governance: 'I own the vision. Claude holds the context.' },
-    { id: 'chatgpt', role: 'Forensic Analyst', tool: 'ChatGPT', icon: Search, desc: 'Cold eyes. No context. Used to critique work and find logic gaps I cannot see.', governance: 'I define the task. GPT checks the rigour.' },
-    { id: 'boardy', role: 'Pressure Tester', tool: 'Boardy.ai', icon: Share2, desc: 'The skeptic. Role-plays stakeholders to find holes in my narrative before I pitch.', governance: 'I decide what feedback matters.' },
-    { id: 'gemini', role: 'Visual Twin', tool: 'Gemini', icon: ImageIcon, desc: 'Turning concepts into tangible visuals. The creative production arm.', governance: 'I set the aesthetic direction.' },
-    { id: 'base44', role: 'Prototyper', tool: 'Base44', icon: Rocket, desc: 'Rapid iteration of product ideas to test viability immediately.', governance: 'I choose what to build.' },
-    { id: 'napkin', role: 'Visual Thinker', tool: 'Napkin.ai', icon: PenTool, desc: 'Mapping complexity into clear diagrams.', governance: 'I ensure the map matches the territory.' },
-    { id: 'notebook', role: 'Synthesiser', tool: 'NotebookLM', icon: BookOpen, desc: 'Processing vast amounts of content into usable signals.', governance: 'I curate the source material.' },
-    { id: 'taqtiq', role: 'The Record', tool: 'Taqtiq', icon: Mic, desc: 'Capturing conversations so nothing is lost.', governance: 'I determine the next steps.' },
+    { id: 'claude', role: 'Long-term Partner', tool: 'Claude', icon: BrainCircuit, desc: 'Holds the history. Knows the mission. My primary colleague for strategy and development.', myRole: 'I own the vision. Claude holds the context.' },
+    { id: 'chatgpt', role: 'Forensic Analyst', tool: 'ChatGPT', icon: Search, desc: 'Cold eyes. No context. Used to critique work and find logic gaps I cannot see.', myRole: 'I define the task. GPT checks the rigour.' },
+    { id: 'boardy', role: 'Pressure Tester', tool: 'Boardy.ai', icon: Share2, desc: 'The skeptic. Role-plays stakeholders to find holes in my narrative before I pitch.', myRole: 'I decide what feedback matters.' },
+    { id: 'gemini', role: 'Visual Twin', tool: 'Gemini', icon: ImageIcon, desc: 'Turning concepts into tangible visuals. The creative production arm.', myRole: 'I set the aesthetic direction.' },
+    { id: 'base44', role: 'Prototyper', tool: 'Base44', icon: Rocket, desc: 'Rapid iteration of product ideas to test viability immediately.', myRole: 'I choose what to build.' },
+    { id: 'napkin', role: 'Visual Thinker', tool: 'Napkin.ai', icon: PenTool, desc: 'Mapping complexity into clear diagrams.', myRole: 'I ensure the map matches the territory.' },
+    { id: 'notebook', role: 'Synthesiser', tool: 'NotebookLM', icon: BookOpen, desc: 'Processing vast amounts of content into usable signals.', myRole: 'I curate the source material.' },
+    { id: 'taqtiq', role: 'The Record', tool: 'Taqtiq', icon: Mic, desc: 'Capturing conversations so nothing is lost.', myRole: 'I determine the next steps.' },
   ];
 
   return (
     <div className="pt-24">
       <Section>
-        <Badge>The Ecosystem</Badge>
+        <Badge>The Practice</Badge>
         <h1 className="text-4xl md:text-6xl font-bold text-white mt-6 mb-8">
           A room of specialists.
         </h1>
@@ -174,7 +174,7 @@ const Philosophy = () => {
                    <h3 className="text-white font-bold">{tool.role}</h3>
                  </div>
                  <p className="text-xs text-steel mb-2">{tool.desc}</p>
-                 <p className="text-[10px] text-white/50 uppercase tracking-wide border-t border-white/5 pt-2">My Role: {tool.governance}</p>
+                 <p className="text-[10px] text-white/50 uppercase tracking-wide border-t border-white/5 pt-2">My Role: {tool.myRole}</p>
                </div>
              ))}
           </div>
@@ -189,7 +189,7 @@ const Philosophy = () => {
                    <User size={48} />
                 </div>
                 <div className="mt-4 bg-jet px-4 py-2 rounded-full border border-lime/30">
-                  <span className="text-lime text-xs font-mono font-bold uppercase tracking-widest">ME (INTENT)</span>
+                  <span className="text-lime text-xs font-mono font-bold uppercase tracking-widest">ME (HUMAN)</span>
                 </div>
              </div>
 
@@ -216,33 +216,49 @@ const Philosophy = () => {
              })}
           </div>
 
-          {/* Desktop Detail Card */}
-          <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] z-50 pointer-events-none">
+          {/* Desktop Detail Card - WITH OVERLAY FIX */}
+          <div className="hidden md:block absolute inset-0 z-50 pointer-events-none">
             <AnimatePresence mode="wait">
               {activeNode ? (
-                <motion.div 
-                  key={activeNode.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  className="bg-charcoal/95 border border-lime/30 p-8 rounded-2xl shadow-2xl text-center backdrop-blur-md pointer-events-auto"
-                >
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <activeNode.icon className="text-lime" size={18} />
-                    <h3 className="text-white font-bold text-lg">{activeNode.role}</h3>
-                    <span className="text-steel text-xs font-mono border border-white/10 px-2 py-0.5 rounded ml-2">{activeNode.tool}</span>
-                  </div>
-                  <p className="text-steel text-sm mb-4">{activeNode.desc}</p>
-                  <p className="text-xs text-lime border-t border-white/5 pt-3 font-mono uppercase tracking-wide">
-                    Human Role: {activeNode.governance}
-                  </p>
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); setActiveNode(null); }}
-                    className="absolute top-4 right-4 text-steel hover:text-white transition-colors"
+                <>
+                  {/* Clickable overlay to close */}
+                  <motion.div
+                    key="overlay"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setActiveNode(null)}
+                    className="absolute inset-0 bg-black/40 pointer-events-auto"
+                  />
+                  
+                  {/* Card */}
+                  <motion.div
+                    key={activeNode.id}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] bg-charcoal/95 border border-lime/30 p-8 rounded-2xl shadow-2xl text-center backdrop-blur-md pointer-events-auto"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    <X size={16} />
-                  </button>
-                </motion.div>
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <activeNode.icon className="text-lime" size={18} />
+                      <h3 className="text-white font-bold text-lg">{activeNode.role}</h3>
+                      <span className="text-steel text-xs font-mono border border-white/10 px-2 py-0.5 rounded ml-2">{activeNode.tool}</span>
+                    </div>
+                    <p className="text-steel text-sm mb-4">{activeNode.desc}</p>
+                    <p className="text-xs text-lime border-t border-white/5 pt-3 font-mono uppercase tracking-wide">
+                      Human Role: {activeNode.myRole}
+                    </p>
+
+                    <button 
+                      onClick={() => setActiveNode(null)}
+                      className="absolute top-4 right-4 text-steel hover:text-white transition-colors"
+                      aria-label="Close"
+                    >
+                      <X size={16} />
+                    </button>
+                  </motion.div>
+                </>
               ) : null}
             </AnimatePresence>
           </div>
