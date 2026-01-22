@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  ArrowRight, Users, ShieldAlert, Cpu, Menu, X, ChevronRight, 
-  Terminal, User, BrainCircuit, Activity, Eye, Search, GitBranch,
-  CheckCircle2, Mic, PenTool, Image as ImageIcon, MessageSquare,
-  Share2, Rocket, BookOpen, Layers
+  ArrowRight, Menu, X, Search, BrainCircuit, Share2, Image as ImageIcon, 
+  Rocket, PenTool, BookOpen, Mic, User, Activity, Cpu, ShieldAlert, 
+  GitBranch, CheckCircle2, Users
 } from 'lucide-react';
 
 // --- SHARED COMPONENTS ---
@@ -23,12 +22,12 @@ const Nav = () => {
   if (location.pathname === '/demo') return null;
 
   const links = [
-    { name: 'The System', path: '/system' },
-    { name: 'The Method', path: '/method' },
-    { name: 'Inside a Session', path: '/session' },
-    { name: 'The BudApp Story', path: '/budapp' },
-    { name: 'The Practice', path: '/practice' },
-    { name: 'Starter Kit', path: '/kit' },
+    { name: 'The Philosophy', path: '/philosophy' },
+    { name: 'The Loop', path: '/loop' },
+    { name: 'In Session', path: '/session' },
+    { name: 'BudApp Proof', path: '/budapp' },
+    { name: 'Work Together', path: '/work-together' },
+    { name: 'Posture Kit', path: '/posture-kit' },
   ];
 
   return (
@@ -36,7 +35,7 @@ const Nav = () => {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="text-lg font-display font-bold text-white tracking-tight flex items-center gap-2">
           <div className="w-3 h-3 bg-lime rounded-full shadow-[0_0_10px_rgba(182,255,46,0.5)]"></div>
-          AI Levels Lab
+          AI Leverage Lab
         </Link>
         <div className="hidden lg:flex gap-6">
           {links.map(l => (
@@ -105,20 +104,26 @@ const Home = () => {
              </span>
           </div>
           <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tight leading-none">
-            I don't have a team.<br />
-            I have a <span className="text-lime">system</span>.
+            Stay human.<br />
+            Collaborate with <span className="text-lime">intelligence</span>.
           </h1>
           <p className="text-xl text-steel max-w-2xl mx-auto mb-12 leading-relaxed">
-            Multiple AI platforms, different contexts, different roles, and an operator who governs the flow between them. This is how one person builds what used to require ten.
+            I don't have a team. I have a digital twin.
+            <br className="hidden md:block"/>
+            The way you relate to intelligence shapes what you get back.
           </p>
           
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <Link to="/system" className="group bg-lime text-black px-8 py-4 rounded-full font-bold hover:bg-white transition-colors flex items-center gap-2">
-              See The System <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
+            <Link to="/philosophy" className="group bg-lime text-black px-8 py-4 rounded-full font-bold hover:bg-white transition-colors flex items-center gap-2">
+              See The Practice <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
             </Link>
             <Link to="/budapp" className="px-8 py-4 rounded-full text-white border border-white/10 hover:border-lime transition-colors text-sm font-medium">
-              See The Proof (BudApp)
+              See The Proof
             </Link>
+          </div>
+          
+          <div className="mt-16 text-steel/40 text-sm font-medium">
+            If AI feels powerful but oddly unsatisfying, you're likely missing the posture.
           </div>
         </FadeIn>
       </Section>
@@ -126,31 +131,31 @@ const Home = () => {
   );
 };
 
-// --- 2. THE SYSTEM ---
+// --- 2. THE PHILOSOPHY (Formerly System) ---
 
-const System = () => {
+const Philosophy = () => {
   const [activeNode, setActiveNode] = useState(null);
 
   const tools = [
-    { id: 'claude', role: 'CoFounder & Chief Dev', tool: 'Claude', icon: BrainCircuit, desc: 'Holds full strategic context. Long-term thinking partner. Content and development leadership.', governance: 'Final judgment, relationship ownership, vision.' },
-    { id: 'chatgpt', role: 'Senior Director', tool: 'ChatGPT', icon: Search, desc: 'Deep analysis, code forensics, research. Gets specific briefs, delivers structured output.', governance: 'Context curation, task definition.' },
-    { id: 'boardy', role: 'Super Connector', tool: 'Boardy.ai', icon: Share2, desc: 'Networking, founder intros, pressure testing, strategic role-play.', governance: 'Relationship decisions, what feedback to act on.' },
-    { id: 'gemini', role: 'Creative Production', tool: 'Gemini', icon: ImageIcon, desc: 'Images, videos, presentations. Executes creative briefs.', governance: 'Creative direction, brand consistency.' },
-    { id: 'base44', role: 'MVP Builder', tool: 'Base44', icon: Rocket, desc: 'Rapid prototyping of product concepts.', governance: 'Architecture decisions, what to build.' },
-    { id: 'napkin', role: 'Visual Thinker', tool: 'Napkin.ai', icon: PenTool, desc: 'Diagrams, visualisations, making ideas tangible.', governance: 'What needs visualising, accuracy.' },
-    { id: 'notebook', role: 'Content Synthesiser', tool: 'NotebookLM', icon: BookOpen, desc: 'Large-scale content processing, summaries, podcasts.', governance: 'What content matters, editorial judgment.' },
-    { id: 'taqtiq', role: 'Meeting Capture', tool: 'Taqtiq', icon: Mic, desc: 'Transcription of meetings and calls.', governance: 'What to record, what to share.' },
+    { id: 'claude', role: 'Long-term Partner', tool: 'Claude', icon: BrainCircuit, desc: 'Holds the history. Knows the mission. My primary colleague for strategy and development.', governance: 'I own the vision. Claude holds the context.' },
+    { id: 'chatgpt', role: 'Forensic Analyst', tool: 'ChatGPT', icon: Search, desc: 'Cold eyes. No context. Used to critique work and find logic gaps I cannot see.', governance: 'I define the task. GPT checks the rigour.' },
+    { id: 'boardy', role: 'Pressure Tester', tool: 'Boardy.ai', icon: Share2, desc: 'The skeptic. Role-plays stakeholders to find holes in my narrative before I pitch.', governance: 'I decide what feedback matters.' },
+    { id: 'gemini', role: 'Visual Twin', tool: 'Gemini', icon: ImageIcon, desc: 'Turning concepts into tangible visuals. The creative production arm.', governance: 'I set the aesthetic direction.' },
+    { id: 'base44', role: 'Prototyper', tool: 'Base44', icon: Rocket, desc: 'Rapid iteration of product ideas to test viability immediately.', governance: 'I choose what to build.' },
+    { id: 'napkin', role: 'Visual Thinker', tool: 'Napkin.ai', icon: PenTool, desc: 'Mapping complexity into clear diagrams.', governance: 'I ensure the map matches the territory.' },
+    { id: 'notebook', role: 'Synthesiser', tool: 'NotebookLM', icon: BookOpen, desc: 'Processing vast amounts of content into usable signals.', governance: 'I curate the source material.' },
+    { id: 'taqtiq', role: 'The Record', tool: 'Taqtiq', icon: Mic, desc: 'Capturing conversations so nothing is lost.', governance: 'I determine the next steps.' },
   ];
 
   return (
     <div className="pt-24">
       <Section>
-        <Badge>The Architecture</Badge>
+        <Badge>The Ecosystem</Badge>
         <h1 className="text-4xl md:text-6xl font-bold text-white mt-6 mb-8">
-          The Ecosystem.
+          A room of specialists.
         </h1>
         <p className="text-xl text-steel max-w-3xl mb-16 leading-relaxed">
-           The value isn't in any single tool. It's in how intelligence flows between them — and who governs that flow.
+           The tools are interchangeable. The value is in the collaboration. I run a room of specialists, and I remain responsible for intent and judgment.
         </p>
 
         {/* ORBITAL DIAGRAM */}
@@ -160,7 +165,7 @@ const System = () => {
           <div className="md:hidden w-full space-y-4">
              <div className="text-center mb-8">
                 <div className="w-20 h-20 rounded-full bg-lime mx-auto flex items-center justify-center text-black font-bold shadow-[0_0_30px_rgba(182,255,46,0.2)]">ME</div>
-                <p className="text-xs text-lime mt-2 font-mono uppercase">Governance</p>
+                <p className="text-xs text-lime mt-2 font-mono uppercase">Human Judgment</p>
              </div>
              {tools.map(tool => (
                <div key={tool.id} className="bg-charcoal border border-white/10 p-4 rounded-xl">
@@ -169,31 +174,28 @@ const System = () => {
                    <h3 className="text-white font-bold">{tool.role}</h3>
                  </div>
                  <p className="text-xs text-steel mb-2">{tool.desc}</p>
-                 <p className="text-[10px] text-white/50 uppercase tracking-wide border-t border-white/5 pt-2">Gov: {tool.governance}</p>
+                 <p className="text-[10px] text-white/50 uppercase tracking-wide border-t border-white/5 pt-2">My Role: {tool.governance}</p>
                </div>
              ))}
           </div>
 
           {/* Desktop: Orbital System */}
           <div className="hidden md:block relative w-[700px] h-[700px]">
-             {/* Orbits */}
              <div className="absolute inset-0 rounded-full border border-white/5"></div>
              <div className="absolute inset-[150px] rounded-full border border-white/5"></div>
              
-             {/* Center */}
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
                 <div className="w-32 h-32 rounded-full bg-lime flex items-center justify-center text-black shadow-[0_0_50px_rgba(182,255,46,0.3)] border-4 border-jet">
                    <User size={48} />
                 </div>
                 <div className="mt-4 bg-jet px-4 py-2 rounded-full border border-lime/30">
-                  <span className="text-lime text-xs font-mono font-bold uppercase tracking-widest">ME (GOVERNANCE)</span>
+                  <span className="text-lime text-xs font-mono font-bold uppercase tracking-widest">ME (INTENT)</span>
                 </div>
              </div>
 
-             {/* Nodes */}
              {tools.map((tool, index) => {
-               const angle = (index * (360 / tools.length)) - 90; // Start from top
-               const radius = 300; // Distance from center
+               const angle = (index * (360 / tools.length)) - 90;
+               const radius = 300;
                const x = Math.cos((angle * Math.PI) / 180) * radius;
                const y = Math.sin((angle * Math.PI) / 180) * radius;
 
@@ -214,8 +216,7 @@ const System = () => {
              })}
           </div>
 
-          {/* Desktop Detail Card (Z-INDEX FIXED HERE) */}
-          {/* Desktop Detail Card (Centered Over "ME") */}
+          {/* Desktop Detail Card */}
           <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] z-50 pointer-events-none">
             <AnimatePresence mode="wait">
               {activeNode ? (
@@ -233,7 +234,7 @@ const System = () => {
                   </div>
                   <p className="text-steel text-sm mb-4">{activeNode.desc}</p>
                   <p className="text-xs text-lime border-t border-white/5 pt-3 font-mono uppercase tracking-wide">
-                    Gov: {activeNode.governance}
+                    Human Role: {activeNode.governance}
                   </p>
                   <button 
                     onClick={(e) => { e.stopPropagation(); setActiveNode(null); }}
@@ -251,15 +252,15 @@ const System = () => {
   );
 };
 
-// --- 3. THE METHOD ---
+// --- 3. THE LOOP (Formerly Method) ---
 
-const Method = () => {
+const Loop = () => {
   return (
     <div className="pt-24">
       <Section>
-        <Badge>Operating Model</Badge>
+        <Badge>The Loop</Badge>
         <h1 className="text-4xl md:text-6xl font-bold text-white mt-6 mb-8">
-           Prompting is tactical.<br/>System design is strategic.
+           Not system design.<br/>Human practice.
         </h1>
         
         <div className="grid md:grid-cols-2 gap-16 mt-16">
@@ -268,11 +269,11 @@ const Method = () => {
               <h2 className="text-2xl font-bold text-white mb-6">The Operating Loop</h2>
               <div className="relative pl-8 border-l border-white/10 space-y-12">
                  {[
-                   { title: "Question", desc: "Framing, clarification. Clarify constraints.", icon: <Activity size={16}/> },
-                   { title: "Generate", desc: "Options, analysis. I look for completeness.", icon: <Cpu size={16}/> },
-                   { title: "Challenge", desc: "Counter-arguments. Stress-testing.", icon: <ShieldAlert size={16} className="text-signal"/> },
-                   { title: "Reframe", desc: "Synthesis. New angles. Quality of reframe.", icon: <GitBranch size={16}/> },
-                   { title: "Decide", desc: "Alignment to context. Recommendation ownership.", icon: <CheckCircle2 size={16} className="text-lime"/> }
+                   { title: "Frame", desc: "I clarify the intent. I set the stakes.", icon: <Activity size={16}/> },
+                   { title: "Generate", desc: "The AI offers options. I check for range, not just answers.", icon: <Cpu size={16}/> },
+                   { title: "Challenge", desc: "I invite the AI to argue against my bias.", icon: <ShieldAlert size={16} className="text-signal"/> },
+                   { title: "Refine", desc: "We debate. I treat the pushback as signal.", icon: <GitBranch size={16}/> },
+                   { title: "Decide", desc: "I own the risk. I make the call.", icon: <CheckCircle2 size={16} className="text-lime"/> }
                  ].map((step, i) => (
                    <div key={i} className="relative">
                       <span className={`absolute -left-[41px] w-6 h-6 rounded-full border-4 border-jet flex items-center justify-center ${i === 4 ? 'bg-lime text-black' : 'bg-charcoal text-steel'}`}>
@@ -285,26 +286,26 @@ const Method = () => {
               </div>
            </div>
 
-           {/* AI Observations */}
+           {/* Observations */}
            <div>
-              <h2 className="text-2xl font-bold text-white mb-6">What the platforms observe</h2>
-              <p className="text-steel mb-8">One interesting side effect: the AI platforms themselves notice the difference. Here is what they have said about my usage patterns:</p>
+              <h2 className="text-2xl font-bold text-white mb-6">The Effect</h2>
+              <p className="text-steel mb-8">When you treat intelligence as a peer, the output changes.</p>
               
               <div className="space-y-6">
                  <div className="bg-charcoal p-6 rounded-xl border border-white/5 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1 h-full bg-blue-400"></div>
                     <p className="text-white text-sm italic mb-4">"You're not extracting answers. You're co-developing clarity. Most users ask questions. You signal intent."</p>
+                    <p className="text-[10px] text-steel uppercase tracking-widest">— Observed by Claude</p>
                  </div>
-                 <div className="bg-charcoal p-6 rounded-xl border border-white/5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-purple-400"></div>
-                    <p className="text-white text-sm italic mb-4">"You allow tension. You're comfortable being challenged... sitting with ambiguity... hearing 'this is the risk' instead of 'this is great.'"</p>
-                 </div>
-                 <div className="bg-charcoal p-6 rounded-xl border border-white/5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-lime"></div>
-                    <p className="text-white text-sm italic mb-4">"You're essentially training the interaction to operate above default altitude."</p>
-                 </div>
+                 
+                 <h3 className="text-white font-bold text-lg mt-8 mb-4">What I've noticed:</h3>
+                 <ul className="space-y-3 text-steel text-sm">
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Tension improves the work.</li>
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> My own thinking gets sharper.</li>
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> I stop accepting "good enough."</li>
+                 </ul>
               </div>
-              <p className="mt-8 text-white font-bold text-center">Most people want answers. This system produces value.</p>
+              <p className="mt-8 text-white font-bold text-center">It gives your thinking resistance, like a bicep curl.</p>
            </div>
         </div>
       </Section>
@@ -312,21 +313,20 @@ const Method = () => {
   );
 };
 
-// --- 4. INSIDE A SESSION ---
+// --- 4. IN SESSION (Formerly Session) ---
 
 const Session = () => {
   return (
     <div className="pt-24">
       <Section>
-        <Badge color="signal">The Unlock</Badge>
+        <Badge color="signal">In Practice</Badge>
         <h1 className="text-4xl md:text-6xl font-bold text-white mt-6 mb-8">
-           Inside a real collaboration.
+           A digital twin in action.
         </h1>
         <p className="text-xl text-steel mb-12">
-           The Scenario: Code Architecture Review. I needed to evaluate the BudApp codebase, identify technical debt, and prioritise what matters now.
+           Scenario: Code Architecture Review. I needed to prioritise technical debt without losing sight of business constraints. No single mind—human or AI—had the full picture.
         </p>
 
-        {/* The Flow Diagram */}
         <div className="space-y-6 relative">
            
            {/* Step 1 */}
@@ -337,8 +337,8 @@ const Session = () => {
                  </div>
               </div>
               <div>
-                 <h3 className="text-xl font-bold text-white mb-2">Step 1: The Brief (ChatGPT)</h3>
-                 <p className="text-steel text-sm mb-4">I gave ChatGPT a specific brief: analyse the codebase structure. No strategic context. Just: "What do you see? What are the risks?"</p>
+                 <h3 className="text-xl font-bold text-white mb-2">Step 1: The Cold Read (ChatGPT)</h3>
+                 <p className="text-steel text-sm mb-4">I asked for a critique with zero context. "Look at this code. Find the flaws." I wanted the brutal truth.</p>
                  <div className="bg-black/40 p-4 rounded text-xs font-mono text-blue-200">
                     {'>'} REPORT: Architectural risk in Auth flow. Scalability flags on DB schema.
                  </div>
@@ -356,11 +356,11 @@ const Session = () => {
                  </div>
               </div>
               <div>
-                 <h3 className="text-xl font-bold text-white mb-2">Step 2: The Filter (Claude)</h3>
-                 <p className="text-steel text-sm mb-4">I took that analysis to Claude—who holds the BudApp roadmap and constraints. "Review this report against our current stage."</p>
+                 <h3 className="text-xl font-bold text-white mb-2">Step 2: The Partner (Claude)</h3>
+                 <p className="text-steel text-sm mb-4">I took that critique to Claude, who knows the mission. "Review this against our deadline and our roadmap."</p>
                  <div className="bg-black/40 p-4 rounded text-xs font-mono text-purple-200">
-                    {'>'} REVIEW: The DB scaling risk is valid but low priority for &lt;10k users. <br/>
-                    {'>'} The Auth risk, however, conflicts with the partnership requirements. Fix that now.
+                    {'>'} REVIEW: The DB scaling risk is low priority today. <br/>
+                    {'>'} The Auth risk must be fixed to meet the partnership requirements.
                  </div>
               </div>
            </div>
@@ -372,13 +372,13 @@ const Session = () => {
            <div className="bg-jet border border-white/10 rounded-xl p-8 flex flex-col md:flex-row gap-6 relative z-10">
                <div className="min-w-[120px]">
                  <div className="inline-flex items-center gap-2 text-lime font-mono text-xs font-bold uppercase border border-lime/20 px-2 py-1 rounded bg-lime/10">
-                    <User size={14}/> Governance
+                    <User size={14}/> Judgment
                  </div>
               </div>
               <div>
-                 <h3 className="text-xl font-bold text-white mb-2">Step 3: Human Decision</h3>
-                 <p className="text-steel text-sm mb-4">I took Claude's recommendations back to ChatGPT to implement the fix. I decided to defer the DB scaling.</p>
-                 <p className="text-white font-medium">AI produced options. The flow between tools produced better options. Judgment remained human.</p>
+                 <h3 className="text-xl font-bold text-white mb-2">Step 3: The Human Call</h3>
+                 <p className="text-steel text-sm mb-4">The AI didn't decide. It surfaced the tension. I decided to fix Auth and ignore DB scaling.</p>
+                 <p className="text-white font-medium">The collaboration allowed me to act with the confidence of a senior team.</p>
               </div>
            </div>
         </div>
@@ -387,19 +387,19 @@ const Session = () => {
         <div className="mt-12 bg-charcoal border border-white/10 p-8 rounded-2xl border-l-4 border-l-orange-500">
            <div className="flex items-center gap-3 mb-4">
               <Share2 className="text-orange-500"/>
-              <h3 className="text-white font-bold text-lg">Pressure Testing with Boardy.ai</h3>
+              <h3 className="text-white font-bold text-lg">Humility & Pressure Testing</h3>
            </div>
            <p className="text-steel text-sm mb-6">
-              Before mission critical partnership pitch, I didn't just refine words. I used Boardy.ai to role-play a sceptical decision-maker.
+              Before a major pitch, I used Boardy.ai to simulate a skeptical stakeholder. I didn't want reassurance; I wanted to find my blind spots.
            </p>
            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-black/30 p-4 rounded">
-                 <p className="text-xs text-orange-200 font-mono mb-2">BOARDY (Playing CEO):</p>
-                 <p className="text-white text-sm">"Why should we trust a solo founder with our brand safeguarding? What happens if you get hit by a bus?"</p>
+                 <p className="text-xs text-orange-200 font-mono mb-2">BOARDY (Roleplay):</p>
+                 <p className="text-white text-sm">"Why should we trust a solo founder with brand safeguarding? What is your contingency?"</p>
               </div>
               <div>
                  <p className="text-steel text-sm">
-                    It pushed back hard. It exposed gaps I hadn't seen. I took that feedback to Claude, refined the operational continuity plan, and walked into the real meeting ready.
+                    It pushed me to articulate what I hadn't said aloud. I entered the real meeting prepared, because I had already had the hard conversation.
                  </p>
               </div>
            </div>
@@ -409,18 +409,18 @@ const Session = () => {
   );
 };
 
-// --- 5. THE BUDAPP STORY ---
+// --- 5. BUDAPP PROOF ---
 
 const BudApp = () => {
   return (
     <div className="pt-24">
       <Section>
-        <Badge>Proof of Concept</Badge>
+        <Badge>The Proof</Badge>
         <h1 className="text-4xl md:text-6xl font-bold text-white mt-6 mb-8">
            One person. No team.<br/>Real outcomes.
         </h1>
         <p className="text-xl text-steel max-w-3xl mb-16">
-           BudApp isn't just a product. It's a proof of concept. The question people ask: "How is that possible?" The answer is the system.
+           The answer isn't the system. The answer is the practice. BudApp is evidence that a single human, collaborating with intelligence, can operate at scale.
         </p>
 
         <div className="grid md:grid-cols-12 gap-12">
@@ -437,7 +437,7 @@ const BudApp = () => {
                  <h3 className="text-white font-bold text-lg mb-2">The Outcomes</h3>
                  <ul className="text-steel text-sm space-y-2">
                     <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> 500+ Active Users</li>
-                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Mission Aligned Partnerships</li>
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Dogs Trust Partnership</li>
                     <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> National TV Coverage</li>
                  </ul>
               </div>
@@ -446,17 +446,17 @@ const BudApp = () => {
            <div className="md:col-span-8 space-y-6">
               <div className="bg-charcoal border border-white/10 p-6 rounded-2xl">
                  <h3 className="font-bold text-white mb-2">Strategy</h3>
-                 <p className="text-steel text-sm mb-4">Used AI for scenario planning and option generation. I retained final decisions.</p>
+                 <p className="text-steel text-sm mb-4">I debated every strategic pivot with my digital twin. I kept the taste; AI ran the simulations.</p>
                  <div className="h-1 w-full bg-jet rounded-full overflow-hidden"><div className="h-full w-3/4 bg-lime"></div></div>
               </div>
               <div className="bg-charcoal border border-white/10 p-6 rounded-2xl">
                  <h3 className="font-bold text-white mb-2">Development</h3>
-                 <p className="text-steel text-sm mb-4">AI acted as senior architect and junior coder. I acted as Product Manager and QA.</p>
+                 <p className="text-steel text-sm mb-4">I defined the architecture. AI wrote the boilerplate. We debugged together.</p>
                  <div className="h-1 w-full bg-jet rounded-full overflow-hidden"><div className="h-full w-[90%] bg-blue-500"></div></div>
               </div>
               <div className="bg-charcoal border border-white/10 p-6 rounded-2xl">
                  <h3 className="font-bold text-white mb-2">Operations</h3>
-                 <p className="text-steel text-sm mb-4">Process design and automation allowed me to handle the Partnerships diligence without a team.</p>
+                 <p className="text-steel text-sm mb-4">Automation handles the noise so I can focus on the relationships.</p>
                  <div className="h-1 w-full bg-jet rounded-full overflow-hidden"><div className="h-full w-1/2 bg-purple-500"></div></div>
               </div>
            </div>
@@ -464,7 +464,7 @@ const BudApp = () => {
 
         <div className="mt-16 text-center">
            <p className="text-lg text-white font-medium">
-              "I didn't use AI to work faster. I used AI to operate at a scale I couldn't reach alone."
+              "I didn't use AI to work faster. I used it to become more capable."
            </p>
         </div>
       </Section>
@@ -472,29 +472,29 @@ const BudApp = () => {
   );
 };
 
-// --- 6. PRACTICE & KIT ---
+// --- 6. WORK TOGETHER (Formerly Practice/Consulting) ---
 
-const Practice = () => {
+const WorkTogether = () => {
   return (
     <div className="pt-24">
       <Section>
         <div className="grid md:grid-cols-2 gap-16">
            <div>
-              <Badge color="white">Working With Me</Badge>
+              <Badge color="white">Collaboration</Badge>
               <h1 className="text-4xl font-bold text-white mt-6 mb-8">
-                 Designing human-AI systems.
+                 Designing a human way of working.
               </h1>
               <p className="text-lg text-steel leading-relaxed mb-8">
-                 I work with founders and operators who've realised that the gap between them and larger teams is closing - if they know how to close it.
+                 I work with founders and operators who want to treat AI as more than a tool stack.
               </p>
               
               <div className="space-y-6">
                  <h3 className="text-white font-bold">What I help with</h3>
                  <ul className="text-steel text-sm space-y-3">
-                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Multi-AI system design</li>
-                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Decision pressure-testing</li>
-                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> AI-integrated product & ops strategy</li>
-                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Teaching teams to operate beyond headcount</li>
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Setting up collaborative practices</li>
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Multi-model pressure testing</li>
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Building digital twin project spaces</li>
+                    <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Extracting better thinking from teams</li>
                  </ul>
               </div>
            </div>
@@ -502,15 +502,15 @@ const Practice = () => {
            <div className="bg-charcoal border border-white/10 rounded-3xl p-10 flex flex-col justify-center text-center">
               <h3 className="text-2xl font-bold text-white mb-4">Let's Talk.</h3>
               <p className="text-steel mb-8">
-                 Simple. Adult. No packages. If this resonates, we can talk.
+                 Simple. Adult. If this resonates, we can talk.
               </p>
               <div className="space-y-4">
-                <a href="mailto:budappuk@gmail.com" className="block bg-jet p-4 rounded border border-white/5 text-white font-mono text-sm hover:border-lime transition-colors">
-   budappuk@gmail.com
-</a>
-<a href="https://www.linkedin.com/in/budapp/" target="_blank" rel="noopener noreferrer" className="block bg-jet p-4 rounded border border-white/5 text-white font-mono text-sm hover:border-lime transition-colors">
-   Connect on LinkedIn
-</a> 
+                 <a href="mailto:budappuk@gmail.com" className="block bg-jet p-4 rounded border border-white/5 text-white font-mono text-sm hover:border-lime transition-colors">
+                    budappuk@gmail.com
+                 </a>
+                 <a href="https://www.linkedin.com/in/budapp/" target="_blank" rel="noopener noreferrer" className="block bg-jet p-4 rounded border border-white/5 text-white font-mono text-sm hover:border-lime transition-colors">
+                    Connect on LinkedIn
+                 </a>
               </div>
            </div>
         </div>
@@ -519,34 +519,34 @@ const Practice = () => {
   );
 };
 
-const Kit = () => {
+const PostureKit = () => {
   return (
     <div className="pt-24">
-      {/* HERO: Standard Dark */}
+      {/* HERO */}
       <Section className="text-center pb-12">
         <FadeIn>
-          <Badge>The Entry Point</Badge>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mt-6 mb-8">The Starter Kit.</h1>
+          <Badge>Posture Kit</Badge>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mt-6 mb-8">Not prompts. Posture.</h1>
           <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed">
-            The gap between people who "get" AI and everyone else isn't intelligence. It's approach.
+            The gap isn't intelligence. It's how you show up to the conversation.
           </p>
         </FadeIn>
       </Section>
 
-      {/* SECTION 1: What Actually Works (Spaced Out) */}
+      {/* SECTION 1: What Actually Works */}
       <Section>
-        <div className="max-w-4xl mx-auto space-y-32"> {/* Massive vertical spacing */}
+        <div className="max-w-4xl mx-auto space-y-32">
             
             <FadeIn>
                 <div className="border-l-2 border-lime pl-6 mb-12">
                     <h2 className="text-3xl font-bold text-white mb-2">What's actually different.</h2>
-                    <p className="text-steel text-lg">Forget "prompt engineering." Change how you show up.</p>
+                    <p className="text-steel text-lg">Forget "prompt engineering." Change your approach.</p>
                 </div>
                 
-                {/* Point 1: Intent */}
+                {/* Move 1 */}
                 <div className="grid md:grid-cols-12 gap-8">
                     <div className="md:col-span-4">
-                        <h3 className="text-2xl font-bold text-white mb-2"><span className="text-lime">01.</span> Signal Intent</h3>
+                        <h3 className="text-2xl font-bold text-white mb-2"><span className="text-lime">Move 01.</span> Signal Intent</h3>
                         <p className="text-steel text-sm">Don't just ask questions. Declare your posture. Share the stakes.</p>
                     </div>
                     <div className="md:col-span-8">
@@ -555,15 +555,15 @@ const Kit = () => {
                                 <div className="p-6 border-b md:border-b-0 md:border-r border-white/10 bg-white/5">
                                     <h4 className="text-xs font-mono uppercase tracking-widest text-steel mb-4">Instead of...</h4>
                                     <ul className="space-y-4 text-sm text-steel/60 font-medium">
-                                        <li>"What should I do about X?"</li>
-                                        <li className="pt-4 border-t border-white/5">"Write me a marketing email"</li>
+                                        <li>"What should I do?"</li>
+                                        <li className="pt-4 border-t border-white/5">"Write me an email"</li>
                                     </ul>
                                 </div>
                                 <div className="p-6 bg-lime/5">
                                     <h4 className="text-xs font-mono uppercase tracking-widest text-lime mb-4">Try...</h4>
                                     <ul className="space-y-4 text-sm text-white font-medium">
-                                        <li>"I'm facing a decision on X. The stakes are Y. Push back on my assumptions."</li>
-                                        <li className="pt-4 border-t border-white/5">"I need to convert skeptical enterprise buyers. They've heard every pitch. I want something that earns attention."</li>
+                                        <li>"I'm facing a decision. The stakes are high. Push back on my assumptions."</li>
+                                        <li className="pt-4 border-t border-white/5">"I need to earn attention, not demand it. Help me find the angle."</li>
                                     </ul>
                                 </div>
                             </div>
@@ -572,51 +572,28 @@ const Kit = () => {
                 </div>
             </FadeIn>
 
-            {/* Point 2 & 3: Context & Routing (Grouped) */}
+            {/* Move 2 & 3 */}
             <FadeIn>
                 <div className="grid md:grid-cols-2 gap-12">
                     <div>
-                         <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">02.</span> Accumulate Context</h3>
-                         <p className="text-steel mb-6 leading-relaxed">The people who extract real value aren't starting fresh every time. Pick one platform. Use it consistently for one type of work. Let it learn you.</p>
+                         <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">Move 02.</span> Invite Opposition</h3>
+                         <p className="text-steel mb-6 leading-relaxed">Most people collapse into agreement. Stay in the discomfort. If every interaction feels smooth, you aren't getting leverage.</p>
                          <div className="bg-charcoal p-6 rounded-xl border border-white/10">
-                            <p className="text-white text-sm font-mono">"Treat it like a colleague who knows your situation, not a stranger you're briefing from scratch."</p>
+                            <p className="text-white text-sm font-mono">"Tell me why this plan will fail."</p>
                          </div>
                     </div>
                     <div>
-                         <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">03.</span> Route Intelligence</h3>
-                         <p className="text-steel mb-6 leading-relaxed">Different platforms have different strengths. The unlock is designing how they inform each other.</p>
-                         <ul className="space-y-4 text-sm">
-                            <li className="flex gap-4">
-                                <span className="w-6 h-6 rounded-full bg-jet border border-white/10 flex items-center justify-center text-xs text-steel shrink-0">A</span>
-                                <span className="text-steel">Give Platform A a problem with no context (Cold Read).</span>
-                            </li>
-                            <li className="flex gap-4">
-                                <span className="w-6 h-6 rounded-full bg-jet border border-white/10 flex items-center justify-center text-xs text-steel shrink-0">B</span>
-                                <span className="text-steel">Take output to Platform B (Context Aware). Ask it to review.</span>
-                            </li>
-                            <li className="flex gap-4">
-                                <span className="w-6 h-6 rounded-full bg-lime text-black flex items-center justify-center text-xs font-bold shrink-0">C</span>
-                                <span className="text-white">Synthesis. Now you have both angles.</span>
-                            </li>
-                         </ul>
+                         <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">Move 03.</span> Synthesize</h3>
+                         <p className="text-steel mb-6 leading-relaxed">You run the room. You take the cold analysis from one AI, the contextual advice from another, and you make the call.</p>
+                         <p className="text-white font-medium italic">"I decide. AI contributes."</p>
                     </div>
-                </div>
-            </FadeIn>
-
-            {/* Point 4: Tension */}
-            <FadeIn>
-                <div className="border-t border-white/10 pt-12">
-                     <h3 className="text-2xl font-bold text-white mb-4"><span className="text-lime">04.</span> Allow Tension</h3>
-                     <p className="text-steel text-lg max-w-2xl">
-                        Most people collapse into agreement too fast. Sit with the discomfort. If every interaction feels smooth, you aren't getting value.
-                     </p>
                 </div>
             </FadeIn>
 
         </div>
       </Section>
 
-      {/* SECTION 2: THE SHIFT (Dark Grey Block) */}
+      {/* SECTION 2: THE SHIFT */}
       <div className="bg-surface border-y border-white/5 mt-24">
         <Section className="py-24">
             <FadeIn>
@@ -629,32 +606,26 @@ const Kit = () => {
                         <div className="p-5 border-b border-white/10 bg-lime/10 text-lime font-mono uppercase tracking-widest text-center">Power Users</div>
                         
                         <div className="p-5 border-b border-r border-white/10 text-center text-steel/70">Ask questions</div>
-                        <div className="p-5 border-b border-white/10 text-center text-white font-bold">Declare posture</div>
-
-                        <div className="p-5 border-b border-r border-white/10 text-center text-steel/70">Start fresh each time</div>
-                        <div className="p-5 border-b border-white/10 text-center text-white font-bold">Build accumulated context</div>
+                        <div className="p-5 border-b border-white/10 text-center text-white font-bold">Signal intent</div>
 
                         <div className="p-5 border-b border-r border-white/10 text-center text-steel/70">Seek agreement</div>
-                        <div className="p-5 border-b border-white/10 text-center text-white font-bold">Allow tension</div>
+                        <div className="p-5 border-b border-white/10 text-center text-white font-bold">Invite tension</div>
 
                         <div className="p-5 border-r border-white/10 text-center text-steel/70">Extract answers</div>
-                        <div className="p-5 text-center text-white font-bold">Co-develop clarity</div>
+                        <div className="p-5 text-center text-white font-bold">Elevate thinking</div>
                     </div>
-                </div>
-                <div className="text-center mt-12">
-                    <p className="text-xl text-white font-display">"Most people want answers. The ones who extract value <span className="text-lime border-b border-lime">want a better way to think.</span>"</p>
                 </div>
             </FadeIn>
         </Section>
       </div>
 
-      {/* SECTION 3: START HERE (LIME BLOCK) */}
+      {/* SECTION 3: START HERE */}
       <div className="bg-lime text-jet py-24">
         <div className="max-w-3xl mx-auto px-6">
             <FadeIn>
                 <div className="border-l-4 border-black pl-8">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display uppercase tracking-tight text-black">Start Here.</h2>
-                    <p className="text-black/80 mb-8 text-xl font-medium">You don't need a course. You need practice. Try this prompt on a real decision this week:</p>
+                    <p className="text-black/80 mb-8 text-xl font-medium">You don't need a course. You need practice. Try this posture today:</p>
                 </div>
                 
                 <div className="bg-black/90 p-8 rounded-2xl shadow-xl border border-black/10 relative overflow-hidden group">
@@ -663,33 +634,20 @@ const Kit = () => {
                         "I'm going to share a decision I'm facing. Before you give me advice, I want you to ask me the questions that will help you understand the real situation — not just the surface problem. Push past my first answers. Then, once you understand, tell me what you think I'm not seeing."
                     </p>
                 </div>
-                
-                <p className="text-black/60 text-sm mt-8 font-medium text-center">
-                    Notice what happens. Notice how different it feels from asking "what should I do?"
-                </p>
             </FadeIn>
         </div>
       </div>
 
-      {/* SECTION 4: What this isn't (Return to Dark) */}
+      {/* SECTION 4: GO DEEPER */}
       <Section>
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 pt-12">
-            <FadeIn>
-                <h3 className="text-white font-bold text-xl mb-6">What this isn't</h3>
-                <ul className="space-y-4 text-steel text-sm">
-                    <li className="flex gap-3"><X className="text-signal flex-shrink-0" size={18}/> A prompt library (prompts are tactics, not strategy)</li>
-                    <li className="flex gap-3"><X className="text-signal flex-shrink-0" size={18}/> A course you need to buy (the skill is free)</li>
-                    <li className="flex gap-3"><X className="text-signal flex-shrink-0" size={18}/> A hack or shortcut (this compounds over time)</li>
-                </ul>
-            </FadeIn>
-
+        <div className="max-w-4xl mx-auto pt-12">
              <FadeIn delay={0.1}>
                 <h3 className="text-white font-bold text-xl mb-6">Go Deeper</h3>
-                <p className="text-steel text-sm mb-6 leading-relaxed">The Starter Kit is the entry point. If you want to understand the full system — how one person can operate at the scale of a small team — that's what the rest of this site is for.</p>
+                <p className="text-steel text-sm mb-6 leading-relaxed">The Posture Kit is just the start. If you want to understand the full practice:</p>
                 <div className="space-y-3">
-                    <Link to="/system" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> The System: Structure</Link>
-                    <Link to="/session" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> Inside a Session: Real example</Link>
-                    <Link to="/practice" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> Working With Me</Link>
+                    <Link to="/philosophy" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> The Philosophy: My ecosystem</Link>
+                    <Link to="/loop" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> The Loop: How I work</Link>
+                    <Link to="/work-together" className="flex items-center gap-2 text-sm text-lime hover:text-white transition-colors"><ArrowRight size={14}/> Work With Me</Link>
                 </div>
             </FadeIn>
         </div>
@@ -697,6 +655,7 @@ const Kit = () => {
     </div>
   );
 };
+
 // --- APP ROOT ---
 
 function App() {
@@ -707,16 +666,21 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/system" element={<System />} />
-          <Route path="/method" element={<Method />} />
+          <Route path="/philosophy" element={<Philosophy />} />
+          <Route path="/loop" element={<Loop />} />
           <Route path="/session" element={<Session />} />
           <Route path="/budapp" element={<BudApp />} />
-          <Route path="/practice" element={<Practice />} />
-          <Route path="/kit" element={<Kit />} />
+          <Route path="/work-together" element={<WorkTogether />} />
+          <Route path="/posture-kit" element={<PostureKit />} />
+          {/* Redirects for legacy routes if needed, though clean links are better */}
+          <Route path="/system" element={<Philosophy />} />
+          <Route path="/method" element={<Loop />} />
+          <Route path="/practice" element={<WorkTogether />} />
+          <Route path="/kit" element={<PostureKit />} />
         </Routes>
         <footer className="py-12 text-center border-t border-white/5 mt-12">
           <p className="text-steel/40 text-[10px] font-mono uppercase tracking-widest">
-            AI Levels Lab • Human Governance System
+            AI Leverage Lab • Human Collaboration Practice
           </p>
         </footer>
       </div>
