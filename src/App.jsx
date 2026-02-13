@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, Menu, X, Search, BrainCircuit, Share2, Image as ImageIcon, 
   Rocket, PenTool, BookOpen, Mic, User, Activity, Cpu, ShieldAlert, 
-  GitBranch, CheckCircle2, Terminal, Zap, Star, Milestone, RefreshCw, ChevronDown
+  GitBranch, CheckCircle2, Terminal, Zap, Star, Milestone, RefreshCw, ChevronDown, ExternalLink
 } from 'lucide-react';
 
 // --- SHARED COMPONENTS ---
@@ -42,7 +42,7 @@ const Nav = () => {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="text-lg font-display font-bold text-white tracking-tight flex items-center gap-2">
           <div className="w-3 h-3 bg-lime rounded-full shadow-[0_0_10px_rgba(182,255,46,0.5)]"></div>
-          AI Leverage Lab
+          AI Levels Lab
         </Link>
         
         {/* Desktop Nav */}
@@ -128,6 +128,7 @@ const Badge = ({ children, color = "lime" }) => {
   if (color === "green") styles = "bg-green-500/10 text-green-400 border-green-500/20";
   if (color === "amber") styles = "bg-amber-500/10 text-amber-400 border-amber-500/20";
   if (color === "red") styles = "bg-red-500/10 text-red-400 border-red-500/20";
+  if (color === "white") styles = "bg-white/10 text-white border-white/20";
 
   return (
     <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest border ${styles}`}>
@@ -394,7 +395,7 @@ const Session = () => {
            A digital twin in action.
         </h1>
         <p className="text-xl text-steel mb-12">
-           Scenario: Code Architecture Review. I needed to prioritise technical debt without losing sight of business constraints. No single mind—human or AI—had the full picture.
+           Scenario: Code Architecture Review for <strong>BudApp</strong>. I needed to prioritise technical debt without losing sight of business constraints. No single mind—human or AI—had the full picture.
         </p>
 
         <div className="space-y-6 relative">
@@ -443,31 +444,18 @@ const Session = () => {
               <div>
                  <h3 className="text-xl font-bold text-white mb-2">Step 3: The Human Call</h3>
                  <p className="text-steel text-sm mb-4">The AI didn't decide. It surfaced the tension. I decided to fix Auth and ignore DB scaling.</p>
-                 <p className="text-white font-medium">The collaboration allowed me to act with the confidence of a senior team.</p>
+                 <div className="flex items-center gap-4 mt-6">
+                    <p className="text-white font-medium">The collaboration allowed me to act with the confidence of a senior team.</p>
+                 </div>
               </div>
            </div>
         </div>
 
-        {/* Boardy Sidebar */}
-        <div className="mt-12 bg-charcoal border border-white/10 p-8 rounded-2xl border-l-4 border-l-orange-500">
-           <div className="flex items-center gap-3 mb-4">
-              <Share2 className="text-orange-500"/>
-              <h3 className="text-white font-bold text-lg">Humility & Pressure Testing</h3>
-           </div>
-           <p className="text-steel text-sm mb-6">
-              Before a major pitch, I used Boardy.ai to simulate a skeptical stakeholder. I didn't want reassurance; I wanted to find my blind spots.
-           </p>
-           <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-black/30 p-4 rounded">
-                 <p className="text-xs text-orange-200 font-mono mb-2">BOARDY (Roleplay):</p>
-                 <p className="text-white text-sm">"Why should we trust a solo founder with brand safeguarding? What is your contingency?"</p>
-              </div>
-              <div>
-                 <p className="text-steel text-sm">
-                    It pushed me to articulate what I hadn't said aloud. I entered the real meeting prepared, because I had already had the hard conversation.
-                 </p>
-              </div>
-           </div>
+        {/* BudApp Link */}
+        <div className="mt-8 text-center">
+            <a href="https://budapp.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-lime hover:text-white transition-colors border border-lime/20 bg-lime/5 px-4 py-2 rounded-full">
+                Visit BudApp <ExternalLink size={12}/>
+            </a>
         </div>
       </Section>
     </div>
@@ -484,9 +472,15 @@ const BudApp = () => {
         <h1 className="text-4xl md:text-6xl font-bold text-white mt-6 mb-8">
            One person. No team.<br/>Real outcomes.
         </h1>
-        <p className="text-xl text-steel max-w-3xl mb-16">
+        <p className="text-xl text-steel max-w-3xl mb-12">
            The answer isn't the system. The answer is the practice. BudApp is evidence that a single human, collaborating with intelligence, can operate at scale.
         </p>
+
+        <div className="mb-12">
+            <a href="https://budapp.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-lime transition-colors">
+               Visit Live App <ArrowRight size={18}/>
+            </a>
+        </div>
 
         <div className="grid md:grid-cols-12 gap-12">
            <div className="md:col-span-4 space-y-8">
@@ -526,12 +520,6 @@ const BudApp = () => {
               </div>
            </div>
         </div>
-
-        <div className="mt-16 text-center">
-           <p className="text-lg text-white font-medium">
-              "I didn't use AI to work faster. I used it to become more capable."
-           </p>
-        </div>
       </Section>
     </div>
   );
@@ -547,14 +535,14 @@ const Devolution = () => {
           <Badge color="signal">DEV-olution</Badge>
           <h1 className="text-5xl md:text-7xl font-bold text-white mt-6 mb-8 tracking-tight">Concept to Reality in 20 Days</h1>
           <p className="text-xl text-steel max-w-3xl mx-auto leading-relaxed">
-            A real-time chronicle of building a B2B SaaS platform with AI as a technical co-pilot. No hypotheticals. No "10x faster" hype. Just the actual timeline, decisions, pivots, and output.
+            A real-time chronicle of building <strong>FirstLook</strong>, a B2B SaaS platform, with AI as a technical co-pilot. No hypotheticals. No "10x faster" hype. Just the actual timeline, decisions, pivots, and output.
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-8 text-xs font-mono text-steel">
              <span>Christian Jones</span>
              <span>•</span>
              <span>Jan 24 — Feb 11, 2026</span>
              <span>•</span>
-             <span>Production SaaS</span>
+             <span>FirstLook.com</span>
           </div>
         </FadeIn>
       </Section>
@@ -746,12 +734,9 @@ const Devolution = () => {
                <h3 className="text-2xl font-bold text-white mb-4">About this Project</h3>
                <p className="text-steel leading-relaxed mb-6">
                   I treat AI as a co-pilot, not a crutch. I don't theorise about AI-assisted development — I document it in real time. 
-                  This report covers the build of <strong>FirstLook</strong> (a recruitment platform) and <strong>BudApp</strong> (dog walking), both built using the methodology shared on this site.
                </p>
                <div className="flex flex-wrap gap-4">
                   <a href="https://www.firstlooknow.com" target="_blank" rel="noopener noreferrer" className="text-lime hover:underline text-sm font-bold">firstlooknow.com</a>
-                  <span className="text-white/20">|</span>
-                  <a href="https://budapp.co.uk" target="_blank" rel="noopener noreferrer" className="text-lime hover:underline text-sm font-bold">budapp.co.uk</a>
                </div>
             </div>
          </FadeIn>
@@ -777,7 +762,7 @@ const WorkTogether = () => {
                  I work with founders and operators who want to treat AI as more than a tool stack.
               </p>
               
-              <div className="space-y-6">
+              <div className="space-y-6 mb-12">
                  <h3 className="text-white font-bold">What I help with</h3>
                  <ul className="text-steel text-sm space-y-3">
                     <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Setting up collaborative practices</li>
@@ -786,9 +771,30 @@ const WorkTogether = () => {
                     <li className="flex gap-2"><CheckCircle2 className="text-lime" size={16}/> Extracting better thinking from teams</li>
                  </ul>
               </div>
+
+              {/* My Builds Section */}
+              <div className="border-t border-white/10 pt-8">
+                 <h3 className="text-white font-bold mb-4">My Builds</h3>
+                 <div className="space-y-4">
+                    <a href="https://budapp.co.uk" target="_blank" rel="noopener noreferrer" className="block bg-charcoal p-4 rounded-xl border border-white/5 hover:border-lime/50 transition-colors">
+                       <div className="flex justify-between items-center mb-1">
+                          <span className="text-white font-bold">BudApp</span>
+                          <ExternalLink size={14} className="text-lime"/>
+                       </div>
+                       <p className="text-xs text-steel">Dog walking platform scaling to national franchise. Built with AI collaboration.</p>
+                    </a>
+                    <a href="https://www.firstlooknow.com" target="_blank" rel="noopener noreferrer" className="block bg-charcoal p-4 rounded-xl border border-white/5 hover:border-lime/50 transition-colors">
+                       <div className="flex justify-between items-center mb-1">
+                          <span className="text-white font-bold">FirstLook</span>
+                          <ExternalLink size={14} className="text-lime"/>
+                       </div>
+                       <p className="text-xs text-steel">Recruitment assessment platform. 20-day build using the loop method.</p>
+                    </a>
+                 </div>
+              </div>
            </div>
 
-           <div className="bg-charcoal border border-white/10 rounded-3xl p-10 flex flex-col justify-center text-center">
+           <div className="bg-charcoal border border-white/10 rounded-3xl p-10 flex flex-col justify-center text-center h-fit">
               <h3 className="text-2xl font-bold text-white mb-4">Let's Talk.</h3>
               <p className="text-steel mb-8">
                  Simple. Adult. If this resonates, we can talk.
@@ -970,7 +976,7 @@ function App() {
         </Routes>
         <footer className="py-12 text-center border-t border-white/5 mt-12">
           <p className="text-steel/40 text-[10px] font-mono uppercase tracking-widest">
-            AI Leverage Lab • Human Collaboration Practice
+            AI Levels Lab • Human Collaboration Practice
           </p>
         </footer>
       </div>
