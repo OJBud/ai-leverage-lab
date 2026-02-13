@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, Menu, X, Search, BrainCircuit, Share2, Image as ImageIcon, 
   Rocket, PenTool, BookOpen, Mic, User, Activity, Cpu, ShieldAlert, 
-  GitBranch, CheckCircle2, Terminal
+  GitBranch, CheckCircle2, Terminal, Zap, Star, Milestone, RefreshCw, ChevronDown
 } from 'lucide-react';
 
 // --- SHARED COMPONENTS ---
@@ -24,7 +24,14 @@ const Nav = () => {
   const links = [
     { name: 'The Practice', path: '/philosophy' },
     { name: 'The Loop', path: '/loop' },
-    { name: 'In Session', path: '/session' },
+    { 
+      name: 'In Session', 
+      type: 'dropdown',
+      children: [
+        { name: 'Code Architecture', path: '/session' },
+        { name: '20 Days of Dev', path: '/devolution' }
+      ]
+    },
     { name: 'BudApp Proof', path: '/budapp' },
     { name: 'Work Together', path: '/work-together' },
     { name: 'Posture Kit', path: '/posture-kit' },
@@ -37,24 +44,70 @@ const Nav = () => {
           <div className="w-3 h-3 bg-lime rounded-full shadow-[0_0_10px_rgba(182,255,46,0.5)]"></div>
           AI Leverage Lab
         </Link>
-        <div className="hidden lg:flex gap-6">
-          {links.map(l => (
-            <Link key={l.name} to={l.path} className={`text-[11px] uppercase tracking-widest font-medium hover:text-lime transition-colors ${location.pathname === l.path ? 'text-lime' : 'text-steel'}`}>
-              {l.name}
-            </Link>
-          ))}
+        
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex gap-6 items-center">
+          {links.map(l => {
+            if (l.type === 'dropdown') {
+              return (
+                <div key={l.name} className="relative group">
+                  <button className={`text-[11px] uppercase tracking-widest font-medium hover:text-lime transition-colors flex items-center gap-1 py-4 ${location.pathname === '/session' || location.pathname === '/devolution' ? 'text-lime' : 'text-steel'}`}>
+                    {l.name} <ChevronDown size={12} />
+                  </button>
+                  <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                     <div className="bg-charcoal border border-white/10 rounded-xl p-2 flex flex-col gap-1 shadow-xl">
+                       {l.children.map(child => (
+                         <Link 
+                           key={child.name} 
+                           to={child.path} 
+                           className={`text-[11px] uppercase tracking-widest font-medium px-4 py-3 rounded-lg hover:bg-white/5 hover:text-lime transition-colors block ${location.pathname === child.path ? 'text-lime' : 'text-steel'}`}
+                         >
+                           {child.name}
+                         </Link>
+                       ))}
+                     </div>
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <Link key={l.name} to={l.path} className={`text-[11px] uppercase tracking-widest font-medium hover:text-lime transition-colors ${location.pathname === l.path ? 'text-lime' : 'text-steel'}`}>
+                {l.name}
+              </Link>
+            )
+          })}
         </div>
+
+        {/* Mobile Toggle */}
         <button className="lg:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
+
+      {/* Mobile Nav */}
       {isOpen && (
-        <div className="lg:hidden bg-charcoal border-b border-border p-6 flex flex-col gap-4">
-          {links.map(l => (
-            <Link key={l.name} to={l.path} onClick={() => setIsOpen(false)} className="text-lg font-display text-white">
-              {l.name}
-            </Link>
-          ))}
+        <div className="lg:hidden bg-charcoal border-b border-border p-6 flex flex-col gap-6">
+          {links.map(l => {
+            if (l.type === 'dropdown') {
+              return (
+                <div key={l.name} className="flex flex-col gap-3">
+                   <div className="text-sm font-mono uppercase tracking-widest text-steel/50 border-b border-white/5 pb-2">{l.name}</div>
+                   <div className="flex flex-col gap-4 pl-4">
+                     {l.children.map(child => (
+                       <Link key={child.name} to={child.path} onClick={() => setIsOpen(false)} className={`text-lg font-display ${location.pathname === child.path ? 'text-lime' : 'text-white'}`}>
+                         {child.name}
+                       </Link>
+                     ))}
+                   </div>
+                </div>
+              )
+            }
+            return (
+              <Link key={l.name} to={l.path} onClick={() => setIsOpen(false)} className="text-lg font-display text-white">
+                {l.name}
+              </Link>
+            )
+          })}
         </div>
       )}
     </nav>
@@ -68,9 +121,14 @@ const Section = ({ children, className = "" }) => (
 );
 
 const Badge = ({ children, color = "lime" }) => {
-  const styles = color === "lime" 
-    ? "bg-lime/10 text-lime border-lime/20 shadow-[0_0_15px_-5px_rgba(182,255,46,0.3)]" 
-    : "bg-signal/10 text-signal border-signal/20";
+  let styles = "bg-lime/10 text-lime border-lime/20 shadow-[0_0_15px_-5px_rgba(182,255,46,0.3)]";
+  
+  if (color === "signal") styles = "bg-signal/10 text-signal border-signal/20";
+  if (color === "blue") styles = "bg-blue-500/10 text-blue-400 border-blue-500/20";
+  if (color === "green") styles = "bg-green-500/10 text-green-400 border-green-500/20";
+  if (color === "amber") styles = "bg-amber-500/10 text-amber-400 border-amber-500/20";
+  if (color === "red") styles = "bg-red-500/10 text-red-400 border-red-500/20";
+
   return (
     <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest border ${styles}`}>
       {children}
@@ -117,8 +175,8 @@ const Home = () => {
             <Link to="/philosophy" className="group bg-lime text-black px-8 py-4 rounded-full font-bold hover:bg-white transition-colors flex items-center gap-2">
               See The Practice <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
             </Link>
-            <Link to="/budapp" className="px-8 py-4 rounded-full text-white border border-white/10 hover:border-lime transition-colors text-sm font-medium">
-              See The Proof
+            <Link to="/devolution" className="px-8 py-4 rounded-full text-white border border-white/10 hover:border-lime transition-colors text-sm font-medium">
+              Read the 20-Day Report
             </Link>
           </div>
           
@@ -216,12 +274,11 @@ const Philosophy = () => {
              })}
           </div>
 
-          {/* Desktop Detail Card - WITH OVERLAY FIX */}
+          {/* Desktop Detail Card */}
           <div className="hidden md:block absolute inset-0 z-50 pointer-events-none">
             <AnimatePresence mode="wait">
               {activeNode ? (
                 <>
-                  {/* Clickable overlay to close */}
                   <motion.div
                     key="overlay"
                     initial={{ opacity: 0 }}
@@ -230,8 +287,6 @@ const Philosophy = () => {
                     onClick={() => setActiveNode(null)}
                     className="absolute inset-0 bg-black/40 pointer-events-auto"
                   />
-                  
-                  {/* Card */}
                   <motion.div
                     key={activeNode.id}
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -249,7 +304,6 @@ const Philosophy = () => {
                     <p className="text-xs text-lime border-t border-white/5 pt-3 font-mono uppercase tracking-wide">
                       Human Role: {activeNode.myRole}
                     </p>
-
                     <button 
                       onClick={() => setActiveNode(null)}
                       className="absolute top-4 right-4 text-steel hover:text-white transition-colors"
@@ -344,8 +398,7 @@ const Session = () => {
         </p>
 
         <div className="space-y-6 relative">
-           
-           {/* Step 1 */}
+           {/* Steps as before */}
            <div className="bg-jet border border-white/10 rounded-xl p-8 flex flex-col md:flex-row gap-6 relative z-10">
               <div className="min-w-[120px]">
                  <div className="inline-flex items-center gap-2 text-blue-400 font-mono text-xs font-bold uppercase border border-blue-400/20 px-2 py-1 rounded bg-blue-400/10">
@@ -361,10 +414,8 @@ const Session = () => {
               </div>
            </div>
 
-           {/* Arrow */}
            <div className="flex justify-center -my-3 relative z-0"><div className="h-8 w-[2px] bg-white/10"></div></div>
 
-           {/* Step 2 */}
            <div className="bg-jet border border-white/10 rounded-xl p-8 flex flex-col md:flex-row gap-6 relative z-10">
               <div className="min-w-[120px]">
                  <div className="inline-flex items-center gap-2 text-purple-400 font-mono text-xs font-bold uppercase border border-purple-400/20 px-2 py-1 rounded bg-purple-400/10">
@@ -381,10 +432,8 @@ const Session = () => {
               </div>
            </div>
 
-           {/* Arrow */}
            <div className="flex justify-center -my-3 relative z-0"><div className="h-8 w-[2px] bg-white/10"></div></div>
 
-           {/* Step 3 */}
            <div className="bg-jet border border-white/10 rounded-xl p-8 flex flex-col md:flex-row gap-6 relative z-10">
                <div className="min-w-[120px]">
                  <div className="inline-flex items-center gap-2 text-lime font-mono text-xs font-bold uppercase border border-lime/20 px-2 py-1 rounded bg-lime/10">
@@ -484,6 +533,230 @@ const BudApp = () => {
            </p>
         </div>
       </Section>
+    </div>
+  );
+};
+
+// --- 6. DEV-OLUTION ---
+
+const Devolution = () => {
+  return (
+    <div className="pt-24">
+      <Section className="text-center pb-12">
+        <FadeIn>
+          <Badge color="signal">DEV-olution</Badge>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mt-6 mb-8 tracking-tight">Concept to Reality in 20 Days</h1>
+          <p className="text-xl text-steel max-w-3xl mx-auto leading-relaxed">
+            A real-time chronicle of building a B2B SaaS platform with AI as a technical co-pilot. No hypotheticals. No "10x faster" hype. Just the actual timeline, decisions, pivots, and output.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 mt-8 text-xs font-mono text-steel">
+             <span>Christian Jones</span>
+             <span>•</span>
+             <span>Jan 24 — Feb 11, 2026</span>
+             <span>•</span>
+             <span>Production SaaS</span>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* Progress Strip */}
+      <Section className="py-0">
+        <FadeIn>
+          <div className="flex gap-1 h-2 rounded-full overflow-hidden mb-4">
+             {[...Array(8)].map((_, i) => <div key={i} className="flex-1 bg-green-500"></div>)}
+             {[...Array(4)].map((_, i) => <div key={i} className="flex-1 bg-white/10"></div>)}
+          </div>
+          <div className="flex justify-between text-[10px] font-mono text-steel uppercase tracking-wider">
+             <span>Phase 0: Foundation</span>
+             <span>7 of 12 Phases Shipped</span>
+             <span>Phase 11: Billing</span>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* Stats */}
+      <Section>
+         <FadeIn>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+               {[
+                 { val: "20", label: "Days Elapsed", color: "text-green-400", border: "border-green-500/20" },
+                 { val: "8", label: "Dev Sessions", color: "text-lime", border: "border-lime/20" },
+                 { val: "5", label: "Strategic Pivots", color: "text-amber-400", border: "border-amber-500/20" },
+                 { val: "8", label: "Bonus Features", color: "text-blue-400", border: "border-blue-500/20" }
+               ].map((stat, i) => (
+                 <div key={i} className={`bg-charcoal border ${stat.border} p-6 rounded-xl text-center`}>
+                    <div className={`text-4xl font-display font-bold ${stat.color} mb-2`}>{stat.val}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-steel">{stat.label}</div>
+                 </div>
+               ))}
+            </div>
+         </FadeIn>
+      </Section>
+
+      {/* The Approach */}
+      <Section>
+         <FadeIn>
+            <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3"><ArrowRight className="text-lime" /> The Approach</h2>
+            <div className="bg-lime/5 border-l-2 border-lime p-6 rounded-r-xl mb-8">
+               <p className="text-lg text-white font-medium italic">"I didn't start with code. I started with the problem. The spec came before the scaffold. AI didn't replace thinking — it compressed the distance between thinking and shipping."</p>
+            </div>
+            <div className="grid gap-4">
+               {[
+                 { title: "Product-down, loop-first", desc: "Day 1 was a spec, not a repo. Code didn't start until the blueprint was airtight. Built the complete user journey before any polish." },
+                 { title: "Clear role separation", desc: "I made product decisions (what to build). AI handled implementation and technical risk. The skill isn't prompting, it's judgment." },
+                 { title: "Scars informed everything", desc: "Service layers from day one. Module boundaries enforced. Every shortcut documented. Discipline tax paid early." }
+               ].map((card, i) => (
+                 <div key={i} className="bg-charcoal border border-white/10 p-6 rounded-xl hover:border-lime/30 transition-colors">
+                    <h3 className="font-bold text-white mb-2">{card.title}</h3>
+                    <p className="text-steel text-sm leading-relaxed">{card.desc}</p>
+                 </div>
+               ))}
+            </div>
+         </FadeIn>
+      </Section>
+
+      {/* What Shipped */}
+      <Section>
+         <FadeIn>
+            <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3"><CheckCircle2 className="text-green-400" /> What Actually Shipped</h2>
+            <div className="grid gap-4">
+               {[
+                 { title: "Complete core product loop", badge: "Day 14", desc: "End-to-end journey: Account -> Config -> Public Interface -> Data Capture -> Scoring -> Dashboard." },
+                 { title: "4 distinct scoring algorithms", badge: "Day 18", desc: "Auto-routing based on configuration. Measures signals appropriate to context." },
+                 { title: "Full architecture refactor", badge: "Day 6", desc: "Moved business logic out of components into service layers without breaking features." },
+                 { title: "Database security (RLS)", badge: "Day 19", desc: "Multi-tenant data isolation enforced at the database level." },
+                 { title: "Workflow engine", badge: "Day 18", desc: "6-state review system, auto-status updates, bulk operations." }
+               ].map((item, i) => (
+                 <div key={i} className="bg-charcoal border border-white/10 p-6 rounded-xl flex flex-col md:flex-row md:items-start justify-between gap-4">
+                    <div>
+                       <h3 className="font-bold text-white mb-1">{item.title}</h3>
+                       <p className="text-steel text-sm">{item.desc}</p>
+                    </div>
+                    <Badge color="green">{item.badge}</Badge>
+                 </div>
+               ))}
+            </div>
+         </FadeIn>
+      </Section>
+
+      {/* Pivots */}
+      <Section>
+         <FadeIn>
+            <h2 className="text-3xl font-bold text-white mb-2 flex items-center gap-3"><RefreshCw className="text-amber-400" /> What Changed</h2>
+            <p className="text-steel mb-8">These weren't mistakes. They were the product getting smarter.</p>
+            <div className="grid md:grid-cols-2 gap-4">
+               {[
+                 { title: "Data display → Decision engine", badge: "Strategic", desc: "Numeric scores are meaningless. Pivoted to effort-based grouping with human labels." },
+                 { title: "Detection → Context", badge: "Framing", desc: "Original framing was 'catch cheaters'. Evolved to 'understand context'." },
+                 { title: "4 content types → 2", badge: "Descoped", desc: "Shipped written + code only. Covers 80% of use cases. Brutal prioritisation." },
+                 { title: "Complex config → Defaults", badge: "Simplified", desc: "Removed 3 fields from setup. Don't make users fill forms to get value." }
+               ].map((item, i) => (
+                 <div key={i} className="bg-charcoal border-l-2 border-l-amber-400 border-y border-r border-white/10 p-6 rounded-r-xl">
+                    <div className="flex justify-between items-start mb-2">
+                       <h3 className="font-bold text-white">{item.title}</h3>
+                       <Badge color="amber">{item.badge}</Badge>
+                    </div>
+                    <p className="text-steel text-sm">{item.desc}</p>
+                 </div>
+               ))}
+            </div>
+         </FadeIn>
+      </Section>
+
+      {/* Timeline */}
+      <Section>
+         <FadeIn>
+            <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3"><Milestone className="text-blue-400" /> The 12-Phase Plan</h2>
+            <div className="bg-charcoal border border-white/10 rounded-xl overflow-hidden divide-y divide-white/5">
+               {[
+                 { id: "0", name: "Foundation", status: "Done", color: "green" },
+                 { id: "1", name: "Authentication", status: "90%", color: "amber" },
+                 { id: "2", name: "Content Configuration", status: "Done", color: "green" },
+                 { id: "3", name: "Public-Facing App", status: "Done", color: "green" },
+                 { id: "4", name: "Behavioural Data", status: "Done", color: "green" },
+                 { id: "5", name: "Scoring Engine", status: "Done", color: "green" },
+                 { id: "6", name: "Admin Dashboard", status: "Done", color: "green" },
+                 { id: "7", name: "Gated Reveal", status: "Done", color: "green" },
+                 { id: "8", name: "Media Capture", status: "Backlog", color: "blue" },
+                 { id: "9", name: "Team Collab", status: "Backlog", color: "blue" },
+                 { id: "10", name: "Notifications", status: "Backlog", color: "blue" },
+                 { id: "11", name: "Billing", status: "Backlog", color: "blue" },
+               ].map((phase, i) => (
+                 <div key={i} className="p-4 flex items-center gap-4">
+                    <div className={`w-8 h-8 rounded flex items-center justify-center font-mono font-bold text-xs ${phase.color === 'green' ? 'bg-green-500/20 text-green-400' : phase.color === 'amber' ? 'bg-amber-500/20 text-amber-400' : 'bg-white/5 text-steel'}`}>
+                       {phase.id}
+                    </div>
+                    <div className="flex-1 text-white font-medium">{phase.name}</div>
+                    <Badge color={phase.color}>{phase.status}</Badge>
+                 </div>
+               ))}
+            </div>
+         </FadeIn>
+      </Section>
+
+      {/* Beyond Spec */}
+      <Section>
+         <FadeIn>
+            <h2 className="text-3xl font-bold text-white mb-2 flex items-center gap-3"><Star className="text-lime" /> Beyond the Plan</h2>
+            <p className="text-steel mb-8">Features that emerged from actually using the product during the build.</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+               {[
+                 "Contextual scoring toggle",
+                 "Explanation-based scoring",
+                 "Effort-based grouping",
+                 "6-state workflow engine",
+                 "Bulk operations",
+                 "Post-engagement bonus",
+                 "One-click duplication",
+                 "Integrity cap"
+               ].map((feat, i) => (
+                 <div key={i} className="bg-charcoal border border-white/10 p-4 rounded-xl text-sm text-center text-white font-medium hover:border-lime/30 transition-colors">
+                    {feat}
+                 </div>
+               ))}
+            </div>
+         </FadeIn>
+      </Section>
+
+      {/* Learnings */}
+      <Section>
+         <FadeIn>
+            <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3"><Zap className="text-amber-400" /> What I Learned</h2>
+            <div className="space-y-4">
+               <div className="bg-charcoal border border-white/10 p-6 rounded-xl">
+                  <h3 className="font-bold text-white mb-2">AI punishes the lack of product thinking.</h3>
+                  <p className="text-steel text-sm">Speed without direction is drift. The spec and strategy docs were multipliers, not overhead.</p>
+               </div>
+               <div className="bg-charcoal border border-white/10 p-6 rounded-xl">
+                  <h3 className="font-bold text-white mb-2">Ship the loop, not the system.</h3>
+                  <p className="text-steel text-sm">A working end-to-end flow teaches you more in one afternoon than a month of feature-branch perfection.</p>
+               </div>
+               <div className="bg-charcoal border border-white/10 p-6 rounded-xl">
+                  <h3 className="font-bold text-white mb-2">Technical debt is a choice.</h3>
+                  <p className="text-steel text-sm">Every shortcut was documented. The difference between scrappy and sloppy is knowing where the bodies are buried.</p>
+               </div>
+            </div>
+         </FadeIn>
+      </Section>
+
+      {/* About / Context */}
+      <Section>
+         <FadeIn>
+            <div className="bg-charcoal border border-white/10 p-8 rounded-2xl">
+               <h3 className="text-2xl font-bold text-white mb-4">About this Project</h3>
+               <p className="text-steel leading-relaxed mb-6">
+                  I treat AI as a co-pilot, not a crutch. I don't theorise about AI-assisted development — I document it in real time. 
+                  This report covers the build of <strong>FirstLook</strong> (a recruitment platform) and <strong>BudApp</strong> (dog walking), both built using the methodology shared on this site.
+               </p>
+               <div className="flex flex-wrap gap-4">
+                  <a href="https://www.firstlooknow.com" target="_blank" rel="noopener noreferrer" className="text-lime hover:underline text-sm font-bold">firstlooknow.com</a>
+                  <span className="text-white/20">|</span>
+                  <a href="https://budapp.co.uk" target="_blank" rel="noopener noreferrer" className="text-lime hover:underline text-sm font-bold">budapp.co.uk</a>
+               </div>
+            </div>
+         </FadeIn>
+      </Section>
+
     </div>
   );
 };
@@ -686,6 +959,7 @@ function App() {
           <Route path="/loop" element={<Loop />} />
           <Route path="/session" element={<Session />} />
           <Route path="/budapp" element={<BudApp />} />
+          <Route path="/devolution" element={<Devolution />} />
           <Route path="/work-together" element={<WorkTogether />} />
           <Route path="/posture-kit" element={<PostureKit />} />
           {/* Redirects for legacy routes if needed, though clean links are better */}
