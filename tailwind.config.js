@@ -7,23 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        jet: '#0B0B0D',
-        charcoal: '#131318',
-        surface: '#131318',
-        softWhite: '#F5F5F5',
-        steel: '#8A8F98',
-        lime: '#B6FF2E',
-        signal: '#FF6A00',
-        border: '#23232A',
+        jet: '#0d0d14',
+        charcoal: '#1a1a2e',
+        softWhite: '#f5f5f5',
+        steel: '#8a8f98',
+        lime: '#b8ff57',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
       },
-      boxShadow: {
-        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.5)',
-      }
     },
   },
   plugins: [],
