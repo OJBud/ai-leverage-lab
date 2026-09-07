@@ -1,84 +1,126 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import { projects } from '../data/projects';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { serviceTiers } from '../data/services';
-import ProjectCard from '../components/ProjectCard';
-import ServiceCard from '../components/ServiceCard';
 
 export default function Home() {
   return (
     <>
-      {/* Hero — warm canvas */}
-      <section className="min-h-[90vh] flex items-center bg-canvas">
-        <div className="max-w-6xl mx-auto px-6 py-32 w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="fade-in-up">
-              <h1 className="text-5xl md:text-7xl font-display font-bold text-ink mb-6 tracking-tight leading-[1.08]">
-                I build{' '}
-                <span className="text-accent">products.</span>
-              </h1>
-              <p className="text-lg md:text-xl text-body max-w-xl mb-10 leading-relaxed">
-                Websites, apps, platforms, and tools. Strategy through to shipped product. One person, one system.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/contact"
-                  className="group bg-accent text-ink font-display font-bold px-8 py-4 rounded-full hover:bg-orange-600 hover:text-white transition-colors inline-flex items-center justify-center gap-2"
-                >
-                  Tell me what you need built <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <a
-                  href="#work"
-                  className="px-8 py-4 rounded-full text-ink border border-ink/20 hover:border-ink transition-colors text-center font-medium"
-                >
-                  See the work
-                </a>
-              </div>
+      {/* Hero — outcome-first */}
+      <section className="min-h-[90vh] flex items-center bg-canvas relative overflow-hidden">
+        {/* Angled accent strip */}
+        <div className="absolute -right-20 top-0 w-[400px] h-full bg-accent/5 rotate-12 origin-top-right hidden lg:block" />
+        <div className="max-w-6xl mx-auto px-6 py-32 w-full relative">
+          <div className="max-w-3xl fade-in-up">
+            <p className="text-accent font-display font-bold text-sm tracking-widest uppercase mb-6">
+              Strategy &middot; Design &middot; Development
+            </p>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-ink mb-8 tracking-tight leading-[1.05]">
+              From idea<br />
+              to <span className="text-accent">income.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-body max-w-xl mb-12 leading-relaxed">
+              Products that ship and earn. One person, one system — from first
+              conversation to paying customers.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                to="/contact"
+                className="group bg-accent text-ink font-display font-bold px-8 py-4 rounded-full hover:bg-orange-600 hover:text-white transition-colors inline-flex items-center justify-center gap-2"
+              >
+                Start a conversation <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <a
+                href="#work"
+                className="px-8 py-4 rounded-full text-ink border border-ink/20 hover:border-ink transition-colors text-center font-medium"
+              >
+                See what's shipped
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Product showcase composition */}
-            <div className="hidden md:block relative fade-in-up" style={{ animationDelay: '0.15s' }}>
-              <div className="relative w-full aspect-[4/3]">
-                {/* Desktop frame — FirstLook */}
-                <div className="absolute top-0 right-0 w-[85%] rounded-xl overflow-hidden shadow-2xl border border-border bg-white">
-                  <div className="h-7 bg-gray-100 border-b border-border flex items-center gap-1.5 px-3">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-300" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-300" />
+      {/* ── WORK ── */}
+      <section id="work" className="pt-20 md:pt-28 pb-0">
+        <div className="max-w-6xl mx-auto px-6 mb-16 fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-3">The Work</h2>
+          <p className="text-body text-lg max-w-2xl">
+            Five projects. Five different problems. Each one built from scratch with
+            strategy, design, and code.
+          </p>
+        </div>
+
+        {/* ── FirstLook — full-width hero showcase ── */}
+        <div className="bg-ink text-white">
+          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase">SaaS Platform</span>
+                <h3 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4">FirstLook</h3>
+                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                  Recruiters drowning in AI-generated applications needed a way to spot
+                  real candidates before opening a single CV. FirstLook scores engagement,
+                  effort, and intent — so hiring managers see signal, not noise.
+                </p>
+                <div className="flex gap-8 mb-8">
+                  <div>
+                    <span className="text-accent font-display font-bold text-3xl">20</span>
+                    <p className="text-gray-400 text-sm">days to ship</p>
+                  </div>
+                  <div>
+                    <span className="text-accent font-display font-bold text-3xl">v3.1</span>
+                    <p className="text-gray-400 text-sm">scoring engine</p>
+                  </div>
+                  <div>
+                    <span className="text-accent font-display font-bold text-3xl">4</span>
+                    <p className="text-gray-400 text-sm">pricing tiers</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Link
+                    to="/work/firstlook"
+                    className="inline-flex items-center gap-1.5 text-accent font-medium hover:text-white transition-colors"
+                  >
+                    Read the full story <ArrowRight size={14} />
+                  </Link>
+                  <a
+                    href="https://firstlooknow.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    Visit live <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10">
+                  <div className="h-7 bg-gray-800 border-b border-white/10 flex items-center gap-1.5 px-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
                   </div>
                   <img
                     src="/images/firstlook-dashboard.png"
-                    alt="FirstLook dashboard"
+                    alt="FirstLook employer dashboard"
                     className="w-full aspect-[16/10] object-cover object-top"
                     onError={(e) => {
-                      e.target.parentElement.innerHTML = '<div class="w-full aspect-[16/10] bg-canvas flex items-center justify-center"><span class="text-muted font-display font-bold text-lg">FirstLook</span></div>';
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
                     }}
                   />
-                </div>
-
-                {/* Mobile frame — BudApp */}
-                <div className="absolute bottom-0 left-0 w-[35%] rounded-2xl overflow-hidden shadow-2xl border-2 border-gray-200 bg-white z-10">
-                  <div className="h-5 bg-gray-100 flex items-center justify-center">
-                    <span className="w-10 h-1.5 rounded-full bg-gray-300" />
+                  <div className="w-full aspect-[16/10] bg-gray-900 items-center justify-center hidden">
+                    <span className="text-gray-500 font-display font-bold text-xl">FirstLook Dashboard</span>
                   </div>
-                  <img
-                    src="/images/budapp-walks.png"
-                    alt="BudApp walk tracking"
-                    className="w-full aspect-[9/16] object-cover object-top"
-                    onError={(e) => {
-                      e.target.parentElement.innerHTML = '<div class="h-5 bg-gray-100 flex items-center justify-center"><span class="w-10 h-1.5 rounded-full bg-gray-300"></span></div><div class="w-full aspect-[9/16] bg-canvas flex items-center justify-center"><span class="text-muted font-display font-bold text-sm">BudApp</span></div>';
-                    }}
-                  />
                 </div>
-
-                {/* Small accent card — Small Circle */}
-                <div className="absolute bottom-8 right-0 w-[30%] rounded-lg overflow-hidden shadow-xl border border-border bg-white z-10">
+                {/* Floating scoring card */}
+                <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4 max-w-[200px] hidden md:block">
                   <img
-                    src="/images/smallcircle-principles.png"
-                    alt="Small Circle Jujitsu"
-                    className="w-full aspect-square object-cover"
+                    src="/images/firstlook-scoring.png"
+                    alt="Scoring engine"
+                    className="w-full rounded aspect-[4/3] object-cover"
                     onError={(e) => {
-                      e.target.parentElement.innerHTML = '<div class="w-full aspect-square bg-canvas flex items-center justify-center"><span class="text-muted font-display font-bold text-xs">Small Circle</span></div>';
+                      e.target.parentElement.style.display = 'none';
                     }}
                   />
                 </div>
@@ -86,80 +128,292 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Portfolio — white */}
-      <section id="work" className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-14 fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-3">The Work</h2>
-            <p className="text-body text-lg">Real products, built and shipped. Strategy, design, and code — all me.</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, i) => (
-              <div key={project.slug} className={i === 0 ? 'md:col-span-2' : ''}>
-                <ProjectCard project={project} />
+        {/* ── BudApp — community numbers + mobile frame ── */}
+        <div className="bg-canvas">
+          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <div className="grid md:grid-cols-5 gap-12 items-center">
+              {/* Mobile frame — takes 2 cols */}
+              <div className="md:col-span-2 flex justify-center">
+                <div className="relative w-[260px]">
+                  <div className="rounded-[2rem] overflow-hidden shadow-2xl border-[3px] border-gray-200 bg-white">
+                    <div className="h-6 bg-gray-100 flex items-center justify-center">
+                      <span className="w-14 h-1.5 rounded-full bg-gray-300" />
+                    </div>
+                    <img
+                      src="/images/budapp-walks.png"
+                      alt="BudApp walk tracking"
+                      className="w-full aspect-[9/17] object-cover object-top"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="w-full aspect-[9/17] bg-canvas items-center justify-center hidden">
+                      <span className="text-muted font-display font-bold">BudApp</span>
+                    </div>
+                  </div>
+                  {/* Route detail card floating */}
+                  <div className="absolute -bottom-6 -right-6 w-[160px] rounded-lg shadow-xl overflow-hidden border border-border hidden md:block">
+                    <img
+                      src="/images/budapp-route.png"
+                      alt="Route detail"
+                      className="w-full aspect-square object-cover"
+                      onError={(e) => {
+                        e.target.parentElement.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
-            ))}
+              {/* Copy — takes 3 cols */}
+              <div className="md:col-span-3">
+                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase">Community Platform</span>
+                <h3 className="text-3xl md:text-5xl font-display font-bold text-ink mt-3 mb-4">BudApp</h3>
+                <p className="text-body text-lg leading-relaxed mb-8">
+                  Dog owners wanted to share walks, discover routes, and connect locally.
+                  Nothing existed beyond map apps with a dog icon. BudApp turned that gap
+                  into a community — cross-platform, zero ad spend, growing on word of mouth alone.
+                </p>
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  <div className="bg-white border border-border rounded-xl p-4 text-center">
+                    <span className="text-accent font-display font-bold text-2xl md:text-3xl">1,600+</span>
+                    <p className="text-muted text-xs mt-1">users</p>
+                  </div>
+                  <div className="bg-white border border-border rounded-xl p-4 text-center">
+                    <span className="text-accent font-display font-bold text-2xl md:text-3xl">£0</span>
+                    <p className="text-muted text-xs mt-1">ad spend</p>
+                  </div>
+                  <div className="bg-white border border-border rounded-xl p-4 text-center">
+                    <span className="text-accent font-display font-bold text-2xl md:text-3xl">75.5%</span>
+                    <p className="text-muted text-xs mt-1">retention</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3 mb-8">
+                  <span className="text-xs font-medium text-ink bg-peach border border-orange-200 px-3 py-1.5 rounded-full">Dogs Trust partnership</span>
+                  <span className="text-xs font-medium text-ink bg-peach border border-orange-200 px-3 py-1.5 rounded-full">BBC South West</span>
+                  <span className="text-xs font-medium text-ink bg-peach border border-orange-200 px-3 py-1.5 rounded-full">NSA collaboration</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Link
+                    to="/work/budapp"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
+                  >
+                    Read the full story <ArrowRight size={14} />
+                  </Link>
+                  <a
+                    href="https://budapp.co.uk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink transition-colors"
+                  >
+                    Visit live <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Small Circle — design-forward band ── */}
+        <div className="bg-white border-y border-border">
+          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase">Brand &amp; Design</span>
+                <h3 className="text-3xl md:text-5xl font-display font-bold text-ink mt-3 mb-4">Small Circle Jujitsu</h3>
+                <p className="text-body text-lg leading-relaxed mb-6">
+                  A martial arts school needed more than a gym website with a class timetable.
+                  The brief was to translate precision, philosophy, and heritage into something
+                  you can feel on screen. Deep brand work first, then code.
+                </p>
+                <p className="text-sm text-muted mb-8 leading-relaxed">
+                  The interactive principles wheel — the centrepiece — lets visitors explore core
+                  tenets without reading walls of text. Every colour, weight, and spacing decision
+                  serves the school's identity, not a template.
+                </p>
+                <div className="flex items-center gap-4">
+                  <Link
+                    to="/work/small-circle"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
+                  >
+                    See the project <ArrowRight size={14} />
+                  </Link>
+                  <a
+                    href="https://smallcircle-fleet.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink transition-colors"
+                  >
+                    Visit live <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border aspect-[3/4]">
+                  <img
+                    src="/images/smallcircle-hero.png"
+                    alt="Small Circle Jujitsu hero"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.parentElement.innerHTML = '<div class="w-full h-full bg-ink flex items-center justify-center"><span class="text-white/40 font-display font-bold text-lg text-center px-4">Small Circle</span></div>';
+                    }}
+                  />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border aspect-[3/4]">
+                  <img
+                    src="/images/smallcircle-principles.png"
+                    alt="Interactive principles wheel"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.parentElement.innerHTML = '<div class="w-full h-full bg-ink flex items-center justify-center"><span class="text-white/40 font-display font-bold text-lg text-center px-4">Principles</span></div>';
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── SoundPals + KSA — editorial text-led pair ── */}
+        <div className="bg-canvas">
+          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* SoundPals */}
+              <div className="bg-white border border-border rounded-2xl p-8 md:p-10 flex flex-col">
+                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase mb-3">Education &amp; Accessibility</span>
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-ink mb-4">SoundPals</h3>
+                <p className="text-body leading-relaxed mb-4 flex-1">
+                  A phonics app designed around how dyslexic children actually learn — multisensory
+                  feedback, game mechanics, progress that feels like achievement.
+                  Accessibility as architecture, not afterthought.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-5">
+                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">Education</span>
+                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">UX Design</span>
+                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">Accessibility</span>
+                </div>
+                <Link
+                  to="/work/soundpals"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
+                >
+                  Read the full story <ArrowRight size={14} />
+                </Link>
+              </div>
+
+              {/* KSA */}
+              <div className="bg-white border border-border rounded-2xl p-8 md:p-10 flex flex-col">
+                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase mb-3">Multi-role Tool</span>
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-ink mb-4">KSA Surf Passport</h3>
+                <p className="text-body leading-relaxed mb-4 flex-1">
+                  Kingsurf Academy ran student progression on paper. Three coaches, one season,
+                  no shared picture. This turned a fragmented process into a structured digital
+                  curriculum — coach sign-off, student tracking, management oversight.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-5">
+                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">React</span>
+                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">Multi-role</span>
+                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">Curriculum Design</span>
+                </div>
+                <Link
+                  to="/work/ksa"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
+                >
+                  Read the full story <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Method Teaser — ink/dark */}
       <section className="py-20 md:py-28 px-6 bg-ink">
-        <div className="max-w-2xl mx-auto text-center fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-            How one person builds all of this
-          </h2>
-          <p className="text-gray-300 text-lg leading-relaxed mb-4">
-            I don't have a team. I have a system. Multiple platforms with different roles, and me as the operator who governs the flow.
-          </p>
-          <p className="text-gray-400 leading-relaxed mb-8">
-            The value isn't in any single tool. It's in how intelligence flows between them — and who governs that flow.
-          </p>
-          <Link
-            to="/method"
-            className="inline-flex items-center gap-2 text-accent font-medium hover:text-white transition-colors"
-          >
-            See how it works <ArrowRight size={16} />
-          </Link>
+        <div className="max-w-3xl mx-auto fade-in-up">
+          <div className="grid md:grid-cols-5 gap-10 items-start">
+            <div className="md:col-span-3">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+                Speed without<br />compromise.
+              </h2>
+              <p className="text-gray-300 text-lg leading-relaxed mb-4">
+                Every project here shipped faster than an agency would quote the discovery phase.
+                Not because corners were cut — because one person with the right system eliminates
+                the overhead that slows everything down.
+              </p>
+              <p className="text-gray-400 leading-relaxed mb-8">
+                Strategy, architecture, design, code, deployment. No handoffs. No lost context.
+                No meetings about meetings.
+              </p>
+              <Link
+                to="/method"
+                className="inline-flex items-center gap-2 text-accent font-medium hover:text-white transition-colors"
+              >
+                How the system works <ArrowRight size={16} />
+              </Link>
+            </div>
+            <div className="md:col-span-2 space-y-4">
+              <div className="border border-white/10 rounded-xl p-5">
+                <span className="text-accent font-display font-bold text-2xl">20 days</span>
+                <p className="text-gray-400 text-sm mt-1">FirstLook: concept to revenue</p>
+              </div>
+              <div className="border border-white/10 rounded-xl p-5">
+                <span className="text-accent font-display font-bold text-2xl">1 person</span>
+                <p className="text-gray-400 text-sm mt-1">Strategy through deployment</p>
+              </div>
+              <div className="border border-white/10 rounded-xl p-5">
+                <span className="text-accent font-display font-bold text-2xl">5 products</span>
+                <p className="text-gray-400 text-sm mt-1">Shipped and operating</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Social Proof — warm canvas */}
       <section className="py-16 px-6 bg-canvas">
         <div className="max-w-4xl mx-auto">
-          <blockquote className="text-center mb-10 fade-in-up">
-            <p className="text-ink text-lg md:text-xl italic leading-relaxed max-w-2xl mx-auto mb-4">
-              "What I learned in that short meeting was that the answer to my questions has as much to do with mindset as it does execution."
+          <blockquote className="mb-10 fade-in-up">
+            <div className="text-accent text-6xl font-display leading-none mb-2">&ldquo;</div>
+            <p className="text-ink text-xl md:text-2xl leading-relaxed max-w-2xl mb-4">
+              What I learned in that short meeting was that the answer to my questions
+              has as much to do with mindset as it does execution.
             </p>
             <cite className="text-muted text-sm not-italic">
-              — Amy Rose Bailey, Founder, CultureSmith Ltd
+              Amy Rose Bailey, Founder, CultureSmith Ltd
             </cite>
           </blockquote>
-          <div className="flex flex-wrap justify-center gap-3 md:gap-6 text-sm text-muted font-medium">
-            <span className="border border-border bg-white px-4 py-2 rounded-full">Dogs Trust partnership</span>
-            <span className="border border-border bg-white px-4 py-2 rounded-full">BBC South West</span>
-            <span className="border border-border bg-white px-4 py-2 rounded-full">1,600+ BudApp users</span>
-          </div>
         </div>
       </section>
 
       {/* Services Overview — white */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 fade-in-up">
+          <div className="mb-14 fade-in-up">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-3">
-              What I Can Build For You
+              Three ways to work together
             </h2>
+            <p className="text-body text-lg">Start small or go deep. Every engagement begins with a conversation.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {serviceTiers.map((service) => (
-              <ServiceCard
+              <div
                 key={service.name}
-                service={service}
-                highlight={service.name === 'Product Sprint'}
-              />
+                className={`border rounded-2xl p-8 flex flex-col hover:shadow-lg transition-shadow ${
+                  service.name === 'Product Sprint'
+                    ? 'bg-peach border-orange-200'
+                    : 'bg-white border-border'
+                }`}
+              >
+                <h3 className="text-xl font-display font-bold text-ink mb-1">{service.name}</h3>
+                <p className="text-accent font-display font-bold text-lg mb-4">{service.price}</p>
+                <p className="text-body text-sm leading-relaxed flex-1">{service.shortDesc}</p>
+                <Link
+                  to="/contact"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
+                >
+                  Enquire <ArrowRight size={14} />
+                </Link>
+              </div>
             ))}
           </div>
           <div className="text-center">
@@ -176,17 +430,17 @@ export default function Home() {
       {/* Contact CTA — orange panel */}
       <section className="py-20 md:py-28 px-6 bg-accent">
         <div className="max-w-2xl mx-auto text-center fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-6">
-            Tell me what you want to build
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-ink mb-6">
+            Got an idea?
           </h2>
-          <p className="text-ink/70 mb-8">
-            Whether it's an idea, a problem, or a product that needs to exist — let's talk.
+          <p className="text-ink/70 text-lg mb-8">
+            Every project on this page started as a conversation.
           </p>
           <Link
             to="/contact"
             className="group bg-ink text-white font-display font-bold px-8 py-4 rounded-full hover:bg-gray-800 transition-colors inline-flex items-center gap-2"
           >
-            Get in touch <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            Let's talk <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>
