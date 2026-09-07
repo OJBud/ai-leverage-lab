@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
@@ -44,44 +44,44 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-charcoal border border-lime/20 rounded-2xl p-10 text-center">
-        <div className="w-12 h-12 bg-lime/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <ArrowRight className="text-lime" size={20} />
+      <div className="bg-green-50 border border-green-200 rounded-2xl p-10 text-center">
+        <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+          <Check className="text-white" size={20} />
         </div>
-        <h3 className="text-xl font-display font-bold text-white mb-2">Thanks.</h3>
-        <p className="text-steel">I'll come back to you within 48 hours.</p>
+        <h3 className="text-xl font-display font-bold text-primary mb-2">Thanks.</h3>
+        <p className="text-body">I'll come back to you within 48 hours.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-steel mb-2">Name</label>
+        <label htmlFor="name" className="block text-sm font-medium text-primary mb-1.5">Name</label>
         <input
           type="text"
           id="name"
           name="name"
           required
-          className="w-full bg-charcoal border border-white/10 rounded-lg px-4 py-3 text-white placeholder-steel/40 focus:outline-none focus:border-lime/50 transition-colors"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-primary placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors"
           placeholder="Your name"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-steel mb-2">Email</label>
+        <label htmlFor="email" className="block text-sm font-medium text-primary mb-1.5">Email</label>
         <input
           type="email"
           id="email"
           name="email"
           required
-          className="w-full bg-charcoal border border-white/10 rounded-lg px-4 py-3 text-white placeholder-steel/40 focus:outline-none focus:border-lime/50 transition-colors"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-primary placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors"
           placeholder="you@example.com"
         />
       </div>
 
       <div>
-        <label htmlFor="project" className="block text-sm font-medium text-steel mb-2">
+        <label htmlFor="project" className="block text-sm font-medium text-primary mb-1.5">
           What do you want to build or improve?
         </label>
         <textarea
@@ -89,17 +89,17 @@ export default function ContactForm() {
           name="project"
           required
           rows={4}
-          className="w-full bg-charcoal border border-white/10 rounded-lg px-4 py-3 text-white placeholder-steel/40 focus:outline-none focus:border-lime/50 transition-colors resize-none"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-primary placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors resize-none"
           placeholder="Tell me about your idea, project, or problem..."
         />
       </div>
 
       <div>
-        <label htmlFor="budget" className="block text-sm font-medium text-steel mb-2">Rough budget</label>
+        <label htmlFor="budget" className="block text-sm font-medium text-primary mb-1.5">Rough budget</label>
         <select
           id="budget"
           name="budget"
-          className="w-full bg-charcoal border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-lime/50 transition-colors appearance-none"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors"
         >
           <option value="">Select a range</option>
           {budgetOptions.map((opt) => (
@@ -109,26 +109,26 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="source" className="block text-sm font-medium text-steel mb-2">
-          How did you find me? <span className="text-steel/40">(optional)</span>
+        <label htmlFor="source" className="block text-sm font-medium text-primary mb-1.5">
+          How did you find me? <span className="text-muted">(optional)</span>
         </label>
         <input
           type="text"
           id="source"
           name="source"
-          className="w-full bg-charcoal border border-white/10 rounded-lg px-4 py-3 text-white placeholder-steel/40 focus:outline-none focus:border-lime/50 transition-colors"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-primary placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors"
           placeholder="LinkedIn, Google, referral..."
         />
       </div>
 
       {error && (
-        <p className="text-red-400 text-sm">{error}</p>
+        <p className="text-red-600 text-sm">{error}</p>
       )}
 
       <button
         type="submit"
         disabled={submitting}
-        className="w-full bg-lime text-jet font-display font-bold py-4 rounded-lg hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-primary text-white font-display font-bold py-4 rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {submitting ? 'Sending...' : 'Send it over'}
       </button>

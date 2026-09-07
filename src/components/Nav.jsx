@@ -4,10 +4,17 @@ import { Menu, X } from 'lucide-react';
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
 
   useEffect(() => { setIsOpen(false); }, [location.pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const handleWorkClick = (e) => {
     if (isHome) {
@@ -29,10 +36,9 @@ export default function Nav() {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-jet/90 backdrop-blur-md border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="text-lg font-display font-bold text-white tracking-tight flex items-center gap-2">
-          <div className="w-2.5 h-2.5 bg-lime rounded-full shadow-[0_0_10px_rgba(184,255,87,0.5)]" />
+    <nav className={`fixed top-0 w-full z-50 transition-all ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white/80 backdrop-blur-sm'}`}>
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link to="/" className="text-lg font-display font-bold text-primary tracking-tight">
           AI-Leverage-Lab
         </Link>
 
@@ -42,8 +48,8 @@ export default function Nav() {
               key={l.name}
               to={l.path}
               onClick={l.onClick}
-              className={`text-[11px] uppercase tracking-widest font-medium transition-colors ${
-                isActive(l.path) ? 'text-lime' : 'text-steel hover:text-white'
+              className={`text-sm font-medium transition-colors ${
+                isActive(l.path) ? 'text-accent' : 'text-body hover:text-primary'
               }`}
             >
               {l.name}
@@ -52,7 +58,7 @@ export default function Nav() {
         </div>
 
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-primary"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
@@ -61,14 +67,14 @@ export default function Nav() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-charcoal border-b border-white/5 px-6 py-8 flex flex-col gap-6">
+        <div className="md:hidden bg-white border-t border-border px-6 py-8 flex flex-col gap-6">
           {links.map((l) => (
             <Link
               key={l.name}
               to={l.path}
               onClick={l.onClick}
               className={`text-lg font-display font-semibold ${
-                isActive(l.path) ? 'text-lime' : 'text-white'
+                isActive(l.path) ? 'text-accent' : 'text-primary'
               }`}
             >
               {l.name}
