@@ -2,7 +2,7 @@ import { Linkedin, Github } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-12 px-6 bg-white">
+    <footer className="border-t border-border py-12 px-6 bg-canvas">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <p className="text-muted text-sm">
           Built by one person. Powered by many minds.
@@ -27,7 +27,7 @@ export default function Footer() {
             <Github size={18} />
           </a>
           <span className="text-muted/50 text-xs">
-            &copy; {new Date().getFullYear()} AI-Leverage-Lab
+            &copy; {new Date().getFullYear()} Christian Jones
           </span>
         </div>
       </div>

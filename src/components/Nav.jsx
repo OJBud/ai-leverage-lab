@@ -36,10 +36,10 @@ export default function Nav() {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white/80 backdrop-blur-sm'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all ${scrolled ? 'bg-canvas/95 backdrop-blur-md shadow-sm' : 'bg-canvas/80 backdrop-blur-sm'}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="text-lg font-display font-bold text-primary tracking-tight">
-          AI-Leverage-Lab
+        <Link to="/" className="text-lg font-display font-bold text-ink tracking-tight">
+          Christian Jones
         </Link>
 
         <div className="hidden md:flex gap-8 items-center">
@@ -49,7 +49,7 @@ export default function Nav() {
               to={l.path}
               onClick={l.onClick}
               className={`text-sm font-medium transition-colors ${
-                isActive(l.path) ? 'text-accent' : 'text-body hover:text-primary'
+                isActive(l.path) ? 'text-accent' : 'text-body hover:text-ink'
               }`}
             >
               {l.name}
@@ -58,7 +58,7 @@ export default function Nav() {
         </div>
 
         <button
-          className="md:hidden text-primary"
+          className="md:hidden text-ink"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
@@ -67,14 +67,14 @@ export default function Nav() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-border px-6 py-8 flex flex-col gap-6">
+        <div className="md:hidden bg-canvas border-t border-border px-6 py-8 flex flex-col gap-6">
           {links.map((l) => (
             <Link
               key={l.name}
               to={l.path}
               onClick={l.onClick}
               className={`text-lg font-display font-semibold ${
-                isActive(l.path) ? 'text-accent' : 'text-primary'
+                isActive(l.path) ? 'text-accent' : 'text-ink'
               }`}
             >
               {l.name}

@@ -1,22 +1,36 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const tools = [
-  { name: 'Claude', role: 'Strategic Partner', desc: 'Holds the full context of my businesses. My primary collaborator for strategy, development, and long-term thinking.' },
-  { name: 'ChatGPT', role: 'Analyst', desc: 'Cold analysis, research, second opinion. No context bias — used to challenge assumptions.' },
-  { name: 'Boardy.ai', role: 'Pressure Tester', desc: 'Stakeholder simulation and role-play. Finds the holes in my narrative before I pitch.' },
-  { name: 'Gemini', role: 'Creative Production', desc: 'Images, videos, presentations. The visual production arm.' },
-  { name: 'Base44', role: 'Prototyper', desc: 'Rapid prototyping to test viability immediately. Speed over polish.' },
-  { name: 'Napkin.ai', role: 'Visual Thinker', desc: 'Diagrams, visualisations, and mapping complexity into clarity.' },
-  { name: 'NotebookLM', role: 'Synthesiser', desc: 'Processing large amounts of content into usable summaries.' },
-  { name: 'Taqtiq', role: 'Meeting Capture', desc: 'Transcription and conversation capture so nothing is lost.' },
+const processPoints = [
+  {
+    number: '01',
+    title: 'Deep scoping before a line of code',
+    desc: 'Every project starts with understanding the real problem — not just the brief. I pressure-test assumptions, map constraints, and define what "done" actually looks like before building anything.',
+  },
+  {
+    number: '02',
+    title: 'Strategy-informed decisions throughout',
+    desc: 'Architecture, technology, positioning, and go-to-market aren\'t separate workstreams. They\'re considered together, because a decision in one changes the constraints in another.',
+  },
+  {
+    number: '03',
+    title: 'Regular reviews with you',
+    desc: 'You see progress at every stage. Not a waterfall handover — working check-ins where we validate direction and catch misalignment early.',
+  },
+  {
+    number: '04',
+    title: 'A useful handover',
+    desc: 'You get a deployed product, not a folder of files. Clear documentation, access to everything, and a conversation about what comes next.',
+  },
 ];
 
-const quotes = [
-  'You\'re not extracting answers. You\'re co-developing clarity.',
-  'You treat the conversation as a workspace.',
-  'You allow tension.',
-  'You\'re essentially training the interaction to operate above default altitude.',
+const tools = [
+  { name: 'Strategy & context', desc: 'One platform holds the full strategic context of every project and acts as a genuine thinking partner.' },
+  { name: 'Analysis & challenge', desc: 'A different platform provides cold-eyed analysis without context bias — used to challenge assumptions.' },
+  { name: 'Code & execution', desc: 'Dedicated tools for writing, reviewing, and shipping production code at speed.' },
+  { name: 'Visual production', desc: 'Separate tools for images, presentations, and design assets.' },
+  { name: 'Prototyping', desc: 'Rapid prototyping to test viability before committing to a full build.' },
+  { name: 'Research & synthesis', desc: 'Processing large volumes of information into actionable insight.' },
 ];
 
 export default function Method() {
@@ -24,33 +38,64 @@ export default function Method() {
     <div className="pt-24">
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
-        <h1 className="text-4xl md:text-6xl font-display font-bold text-primary mb-4">How I Work</h1>
-        <p className="text-xl text-body">One person. Multiple platforms. Human judgement at the centre.</p>
+        <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">How I Work</h1>
+        <p className="text-xl text-body">Direct access, strategic thinking, and a system that means one person delivers what usually takes a team.</p>
       </section>
 
-      {/* The System */}
+      {/* What you get */}
       <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
-        <h2 className="text-2xl font-display font-bold text-primary mb-6">The System</h2>
+        <h2 className="text-2xl font-display font-bold text-ink mb-6">What This Means For Your Project</h2>
         <p className="text-body leading-relaxed mb-4">
-          I design interactions between multiple platforms — each with different strengths, limitations, and contexts. I act as the orchestrator, not the passenger.
-        </p>
-        <p className="text-body leading-relaxed mb-4">
-          Each platform has a defined role. One holds the full strategic context and acts as a genuine collaborator. Another provides cold-eyed analysis without the context bias. Others handle specific functions: prototyping, visual production, research synthesis.
+          You work directly with the person building your product. No account manager relaying messages, no junior developer interpreting the brief. Every conversation I have with you shapes the build directly.
         </p>
         <p className="text-body leading-relaxed">
-          This isn't about better prompts. It's about system design.
+          That means better scoping, faster decisions, and a product that reflects what you actually need — not what survived a game of telephone.
         </p>
       </section>
 
-      {/* The Ecosystem */}
-      <section className="py-12 border-t border-border bg-section">
+      {/* The Process */}
+      <section className="py-16 border-t border-border bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-display font-bold text-primary mb-8">The Ecosystem</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-2xl font-display font-bold text-ink mb-10">The Process</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {processPoints.map((step) => (
+              <div key={step.number}>
+                <span className="text-accent font-display font-bold text-3xl">{step.number}</span>
+                <h3 className="text-ink font-display font-bold text-sm mt-3 mb-2">{step.title}</h3>
+                <p className="text-body text-sm leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Concrete example */}
+      <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
+        <h2 className="text-2xl font-display font-bold text-ink mb-6">How Judgement Shapes The Build</h2>
+        <div className="bg-peach border border-orange-100 rounded-xl p-6 md:p-8 mb-6">
+          <p className="text-ink leading-relaxed mb-4">
+            When building FirstLook's scoring engine, the first version used simple keyword matching. Analysis from one platform said it would work. I took that output to a different platform holding the full project context — which immediately identified that keyword matching would be gamed within weeks by the same AI tools the product was designed to detect.
+          </p>
+          <p className="text-ink leading-relaxed">
+            That challenge led to the multi-algorithm routing architecture in v3.1 — a fundamentally better product because the system surfaced the problem before users did.
+          </p>
+        </div>
+        <p className="text-ink font-display font-bold text-lg">
+          The value isn't in any single tool. It's in the judgement that governs what moves between them.
+        </p>
+      </section>
+
+      {/* The System — compact */}
+      <section className="py-12 border-t border-border bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-2xl font-display font-bold text-ink mb-3">The System Behind It</h2>
+          <p className="text-body mb-8 max-w-2xl">
+            I use multiple AI platforms, each with a defined role. I act as the orchestrator — deciding what context moves where and what advice to act on.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {tools.map((tool) => (
-              <div key={tool.name} className="bg-white border border-border rounded-xl p-5 hover:shadow-md transition-shadow">
-                <h3 className="text-primary font-display font-bold text-sm mb-0.5">{tool.name}</h3>
-                <p className="text-accent text-xs font-medium mb-3">{tool.role}</p>
+              <div key={tool.name} className="bg-canvas border border-border rounded-xl p-5">
+                <h3 className="text-ink font-display font-bold text-sm mb-1.5">{tool.name}</h3>
                 <p className="text-body text-sm leading-relaxed">{tool.desc}</p>
               </div>
             ))}
@@ -58,44 +103,10 @@ export default function Method() {
         </div>
       </section>
 
-      {/* The Flow */}
-      <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
-        <h2 className="text-2xl font-display font-bold text-primary mb-6">The Flow</h2>
-        <p className="text-body leading-relaxed mb-4">
-          The key insight: intelligence flows <em>between</em> platforms, governed by the human.
-        </p>
-        <div className="bg-section border border-border rounded-xl p-6 md:p-8 mb-6">
-          <p className="text-primary leading-relaxed mb-4">
-            I gave one platform a brief to analyse a codebase. Took the output to another, which holds full project context. That platform reviewed it against real-world constraints. I took the synthesis back to the first, which now has richer context. Each interaction makes the next one better.
-          </p>
-          <p className="text-muted text-sm italic">
-            Each pass adds signal. The human decides what moves.
-          </p>
-        </div>
-        <p className="text-primary font-display font-bold text-lg">
-          The value isn't in any single tool. It's in how intelligence flows between them — and who governs that flow.
-        </p>
-      </section>
-
-      {/* What The Platforms Observe */}
-      <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
-        <h2 className="text-2xl font-display font-bold text-primary mb-4">What Gets Noticed</h2>
-        <p className="text-body mb-8">
-          One of the side effects of working this way: the platforms themselves observe the difference in how the conversation works.
-        </p>
-        <div className="space-y-3">
-          {quotes.map((quote, i) => (
-            <div key={i} className="bg-section border-l-2 border-accent rounded-r-xl p-5">
-              <p className="text-primary text-sm italic">"{quote}"</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* The Principle */}
+      {/* CTA */}
       <section className="max-w-3xl mx-auto px-6 py-16 border-t border-border">
         <blockquote className="text-center">
-          <p className="text-2xl md:text-3xl font-display font-bold text-primary mb-6">
+          <p className="text-2xl md:text-3xl font-display font-bold text-ink mb-6">
             "Most people want answers. This system produces leverage."
           </p>
         </blockquote>
@@ -105,7 +116,7 @@ export default function Method() {
         <div className="text-center">
           <Link
             to="/#work"
-            className="inline-flex items-center gap-2 text-accent font-medium hover:text-primary transition-colors"
+            className="inline-flex items-center gap-2 text-burnt font-medium hover:text-ink transition-colors"
           >
             See the work <ArrowRight size={16} />
           </Link>

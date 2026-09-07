@@ -7,13 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#111827',
-        body: '#4b5563',
-        muted: '#9ca3af',
-        section: '#f9fafb',
-        accent: '#16a34a',
-        lime: '#b8ff57',
-        border: '#e5e7eb',
+        primary: '#171A20',
+        body: '#4B5058',
+        muted: '#8B8F96',
+        canvas: '#FAF8F4',
+        ink: '#171A20',
+        accent: '#FF6B2C',
+        burnt: '#B83A12',
+        peach: '#FFF0E6',
+        border: '#E8E6E1',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

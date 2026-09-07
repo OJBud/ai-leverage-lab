@@ -5,15 +5,15 @@
 @tailwind utilities;
 
 body {
-  background-color: #ffffff;
-  color: #4b5563;
+  background-color: #FAF8F4;
+  color: #4B5058;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  color: #111827;
+  color: #171A20;
 }
 
 .fade-in-up {
@@ -32,6 +32,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background-color: #bbf7d0;
-  color: #111827;
+  background-color: #FFF0E6;
+  color: #171A20;
 }

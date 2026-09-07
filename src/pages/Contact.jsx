@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <div className="pt-24">
       <section className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+        <h1 className="text-4xl md:text-5xl font-display font-bold text-ink mb-4">
           Tell me what you want to build
         </h1>
         <p className="text-body mb-10">
@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="mt-12 pt-8 border-t border-border space-y-3 text-sm text-muted">
           <p>
             Prefer email?{' '}
-            <a href="mailto:christian@budapp.co.uk" className="text-accent hover:text-primary transition-colors">
+            <a href="mailto:christian@budapp.co.uk" className="text-burnt hover:text-ink transition-colors">
               christian@budapp.co.uk
             </a>
           </p>
@@ -26,7 +26,7 @@ export default function Contact() {
               href="https://www.linkedin.com/in/budapp/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent hover:text-primary transition-colors"
+              className="text-burnt hover:text-ink transition-colors"
             >
               linkedin.com/in/budapp
             </a>
