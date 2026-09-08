@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { Underline } from '../components/HandDrawn';
 
 const processPoints = [
   {
@@ -38,7 +39,14 @@ export default function Method() {
     <div className="pt-24">
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
-        <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">How I Work</h1>
+        <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">The bit that makes it all work...</p>
+        <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">
+          The{' '}
+          <span className="relative inline-block">
+            Method
+            <Underline color="#FF6B2C" />
+          </span>
+        </h1>
         <p className="text-xl text-body">Direct access, strategic thinking, and a system that means one person delivers what usually takes a team.</p>
       </section>
 
@@ -106,7 +114,7 @@ export default function Method() {
       {/* CTA */}
       <section className="max-w-3xl mx-auto px-6 py-16 border-t border-border">
         <blockquote className="text-center">
-          <p className="text-2xl md:text-3xl font-display font-bold text-ink mb-6">
+          <p className="font-hand text-3xl md:text-4xl text-accent mb-6">
             "Most people want answers. This system produces leverage."
           </p>
         </blockquote>

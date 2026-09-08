@@ -1,28 +1,31 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { serviceTiers } from '../data/services';
+import { Underline, Arrow } from '../components/HandDrawn';
 
 export default function Home() {
   return (
     <>
-      {/* Hero — outcome-first */}
+      {/* Hero */}
       <section className="min-h-[90vh] flex items-center bg-canvas relative overflow-hidden">
-        {/* Angled accent strip */}
-        <div className="absolute -right-20 top-0 w-[400px] h-full bg-accent/5 rotate-12 origin-top-right hidden lg:block" />
         <div className="max-w-6xl mx-auto px-6 py-32 w-full relative">
           <div className="max-w-3xl fade-in-up">
-            <p className="text-accent font-display font-bold text-sm tracking-widest uppercase mb-6">
-              Strategy &middot; Design &middot; Development
+            <p className="font-hand text-2xl md:text-3xl text-accent mb-4 -rotate-2 origin-left">
+              Strategy, design &amp; development...
             </p>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-ink mb-8 tracking-tight leading-[1.05]">
               From idea<br />
-              to <span className="text-accent">income.</span>
+              to{' '}
+              <span className="relative inline-block">
+                <span className="text-accent">income.</span>
+                <Underline color="#FF6B2C" />
+              </span>
             </h1>
             <p className="text-lg md:text-xl text-body max-w-xl mb-12 leading-relaxed">
               Products that ship and earn. One person, one system — from first
               conversation to paying customers.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
               <Link
                 to="/contact"
                 className="group bg-accent text-ink font-display font-bold px-8 py-4 rounded-full hover:bg-orange-600 hover:text-white transition-colors inline-flex items-center justify-center gap-2"
@@ -36,6 +39,9 @@ export default function Home() {
                 See what's shipped
               </a>
             </div>
+            <p className="font-hand text-lg text-muted mt-6 ml-1">
+              ...all from one person. Seriously.
+            </p>
           </div>
         </div>
       </section>
@@ -43,20 +49,19 @@ export default function Home() {
       {/* ── WORK ── */}
       <section id="work" className="pt-20 md:pt-28 pb-0">
         <div className="max-w-6xl mx-auto px-6 mb-16 fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-3">The Work</h2>
-          <p className="text-body text-lg max-w-2xl">
-            Five projects. Five different problems. Each one built from scratch with
-            strategy, design, and code.
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-2">The Work</h2>
+          <p className="font-hand text-xl text-accent -rotate-1 origin-left">
+            Five problems. Five different solutions.
           </p>
         </div>
 
-        {/* ── FirstLook — full-width hero showcase ── */}
+        {/* ── FirstLook ── */}
         <div className="bg-ink text-white">
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase">SaaS Platform</span>
-                <h3 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4">FirstLook</h3>
+                <p className="font-hand text-xl text-accent mb-2">Hiring is broken...</p>
+                <h3 className="text-3xl md:text-5xl font-display font-bold mt-1 mb-4">FirstLook</h3>
                 <p className="text-gray-300 text-lg leading-relaxed mb-6">
                   Recruiters drowning in AI-generated applications needed a way to spot
                   real candidates before opening a single CV. FirstLook scores engagement,
@@ -113,7 +118,6 @@ export default function Home() {
                     <span className="text-gray-500 font-display font-bold text-xl">FirstLook Dashboard</span>
                   </div>
                 </div>
-                {/* Floating scoring card */}
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4 max-w-[200px] hidden md:block">
                   <img
                     src="/images/firstlook-scoring.png"
@@ -129,11 +133,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── BudApp — community numbers + mobile frame ── */}
+        {/* ── BudApp ── */}
         <div className="bg-canvas">
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
             <div className="grid md:grid-cols-5 gap-12 items-center">
-              {/* Mobile frame — takes 2 cols */}
               <div className="md:col-span-2 flex justify-center">
                 <div className="relative w-[260px]">
                   <div className="rounded-[2rem] overflow-hidden shadow-2xl border-[3px] border-gray-200 bg-white">
@@ -153,7 +156,6 @@ export default function Home() {
                       <span className="text-muted font-display font-bold">BudApp</span>
                     </div>
                   </div>
-                  {/* Route detail card floating */}
                   <div className="absolute -bottom-6 -right-6 w-[160px] rounded-lg shadow-xl overflow-hidden border border-border hidden md:block">
                     <img
                       src="/images/budapp-route.png"
@@ -166,10 +168,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* Copy — takes 3 cols */}
               <div className="md:col-span-3">
-                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase">Community Platform</span>
-                <h3 className="text-3xl md:text-5xl font-display font-bold text-ink mt-3 mb-4">BudApp</h3>
+                <p className="font-hand text-xl text-accent mb-2">Community, not just a map...</p>
+                <h3 className="text-3xl md:text-5xl font-display font-bold text-ink mt-1 mb-4">BudApp</h3>
                 <p className="text-body text-lg leading-relaxed mb-8">
                   Dog owners wanted to share walks, discover routes, and connect locally.
                   Nothing existed beyond map apps with a dog icon. BudApp turned that gap
@@ -215,13 +216,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── Small Circle — design-forward band ── */}
+        {/* ── Small Circle ── */}
         <div className="bg-white border-y border-border">
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase">Brand &amp; Design</span>
-                <h3 className="text-3xl md:text-5xl font-display font-bold text-ink mt-3 mb-4">Small Circle Jujitsu</h3>
+                <p className="font-hand text-xl text-accent mb-2">More than a gym website...</p>
+                <h3 className="text-3xl md:text-5xl font-display font-bold text-ink mt-1 mb-4">Small Circle Jujitsu</h3>
                 <p className="text-body text-lg leading-relaxed mb-6">
                   A martial arts school needed more than a gym website with a class timetable.
                   The brief was to translate precision, philosophy, and heritage into something
@@ -275,13 +276,12 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── SoundPals + KSA — editorial text-led pair ── */}
+        {/* ── SoundPals + KSA ── */}
         <div className="bg-canvas">
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
             <div className="grid md:grid-cols-2 gap-8">
-              {/* SoundPals */}
               <div className="bg-white border border-border rounded-2xl p-8 md:p-10 flex flex-col">
-                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase mb-3">Education &amp; Accessibility</span>
+                <p className="font-hand text-lg text-accent mb-1">Learning through play...</p>
                 <h3 className="text-2xl md:text-3xl font-display font-bold text-ink mb-4">SoundPals</h3>
                 <p className="text-body leading-relaxed mb-4 flex-1">
                   A phonics app designed around how dyslexic children actually learn — multisensory
@@ -301,9 +301,8 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* KSA */}
               <div className="bg-white border border-border rounded-2xl p-8 md:p-10 flex flex-col">
-                <span className="text-accent font-display font-bold text-sm tracking-widest uppercase mb-3">Multi-role Tool</span>
+                <p className="font-hand text-lg text-accent mb-1">Paper to digital...</p>
                 <h3 className="text-2xl md:text-3xl font-display font-bold text-ink mb-4">KSA Surf Passport</h3>
                 <p className="text-body leading-relaxed mb-4 flex-1">
                   Kingsurf Academy ran student progression on paper. Three coaches, one season,
@@ -327,13 +326,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Method Teaser — ink/dark */}
+      {/* Method Teaser */}
       <section className="py-20 md:py-28 px-6 bg-ink">
         <div className="max-w-3xl mx-auto fade-in-up">
           <div className="grid md:grid-cols-5 gap-10 items-start">
             <div className="md:col-span-3">
+              <p className="font-hand text-xl text-accent mb-3">How does one person do all this?</p>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-                Speed without<br />compromise.
+                Speed without<br />
+                <span className="relative inline-block">
+                  compromise.
+                  <Underline color="#FF6B2C" className="-bottom-1" />
+                </span>
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-4">
                 Every project here shipped faster than an agency would quote the discovery phase.
@@ -348,7 +352,7 @@ export default function Home() {
                 to="/method"
                 className="inline-flex items-center gap-2 text-accent font-medium hover:text-white transition-colors"
               >
-                How the system works <ArrowRight size={16} />
+                How the system works <Arrow color="#FF6B2C" size={28} className="inline-block" />
               </Link>
             </div>
             <div className="md:col-span-2 space-y-4">
@@ -369,30 +373,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Social Proof — warm canvas */}
+      {/* Social Proof */}
       <section className="py-16 px-6 bg-canvas">
         <div className="max-w-4xl mx-auto">
           <blockquote className="mb-10 fade-in-up">
-            <div className="text-accent text-6xl font-display leading-none mb-2">&ldquo;</div>
+            <div className="text-accent text-6xl font-hand leading-none mb-2">&ldquo;</div>
             <p className="text-ink text-xl md:text-2xl leading-relaxed max-w-2xl mb-4">
               What I learned in that short meeting was that the answer to my questions
               has as much to do with mindset as it does execution.
             </p>
             <cite className="text-muted text-sm not-italic">
-              Amy Rose Bailey, Founder, CultureSmith Ltd
+              — Amy Rose Bailey, Founder, CultureSmith Ltd
             </cite>
           </blockquote>
         </div>
       </section>
 
-      {/* Services Overview — white */}
+      {/* Services */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="mb-14 fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-3">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-2">
               Three ways to work together
             </h2>
-            <p className="text-body text-lg">Start small or go deep. Every engagement begins with a conversation.</p>
+            <p className="font-hand text-xl text-accent -rotate-1 origin-left">
+              Start small or go deep.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {serviceTiers.map((service) => (
@@ -427,20 +433,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact CTA — orange panel */}
+      {/* Contact CTA */}
       <section className="py-20 md:py-28 px-6 bg-accent">
         <div className="max-w-2xl mx-auto text-center fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-ink mb-6">
+          <p className="font-hand text-2xl text-ink/60 mb-2">Every project started as a conversation.</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-ink mb-8">
             Got an idea?
           </h2>
-          <p className="text-ink/70 text-lg mb-8">
-            Every project on this page started as a conversation.
-          </p>
           <Link
             to="/contact"
             className="group bg-ink text-white font-display font-bold px-8 py-4 rounded-full hover:bg-gray-800 transition-colors inline-flex items-center gap-2"
           >
-            Let's talk <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            Let's talk <Arrow color="#fff" size={24} className="inline-block group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>

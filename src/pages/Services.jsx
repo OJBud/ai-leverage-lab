@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { serviceTiers, processSteps, faqs } from '../data/services';
+import { Underline } from '../components/HandDrawn';
 
 function FaqItem({ faq }) {
   const [open, setOpen] = useState(false);
@@ -26,7 +27,15 @@ export default function Services() {
     <div className="pt-24">
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">What I Can Build For You</h1>
+        <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">Let's build something...</p>
+        <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">
+          What I Can{' '}
+          <span className="relative inline-block">
+            Build
+            <Underline color="#FF6B2C" />
+          </span>{' '}
+          For You
+        </h1>
         <p className="text-xl text-body">Strategy, design, and development. From idea to shipped product.</p>
       </section>
 
