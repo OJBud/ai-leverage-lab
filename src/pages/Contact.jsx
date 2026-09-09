@@ -1,9 +1,27 @@
 import ContactForm from '../components/ContactForm';
+import { pageSeo } from '../data/seo';
+import SEO from '../components/SEO';
 import { Underline, Chat, Sparkle } from '../components/HandDrawn';
 
 export default function Contact() {
   return (
     <div className="pt-24">
+      <SEO
+        title={pageSeo['/contact'].title}
+        description={pageSeo['/contact'].description}
+        path="/contact"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: 'Contact Christian Jones',
+          url: 'https://ai-levels-lab.uk/contact',
+          contactPoint: {
+            '@type': 'ContactPoint',
+            email: 'christian@budapp.co.uk',
+            contactType: 'customer service',
+          },
+        }}
+      />
       <section className="max-w-2xl mx-auto px-6 py-16 md:py-24">
         <div className="relative inline-block mb-4">
           <Chat size={96} className="-rotate-3" />

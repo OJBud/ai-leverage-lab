@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { pageSeo } from '../data/seo';
+import SEO from '../components/SEO';
 import { Underline, Compass, Sparkle, Lightbulb } from '../components/HandDrawn';
 
 const processPoints = [
@@ -37,6 +39,11 @@ const tools = [
 export default function Method() {
   return (
     <div className="pt-24">
+      <SEO
+        title={pageSeo['/method'].title}
+        description={pageSeo['/method'].description}
+        path="/method"
+      />
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
         <Compass size={84} className="mb-4" />

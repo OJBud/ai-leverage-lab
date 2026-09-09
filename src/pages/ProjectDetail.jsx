@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 import { projects } from '../data/projects';
+import SEO from '../components/SEO';
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -25,6 +26,27 @@ export default function ProjectDetail() {
 
   return (
     <div className="pt-24">
+      <SEO
+        title={project.name}
+        description={project.oneLiner}
+        path={`/work/${project.slug}`}
+        ogImage={project.screenshot}
+        ogType="article"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: project.name,
+          description: project.oneLiner,
+          url: `https://ai-levels-lab.uk/work/${project.slug}`,
+          image: `https://ai-levels-lab.uk${project.screenshot}`,
+          author: {
+            '@type': 'Person',
+            name: 'Christian Jones',
+            url: 'https://ai-levels-lab.uk/about',
+          },
+          keywords: project.tags.join(', '),
+        }}
+      />
       {/* Back link */}
       <div className="max-w-6xl mx-auto px-6 py-6">
         <Link

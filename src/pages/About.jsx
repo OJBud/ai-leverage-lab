@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { pageSeo } from '../data/seo';
+import SEO from '../components/SEO';
 import { Underline, Arrow, Compass, Rocket, Sparkle, Sprout } from '../components/HandDrawn';
 
 const credentials = [
@@ -11,6 +13,20 @@ const credentials = [
 export default function About() {
   return (
     <div className="pt-24">
+      <SEO
+        title={pageSeo['/about'].title}
+        description={pageSeo['/about'].description}
+        path="/about"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Christian Jones',
+          url: 'https://ai-levels-lab.uk/about',
+          jobTitle: 'Marketing Operator and Product Builder',
+          description: pageSeo['/about'].description,
+          sameAs: ['https://www.linkedin.com/in/budapp/'],
+        }}
+      />
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">The person behind the work...</p>

@@ -1,11 +1,40 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { serviceTiers } from '../data/services';
+import { pageSeo } from '../data/seo';
+import SEO from '../components/SEO';
 import { Underline, Arrow, Lightbulb, Rocket, Sparkle, Compass } from '../components/HandDrawn';
 
 export default function Home() {
   return (
     <>
+      <SEO
+        title={pageSeo['/'].title}
+        description={pageSeo['/'].description}
+        path="/"
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'AI Levels Lab',
+            url: 'https://ai-levels-lab.uk',
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'ProfessionalService',
+            name: 'AI Levels Lab',
+            url: 'https://ai-levels-lab.uk',
+            description: pageSeo['/'].description,
+            provider: {
+              '@type': 'Person',
+              name: 'Christian Jones',
+              url: 'https://ai-levels-lab.uk/about',
+            },
+            areaServed: 'GB',
+            serviceType: ['Marketing', 'Web Development', 'Product Development', 'Strategy'],
+          },
+        ]}
+      />
       {/* Hero */}
       <section className="min-h-[90vh] flex items-center bg-canvas relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 py-32 w-full relative">

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
@@ -11,7 +11,7 @@ import Contact from './pages/Contact';
 
 export default function App() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <div className="min-h-screen bg-canvas text-body font-sans selection:bg-peach selection:text-ink flex flex-col">
         <Nav />
@@ -27,6 +27,6 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }

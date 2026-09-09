@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { serviceTiers, processSteps, faqs } from '../data/services';
+import { pageSeo } from '../data/seo';
+import SEO from '../components/SEO';
 import { Underline, Sprout, Wrench, Lightbulb, Sparkle } from '../components/HandDrawn';
 
 const capabilityGroups = [
@@ -50,6 +52,27 @@ function FaqItem({ faq }) {
 export default function Services() {
   return (
     <div className="pt-24">
+      <SEO
+        title={pageSeo['/services'].title}
+        description={pageSeo['/services'].description}
+        path="/services"
+        jsonLd={serviceTiers.map((t) => ({
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: t.name,
+          description: t.shortDesc,
+          provider: {
+            '@type': 'Person',
+            name: 'Christian Jones',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: t.price.replace(/[^0-9.]/g, ''),
+            priceCurrency: 'GBP',
+            description: t.shortDesc,
+          },
+        }))}
+      />
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">Let's build something...</p>
