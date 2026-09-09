@@ -97,7 +97,39 @@ export default function ProjectDetail() {
         ))}
       </section>
 
+      {/* How It Grew (marketing / go-to-market) */}
+      {project.growth && (
+        <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
+          <h2 className="text-2xl font-display font-bold text-ink mb-6">How It Grew</h2>
+          {project.growth.map((p, i) => (
+            <p key={i} className="text-body leading-relaxed mb-4">{p}</p>
+          ))}
+        </section>
+      )}
+
+      {/* The Explainer (self-produced video) */}
+      {project.videoId && (
+        <section className="max-w-4xl mx-auto px-6 py-12 border-t border-border">
+          <h2 className="text-2xl font-display font-bold text-ink mb-2">The Explainer</h2>
+          <p className="text-muted text-sm mb-6">
+            Produced solo with Claude Design - marketing execution, not outsourced.
+          </p>
+          <div className="aspect-video rounded-2xl overflow-hidden border border-border bg-ink">
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube-nocookie.com/embed/${project.videoId}`}
+              title={`${project.name} explainer video`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </section>
+      )}
+
       {/* The Product */}
+      {project.screenshots?.length > 0 && (
       <section className="py-12 border-t border-border bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-2xl font-display font-bold text-ink mb-8">The Product</h2>
@@ -125,6 +157,7 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Results & Status */}
       <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">

@@ -3,7 +3,7 @@ export const projects = [
     slug: 'firstlook',
     name: 'FirstLook',
     oneLiner: 'A hiring platform that fights AI-generated application spam',
-    demonstrates: 'Full SaaS product — strategy, positioning, design, development, billing integration',
+    demonstrates: 'Full SaaS product - strategy, positioning, design, development, billing integration',
     tags: ['React', 'Supabase', 'Stripe', 'SaaS'],
     liveUrl: 'https://firstlooknow.com',
     screenshot: '/images/firstlook-hero.png',
@@ -12,20 +12,24 @@ export const projects = [
       'The tools that exist focus on filtering after the damage is done. Nobody was asking the harder question: what if you could tell the difference before you even open the application?',
     ],
     approach: [
-      'I built FirstLook as a full SaaS platform from scratch — positioning, pricing strategy, scoring engine, Stripe billing, marketing site. Every decision from product architecture to go-to-market was mine.',
-      'The scoring engine went through multiple iterations. The first version used simple heuristics. By v3.1, it routes through four distinct algorithms based on configuration, measuring engagement signals, effort indicators, and behavioural patterns that separate genuine candidates from spray-and-pray applications.',
-      'AI was used throughout the build — not as a shortcut, but as a collaborator. Strategy was pressure-tested across multiple AI platforms before a line of code was written. The 20-day build sprint from concept to working product is documented in detail.',
+      'I built FirstLook as a full SaaS platform from scratch - positioning, pricing strategy, scoring engine, Stripe billing, marketing site. Every decision from product architecture to go-to-market was mine.',
+      'The scoring engine went through multiple iterations. The first version was a deliberately simple scoring model. By v3.1, it routes through four distinct algorithms based on configuration, measuring engagement signals, effort indicators, and behavioural patterns that separate genuine candidates from spray-and-pray applications.',
+      'AI was used throughout the build - not as a shortcut, but as a collaborator. Strategy was pressure-tested across multiple AI platforms before a line of code was written. The 20-day build sprint from concept to working product is documented in detail.',
     ],
     screenshots: [
       { src: '/images/firstlook-dashboard.png', caption: 'Employer dashboard with candidate scoring and workflow management' },
-      { src: '/images/firstlook-candidate.png', caption: 'Candidate view with engagement scoring breakdown' },
       { src: '/images/firstlook-scoring.png', caption: 'Scoring engine configuration with multiple algorithm support' },
       { src: '/images/firstlook-role.png', caption: 'Role creation with customisable assessment parameters' },
+    ],
+    videoId: '5e2Sl3jXbmk',
+    growth: [
+      "FirstLook's go-to-market was designed before launch, not bolted on after. The wedge is thought leadership in a genuinely hot topic - AI-generated application spam and what it's doing to hiring - led from the founder's own voice and built in public.",
+      'LinkedIn is the primary channel: entering the live industry debate rather than broadcasting features (one CMO hiring-scenario post cleared 13k+ impressions), reinforced by earned media including a Recruiter.co.uk feature with wire-service pickup. Positioning first, distribution by design - the marketing discipline behind the build.',
     ],
     results: [
       'Live product with Stripe billing active',
       'Press coverage in Recruiter.co.uk with wire service pickup',
-      'Real paying signups — Foodzie (Yue Hang Lee) was the first external user',
+      'Real paying signups - Foodzie (Yue Hang Lee) was the first external user',
       'Pricing validated: Free / £79 Starter / £199 Pro / £49 Pay-Per-Role',
       'Concept to working product in 20 days',
     ],
@@ -39,36 +43,38 @@ export const projects = [
     slug: 'budapp',
     name: 'BudApp',
     oneLiner: 'A community dog walking platform connecting owners and walkers',
-    demonstrates: 'Cross-platform product built and operated solo, from zero to Dogs Trust partnership',
+    demonstrates: 'Cross-platform product built and operated solo, from zero to 1,900 users and press coverage',
     tags: ['Flutter', 'Firebase', 'iOS', 'Android', 'PWA'],
     liveUrl: 'https://budapp.co.uk',
     screenshot: '/images/budapp-hero.png',
     problem: [
-      'Dog owners want to discover walks, share routes, and connect with other walkers. Nothing existed that wasn\'t just a map app with a dog icon. The community aspect — the shared knowledge, the local recommendations, the sense of belonging — was missing entirely.',
+      'Dog owners want to discover walks, share routes, and connect with other walkers. Nothing existed that wasn\'t just a map app with a dog icon. The community aspect - the shared knowledge, the local recommendations, the sense of belonging - was missing entirely.',
       'Building a community platform as a solo founder with no funding meant every architectural and product decision had to be right first time. There was no margin for a costly pivot.',
     ],
     approach: [
       'I built BudApp cross-platform (web, Android, iOS) using Flutter and Firebase. The decision to go cross-platform from day one was strategic: dog owners use every device, and a web presence was essential for SEO and sharing. Solo operation from the first commit.',
-      'Zero paid acquisition. Every user came through organic channels — Facebook community groups, word of mouth, press coverage. The growth strategy was built into the product: shareable walks, community contributions, local relevance.',
-      'AI collaboration shaped every major decision — from database architecture to partnership strategy. The Dogs Trust partnership, BBC coverage, and NSA collaboration all came from strategically-timed outreach informed by AI-assisted positioning work.',
+      'Zero paid acquisition. Every user came through organic channels - Facebook community groups, word of mouth, press coverage. The growth strategy was built into the product: shareable walks, community contributions, local relevance.',
+      'AI collaboration shaped every major decision - from database architecture to partnership strategy. The BBC South West coverage and NSA collaboration came from strategically-timed outreach informed by AI-assisted positioning work.',
     ],
     screenshots: [
       { src: '/images/budapp-walks.png', caption: 'Walk recording with route tracking and community features' },
-      { src: '/images/budapp-community.png', caption: 'Community feed showing shared walks and local recommendations' },
       { src: '/images/budapp-route.png', caption: 'Detailed route view with difficulty ratings and dog-friendly info' },
-      { src: '/images/budapp-store.png', caption: 'App store listing across iOS and Android' },
+    ],
+    videoId: 'U4Zdj4migcs',
+    growth: [
+      "BudApp's growth is the marketing, not a marketing budget. Zero paid acquisition - 1,900+ users in around six months, built founder-led and in public. The engine is local Facebook community groups worked area by area (Westward Ho!, Bideford, Barnstaple and outward), paired with location-based content designed to drive genuine local discovery rather than vanity reach.",
+      'Distribution compounds through mission-aligned partnerships and outreach - the National Sheep Association, the Cinnamon Trust, and ongoing conversations with animal-welfare organisations - plus earned media including BBC South West across online, radio and TV. Two decades of technology marketing, pointed at my own product.',
     ],
     results: [
-      '1,600+ users with zero paid acquisition',
-      'Dogs Trust partnership (6-month validation milestone)',
+      '1,900+ users with zero paid acquisition',
       'BBC South West feature coverage',
       'NSA (National Sheep Association) collaboration',
       '75.5% Android install base retention',
-      'First international walk recorded in Austin, TX — completely organic',
-      'Community contributions overtook founder output — the flywheel is turning',
+      'First international walk recorded in Austin, TX - completely organic',
+      'Community contributions overtook founder output - the flywheel is turning',
     ],
     demonstratesList: [
-      'Full product lifecycle: build, launch, grow, partner — all solo',
+      'Full product lifecycle: build, launch, grow, partner - all solo',
       'Cross-platform development and operation at scale',
       'Organic growth strategy that compounds without spend',
     ],
@@ -82,11 +88,11 @@ export const projects = [
     liveUrl: 'https://smallcircle-fleet.vercel.app',
     screenshot: '/images/smallcircle-hero.png',
     problem: [
-      'A martial arts school needed a website that captured the precision, philosophy, and heritage of Small Circle Jujitsu. Not a generic gym site with stock photos and a class timetable — something that reflected the discipline itself.',
+      'A martial arts school needed a website that captured the precision, philosophy, and heritage of Small Circle Jujitsu. Not a generic gym site with stock photos and a class timetable - something that reflected the discipline itself.',
       'The challenge was translating a physical, deeply traditional art form into a digital experience that felt authentic rather than corporate.',
     ],
     approach: [
-      'Deep brand work came first. I studied the history and principles of Small Circle Jujitsu to develop a visual language that honoured the tradition — calligraphy elements, traditional colour palettes, and careful typography that feels intentional rather than decorative.',
+      'Deep brand work came first. I studied the history and principles of Small Circle Jujitsu to develop a visual language that honoured the tradition - calligraphy elements, traditional colour palettes, and careful typography that feels intentional rather than decorative.',
       'The interactive principles wheel became the centrepiece: a way to explore the core tenets of the art without reading walls of text. Every design decision was in service of the school\'s identity, not my portfolio.',
       'Built in React with attention to performance and mobile experience, because most prospective students would find it on their phone.',
     ],
@@ -98,7 +104,7 @@ export const projects = [
     results: [
       'Live site that serves as a genuine portfolio centrepiece',
       'Distinctive enough to stand apart from every other martial arts website',
-      'Client satisfaction — the site captures what makes the school different',
+      'Client satisfaction - the site captures what makes the school different',
     ],
     demonstratesList: [
       'Design taste and brand thinking that goes beyond templates',
@@ -115,12 +121,12 @@ export const projects = [
     liveUrl: null,
     screenshot: '/images/soundpals-hero.png',
     problem: [
-      'Dyslexic children need phonics support that works with how they learn, not against it. Most educational apps treat accessibility as a checkbox — a high-contrast mode or a larger font. That\'s not enough when the core learning mechanic doesn\'t match how your audience processes information.',
+      'Dyslexic children need phonics support that works with how they learn, not against it. Most educational apps treat accessibility as a checkbox - a high-contrast mode or a larger font. That\'s not enough when the core learning mechanic doesn\'t match how your audience processes information.',
       'The gap isn\'t technology. It\'s empathy in the design process. Understanding that a child who struggles with reading needs to succeed through play, not through more reading.',
     ],
     approach: [
-      'Audience-first design from the start. Every interaction was designed around how dyslexic children actually engage with content — multisensory feedback, consistent spatial layouts, progress that feels like achievement rather than correction.',
-      'Learning through play isn\'t a marketing phrase here — it\'s the core architecture. Phonics concepts are embedded in game mechanics so children practice without feeling like they\'re studying.',
+      'Audience-first design from the start. Every interaction was designed around how dyslexic children actually engage with content - multisensory feedback, consistent spatial layouts, progress that feels like achievement rather than correction.',
+      'Learning through play isn\'t a marketing phrase here - it\'s the core architecture. Phonics concepts are embedded in game mechanics so children practice without feeling like they\'re studying.',
       'Accessibility as a core requirement shaped every decision from colour choices to interaction timing to how feedback is delivered.',
     ],
     screenshots: [
@@ -128,13 +134,13 @@ export const projects = [
       { src: '/images/soundpals-progress.png', caption: 'Progress tracking designed for positive reinforcement' },
     ],
     results: [
-      'In active development — early-stage build',
+      'In active development - early-stage build',
       'Design validated against accessibility requirements for dyslexic users',
     ],
     demonstratesList: [
       'Audience-specific UX that goes beyond surface-level accessibility',
       'Educational product thinking grounded in how people actually learn',
-      'Design empathy — building for an audience whose needs are often overlooked',
+      'Design empathy - building for an audience whose needs are often overlooked',
     ],
   },
   {
@@ -152,7 +158,7 @@ export const projects = [
     approach: [
       'Multi-role application design: Coach view for skill sign-off and session notes, Student view for progress tracking and badge collection, Head Coach view for school-wide oversight and curriculum management.',
       'Badge and milestone-based progression gives students tangible markers of achievement. The curriculum structure was designed with the coaching team, not imposed from outside.',
-      'Built in React with a focus on usability in outdoor conditions — large touch targets, high contrast, works on wet screens.',
+      'Built in React with a focus on usability in outdoor conditions - large touch targets, high contrast, works on wet screens.',
     ],
     screenshots: [
       { src: '/images/ksa-passport.png', caption: 'Student surf passport showing progression through curriculum levels' },
@@ -160,14 +166,14 @@ export const projects = [
       { src: '/images/ksa-coach.png', caption: 'Coach dashboard for managing student progression and sessions' },
     ],
     results: [
-      'Built for Kingsurf Academy — functional product in use',
+      'Built for Kingsurf Academy - functional product in use',
       'Replaced fragmented paper-based tracking with a structured digital system',
       'Multi-role access working across coaches, students, and management',
     ],
     demonstratesList: [
       'Taking a real organisational need and turning it into a structured tool',
       'Multi-role UX design with distinct views for different user types',
-      'Domain-specific product thinking — understanding the context before building',
+      'Domain-specific product thinking - understanding the context before building',
     ],
   },
 ];

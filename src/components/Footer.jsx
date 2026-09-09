@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t border-border py-12 px-6 bg-canvas">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <p className="text-muted text-sm">
-          Built by one person. Powered by many minds.
+          Domain expertise, amplified by AI.
         </p>
         <div className="flex items-center gap-6">
           <a

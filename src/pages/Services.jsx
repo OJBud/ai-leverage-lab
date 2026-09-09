@@ -2,7 +2,32 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { serviceTiers, processSteps, faqs } from '../data/services';
-import { Underline } from '../components/HandDrawn';
+import { Underline, Sprout, Wrench, Lightbulb, Sparkle } from '../components/HandDrawn';
+
+const capabilityGroups = [
+  {
+    title: 'Marketing & Growth',
+    Icon: Sprout,
+    items: [
+      'Full-funnel SaaS marketing - content, campaigns, digital growth',
+      'Organic & community growth - founder-led, building in public',
+      'Partnerships & brand - mission-aligned, content-led',
+      'Content & creative - copywriting, photography, video',
+      'CRM, analytics & SEO - HubSpot, GA4, performance tracking',
+    ],
+  },
+  {
+    title: 'Product & Build',
+    Icon: Wrench,
+    items: [
+      'AI product development - concept to shipped SaaS',
+      'Web & app builds - React, Flutter, Firebase, Supabase, Stripe',
+      'Positioning, pricing & go-to-market',
+      'Design - brand, UX, visual and interactive',
+      'Solo operation of live, revenue-capable products',
+    ],
+  },
+];
 
 function FaqItem({ faq }) {
   const [open, setOpen] = useState(false);
@@ -36,11 +61,48 @@ export default function Services() {
           </span>{' '}
           For You
         </h1>
-        <p className="text-xl text-body">Strategy, design, and development. From idea to shipped product.</p>
+        <p className="text-xl text-body">Marketing, strategy, design and development. From idea to shipped - and grown.</p>
+      </section>
+
+      {/* Capabilities / Specialisms */}
+      <section className="max-w-6xl mx-auto px-6 py-12 md:py-16 border-t border-border">
+        <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">The full range...</p>
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-3">
+          Marketing and build, under one roof
+        </h2>
+        <p className="text-body max-w-2xl mb-10 leading-relaxed">
+          Most people do one or the other. The value here is the overlap - two decades of marketing
+          depth and hands-on product execution in the same head, so strategy and delivery never get
+          lost in translation.
+        </p>
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          {capabilityGroups.map((g) => (
+            <div key={g.title} className="bg-white border border-border rounded-2xl p-8">
+              <g.Icon size={60} className="mb-4" />
+              <h3 className="text-xl font-display font-bold text-ink mb-5">{g.title}</h3>
+              <ul className="space-y-3">
+                {g.items.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-body text-sm leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="bg-peach border border-orange-200 rounded-2xl p-8">
+          <p className="text-ink leading-relaxed">
+            <span className="font-display font-bold">The through-line:</span> twenty years of technology
+            marketing - alongside names like Microsoft, Samsung, Vodafone and Coca-Cola - now executed
+            with AI leverage. The domain expertise most AI-native builders simply don't have.
+          </p>
+        </div>
       </section>
 
       {/* Service Tiers */}
       <section className="max-w-7xl mx-auto px-6 py-12 border-t border-border">
+        <h2 className="text-2xl font-display font-bold text-ink mb-8">Ways to work together</h2>
         <div className="space-y-8">
           {serviceTiers.map((service) => {
             const isHighlighted = service.name === 'Product Sprint';
@@ -109,7 +171,7 @@ export default function Services() {
         </div>
 
         <div className="mt-8 space-y-2 text-body text-sm">
-          <p>Hourly pricing available for ongoing work and smaller tasks. Let's talk about what fits.</p>
+          <p>Ongoing work runs on a day rate or a scoped monthly retainer for marketing and growth - where most of the value compounds. Let's talk about what fits.</p>
           <p>Not sure which tier? Start with a Clarity Session. It's designed to answer exactly that question.</p>
         </div>
       </section>

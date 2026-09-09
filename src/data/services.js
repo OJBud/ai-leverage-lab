@@ -1,7 +1,7 @@
 export const serviceTiers = [
   {
     name: 'Clarity Session',
-    price: '£250',
+    price: '£150',
     shortDesc: 'Assess your idea. Define scope. Identify next steps.',
     whatItIs: 'A 60–90 minute working session focused on your idea.',
     whatYouGet: 'A clear assessment of what to build, what to skip, what it\'ll take, and recommended next steps.',
@@ -12,18 +12,18 @@ export const serviceTiers = [
   },
   {
     name: 'Website Build',
-    price: 'From £2,000',
+    price: 'From £1,500',
     shortDesc: 'Positioning, design, and development. Strategy included.',
     whatItIs: 'Positioning, design, and development of a focused business website.',
     whatYouGet: 'A live, deployed website that communicates clearly, looks distinctive, and works on every device.',
-    whatHappens: 'We start with positioning (what you\'re really saying and to whom), then design, then build. Strategy is included — I don\'t just build what you ask for, I help you figure out what you actually need.',
+    whatHappens: 'We start with positioning (what you\'re really saying and to whom), then design, then build. Strategy is included - I don\'t just build what you ask for, I help you figure out what you actually need.',
     bestFor: 'Businesses that need a website that actually works, not just exists.',
     timeline: '2–4 weeks',
     examples: 'Small Circle Jujitsu',
   },
   {
     name: 'Product Sprint',
-    price: 'From £5,000',
+    price: 'From £3,500',
     shortDesc: 'A working prototype or first version. Scoped, agreed, shipped.',
     whatItIs: 'A tightly scoped prototype or first working version of an app, tool, or platform.',
     whatYouGet: 'A working product with one core workflow, deployed and ready for real users.',
@@ -44,8 +44,8 @@ export const processSteps = [
 
 export const faqs = [
   {
-    q: 'Can one person really build all this?',
-    a: 'See the portfolio. Yes.',
+    q: 'How does one person cover both marketing and build?',
+    a: 'Twenty years of domain expertise, plus AI leverage. The portfolio is the proof.',
   },
   {
     q: 'What tech stack do you use?',

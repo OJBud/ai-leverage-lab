@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { serviceTiers } from '../data/services';
-import { Underline, Arrow } from '../components/HandDrawn';
+import { Underline, Arrow, Lightbulb, Rocket, Sparkle, Compass } from '../components/HandDrawn';
 
 export default function Home() {
   return (
@@ -9,6 +9,11 @@ export default function Home() {
       {/* Hero */}
       <section className="min-h-[90vh] flex items-center bg-canvas relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 py-32 w-full relative">
+          {/* hand-drawn accents */}
+          <Lightbulb size={140} className="hidden md:block absolute top-8 right-6 opacity-90 -rotate-6 pointer-events-none" />
+          <Sparkle size={48} className="hidden md:block absolute top-56 right-52 opacity-80 pointer-events-none" />
+          <Rocket size={108} className="hidden md:block absolute bottom-12 right-14 opacity-80 rotate-12 pointer-events-none" />
+          <Sparkle size={30} className="hidden md:block absolute bottom-52 right-64 opacity-55 pointer-events-none" />
           <div className="max-w-3xl fade-in-up">
             <p className="font-hand text-2xl md:text-3xl text-accent mb-4 -rotate-2 origin-left">
               Strategy, design &amp; development...
@@ -17,13 +22,13 @@ export default function Home() {
               From idea<br />
               to{' '}
               <span className="relative inline-block">
-                <span className="text-accent">income.</span>
+                <span className="text-accent">life.</span>
                 <Underline color="#FF6B2C" />
               </span>
             </h1>
             <p className="text-lg md:text-xl text-body max-w-xl mb-12 leading-relaxed">
-              Products that ship and earn. One person, one system — from first
-              conversation to paying customers.
+              Brands and products, brought to life. Deep expertise, amplified by AI - from first
+              conversation to launch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start">
               <Link
@@ -40,7 +45,7 @@ export default function Home() {
               </a>
             </div>
             <p className="font-hand text-lg text-muted mt-6 ml-1">
-              ...all from one person. Seriously.
+              ...expertise, amplified by AI.
             </p>
           </div>
         </div>
@@ -49,9 +54,10 @@ export default function Home() {
       {/* ── WORK ── */}
       <section id="work" className="pt-20 md:pt-28 pb-0">
         <div className="max-w-6xl mx-auto px-6 mb-16 fade-in-up">
+          <Sparkle size={50} className="mb-2" />
           <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-2">The Work</h2>
           <p className="font-hand text-xl text-accent -rotate-1 origin-left">
-            Five problems. Five different solutions.
+            Different problems. Different solutions.
           </p>
         </div>
 
@@ -61,11 +67,11 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="font-hand text-xl text-accent mb-2">Hiring is broken...</p>
-                <h3 className="text-3xl md:text-5xl font-display font-bold mt-1 mb-4">FirstLook</h3>
+                <h3 className="text-3xl md:text-5xl font-display font-bold mt-1 mb-4 text-white">FirstLook</h3>
                 <p className="text-gray-300 text-lg leading-relaxed mb-6">
                   Recruiters drowning in AI-generated applications needed a way to spot
                   real candidates before opening a single CV. FirstLook scores engagement,
-                  effort, and intent — so hiring managers see signal, not noise.
+                  effort, and intent - so hiring managers see signal, not noise.
                 </p>
                 <div className="flex gap-8 mb-8">
                   <div>
@@ -174,11 +180,11 @@ export default function Home() {
                 <p className="text-body text-lg leading-relaxed mb-8">
                   Dog owners wanted to share walks, discover routes, and connect locally.
                   Nothing existed beyond map apps with a dog icon. BudApp turned that gap
-                  into a community — cross-platform, zero ad spend, growing on word of mouth alone.
+                  into a community - cross-platform, zero ad spend, growing on word of mouth alone.
                 </p>
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   <div className="bg-white border border-border rounded-xl p-4 text-center">
-                    <span className="text-accent font-display font-bold text-2xl md:text-3xl">1,600+</span>
+                    <span className="text-accent font-display font-bold text-2xl md:text-3xl">1,900+</span>
                     <p className="text-muted text-xs mt-1">users</p>
                   </div>
                   <div className="bg-white border border-border rounded-xl p-4 text-center">
@@ -191,7 +197,6 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="text-xs font-medium text-ink bg-peach border border-orange-200 px-3 py-1.5 rounded-full">Dogs Trust partnership</span>
                   <span className="text-xs font-medium text-ink bg-peach border border-orange-200 px-3 py-1.5 rounded-full">BBC South West</span>
                   <span className="text-xs font-medium text-ink bg-peach border border-orange-200 px-3 py-1.5 rounded-full">NSA collaboration</span>
                 </div>
@@ -226,10 +231,10 @@ export default function Home() {
                 <p className="text-body text-lg leading-relaxed mb-6">
                   A martial arts school needed more than a gym website with a class timetable.
                   The brief was to translate precision, philosophy, and heritage into something
-                  you can feel on screen. Deep brand work first, then code.
+                  you can feel on screen. Deep brand work first, then designed, built, and deployed end to end.
                 </p>
                 <p className="text-sm text-muted mb-8 leading-relaxed">
-                  The interactive principles wheel — the centrepiece — lets visitors explore core
+                  The interactive principles wheel - the centrepiece - lets visitors explore core
                   tenets without reading walls of text. Every colour, weight, and spacing decision
                   serves the school's identity, not a template.
                 </p>
@@ -284,7 +289,7 @@ export default function Home() {
                 <p className="font-hand text-lg text-accent mb-1">Learning through play...</p>
                 <h3 className="text-2xl md:text-3xl font-display font-bold text-ink mb-4">SoundPals</h3>
                 <p className="text-body leading-relaxed mb-4 flex-1">
-                  A phonics app designed around how dyslexic children actually learn — multisensory
+                  A phonics app designed around how dyslexic children actually learn - multisensory
                   feedback, game mechanics, progress that feels like achievement.
                   Accessibility as architecture, not afterthought.
                 </p>
@@ -307,7 +312,7 @@ export default function Home() {
                 <p className="text-body leading-relaxed mb-4 flex-1">
                   Kingsurf Academy ran student progression on paper. Three coaches, one season,
                   no shared picture. This turned a fragmented process into a structured digital
-                  curriculum — coach sign-off, student tracking, management oversight.
+                  curriculum - coach sign-off, student tracking, management oversight.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-5">
                   <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">React</span>
@@ -327,11 +332,12 @@ export default function Home() {
       </section>
 
       {/* Method Teaser */}
-      <section className="py-20 md:py-28 px-6 bg-ink">
-        <div className="max-w-3xl mx-auto fade-in-up">
+      <section className="py-20 md:py-28 px-6 bg-ink relative overflow-hidden">
+        <Compass size={124} className="hidden md:block absolute -top-2 right-8 opacity-25 pointer-events-none" />
+        <div className="max-w-3xl mx-auto fade-in-up relative">
           <div className="grid md:grid-cols-5 gap-10 items-start">
             <div className="md:col-span-3">
-              <p className="font-hand text-xl text-accent mb-3">How does one person do all this?</p>
+              <p className="font-hand text-xl text-accent mb-3">How does all this get shipped so fast?</p>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
                 Speed without<br />
                 <span className="relative inline-block">
@@ -341,8 +347,8 @@ export default function Home() {
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-4">
                 Every project here shipped faster than an agency would quote the discovery phase.
-                Not because corners were cut — because one person with the right system eliminates
-                the overhead that slows everything down.
+                Not because corners were cut - because domain expertise plus the right system
+                eliminates the overhead that slows everything down.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
                 Strategy, architecture, design, code, deployment. No handoffs. No lost context.
@@ -358,15 +364,15 @@ export default function Home() {
             <div className="md:col-span-2 space-y-4">
               <div className="border border-white/10 rounded-xl p-5">
                 <span className="text-accent font-display font-bold text-2xl">20 days</span>
-                <p className="text-gray-400 text-sm mt-1">FirstLook: concept to revenue</p>
+                <p className="text-gray-400 text-sm mt-1">FirstLook: concept to working product</p>
               </div>
               <div className="border border-white/10 rounded-xl p-5">
-                <span className="text-accent font-display font-bold text-2xl">1 person</span>
-                <p className="text-gray-400 text-sm mt-1">Strategy through deployment</p>
+                <span className="text-accent font-display font-bold text-2xl">End to end</span>
+                <p className="text-gray-400 text-sm mt-1">Strategy through deployment, no handoffs</p>
               </div>
               <div className="border border-white/10 rounded-xl p-5">
-                <span className="text-accent font-display font-bold text-2xl">5 products</span>
-                <p className="text-gray-400 text-sm mt-1">Shipped and operating</p>
+                <span className="text-accent font-display font-bold text-2xl">Zero ad spend</span>
+                <p className="text-gray-400 text-sm mt-1">Organic growth that compounds</p>
               </div>
             </div>
           </div>
@@ -383,7 +389,7 @@ export default function Home() {
               has as much to do with mindset as it does execution.
             </p>
             <cite className="text-muted text-sm not-italic">
-              — Amy Rose Bailey, Founder, CultureSmith Ltd
+              - Amy Rose Bailey, Founder, CultureSmith Ltd
             </cite>
           </blockquote>
         </div>
@@ -436,6 +442,7 @@ export default function Home() {
       {/* Contact CTA */}
       <section className="py-20 md:py-28 px-6 bg-accent">
         <div className="max-w-2xl mx-auto text-center fade-in-up">
+          <Lightbulb size={78} color="#171A20" className="mx-auto mb-4 opacity-80" />
           <p className="font-hand text-2xl text-ink/60 mb-2">Every project started as a conversation.</p>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-ink mb-8">
             Got an idea?
