@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+// Public Web3Forms access key - safe to expose in client-side code.
+const WEB3FORMS_ACCESS_KEY = 'f9bfd11b-a824-4cca-aa62-11cf07094f6d';
 
 const budgetOptions = [
   'Under £1k',
@@ -25,7 +27,7 @@ export default function ContactForm() {
     const formData = new FormData(e.target);
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
         body: formData,
         headers: { Accept: 'application/json' },
@@ -56,6 +58,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+      <input type="hidden" name="subject" value="New enquiry from AI Levels Lab" />
+      <input type="hidden" name="from_name" value="AI Levels Lab website" />
+      {/* honeypot: bots tick this, humans never see it */}
+      <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-ink mb-1.5">Name</label>
         <input
