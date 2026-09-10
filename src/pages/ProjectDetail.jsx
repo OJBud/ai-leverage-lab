@@ -132,10 +132,7 @@ export default function ProjectDetail() {
       {/* The Explainer (self-produced video) */}
       {project.videoId && (
         <section className="max-w-4xl mx-auto px-6 py-12 border-t border-border">
-          <h2 className="text-2xl font-display font-bold text-ink mb-2">The Explainer</h2>
-          <p className="text-muted text-sm mb-6">
-            Produced solo with Claude Design - marketing execution, not outsourced.
-          </p>
+          <h2 className="text-2xl font-display font-bold text-ink mb-5">The Explainer</h2>
           <div className="aspect-video rounded-2xl overflow-hidden border border-border bg-ink">
             <iframe
               className="w-full h-full"

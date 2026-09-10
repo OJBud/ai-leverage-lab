@@ -276,14 +276,7 @@ export default function Home() {
                   >
                     See the project <ArrowRight size={14} />
                   </Link>
-                  <a
-                    href="https://smallcircle-fleet.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink transition-colors"
-                  >
-                    Visit live <ExternalLink size={14} />
-                  </a>
+
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
