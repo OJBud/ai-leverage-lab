@@ -181,6 +181,7 @@ export default function Home() {
                     <img
                       src="/images/budapp-walks.png"
                       alt="BudApp walk tracking"
+                      loading="lazy"
                       className="w-full aspect-[9/17] object-cover object-top"
                       onError={(e) => {
                         e.target.style.display = 'none';
@@ -195,6 +196,7 @@ export default function Home() {
                     <img
                       src="/images/budapp-route.png"
                       alt="Route detail"
+                      loading="lazy"
                       className="w-full aspect-square object-cover"
                       onError={(e) => {
                         e.target.parentElement.style.display = 'none';
@@ -289,6 +291,7 @@ export default function Home() {
                   <img
                     src="/images/smallcircle-hero.png"
                     alt="Small Circle Jujitsu hero"
+                    loading="lazy"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.parentElement.innerHTML = '<div class="w-full h-full bg-ink flex items-center justify-center"><span class="text-white/40 font-display font-bold text-lg text-center px-4">Small Circle</span></div>';
@@ -299,6 +302,7 @@ export default function Home() {
                   <img
                     src="/images/smallcircle-principles.png"
                     alt="Interactive principles wheel"
+                    loading="lazy"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.parentElement.innerHTML = '<div class="w-full h-full bg-ink flex items-center justify-center"><span class="text-white/40 font-display font-bold text-lg text-center px-4">Principles</span></div>';

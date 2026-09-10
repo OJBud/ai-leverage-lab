@@ -1,11 +1,10 @@
 import { Helmet } from 'react-helmet-async';
+import { SITE_URL, SITE_NAME } from '../data/seo';
 
-const SITE_URL = 'https://ai-levels-lab.uk';
-const SITE_NAME = 'AI Levels Lab';
 const DEFAULT_OG_IMAGE = '/og/default.png';
 
 export default function SEO({ title, description, path = '/', ogImage, ogType = 'website', jsonLd }) {
-  const fullTitle = title === SITE_NAME ? `${title} | Christian Jones` : `${title} | Christian Jones`;
+  const fullTitle = `${title} | Christian Jones`;
   const canonicalUrl = `${SITE_URL}${path}`;
   const imageUrl = `${SITE_URL}${ogImage || DEFAULT_OG_IMAGE}`;
 

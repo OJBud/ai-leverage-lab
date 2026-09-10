@@ -5,6 +5,7 @@ export function Underline({ className = '', color = 'currentColor' }) {
       fill="none"
       className={`absolute left-0 -bottom-2 w-full ${className}`}
       preserveAspectRatio="none"
+      aria-hidden="true"
     >
       <path
         d="M2 8 C30 3, 50 10, 80 6 S130 2, 160 7 S185 4, 198 6"
@@ -24,6 +25,7 @@ export function Arrow({ className = '', color = 'currentColor', size = 32 }) {
       width={size}
       height={size * 0.6}
       className={className}
+      aria-hidden="true"
     >
       <path
         d="M2 14 C8 12, 18 8, 28 10 S34 12, 36 11"
@@ -48,6 +50,7 @@ export function Scribble({ className = '', color = 'currentColor' }) {
       viewBox="0 0 60 60"
       fill="none"
       className={className}
+      aria-hidden="true"
     >
       <path
         d="M30 5 C45 8, 55 20, 52 35 S40 55, 25 53 S5 42, 8 28 S18 8, 30 5"
