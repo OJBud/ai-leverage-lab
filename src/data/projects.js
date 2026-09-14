@@ -16,10 +16,11 @@ export const projects = [
       'The scoring engine went through multiple iterations. The first version was a deliberately simple scoring model. By v3.1, it routes through four distinct algorithms based on configuration, measuring engagement signals, effort indicators, and behavioural patterns that separate genuine candidates from spray-and-pray applications.',
       'AI was used throughout the build - not as a shortcut, but as a collaborator. Strategy was pressure-tested across multiple AI platforms before a line of code was written. The 20-day build sprint from concept to working product is documented in detail.',
     ],
+    productColumns: 3,
     screenshots: [
-      { src: '/images/firstlook-dashboard.png', caption: 'Employer dashboard with candidate scoring and workflow management' },
-      { src: '/images/firstlook-scoring.png', caption: 'Scoring engine configuration with multiple algorithm support' },
-      { src: '/images/firstlook-role.png', caption: 'Role creation with customisable assessment parameters' },
+      { src: '/images/firstlook-dashboard.png', pos: 'top', caption: 'Employer dashboard - candidate scoring and workflow in one place' },
+      { src: '/images/firstlook-scoring.png', pos: 'top', caption: 'Engagement scoring - effort, edits, pastes and tab-switches, not just a CV' },
+      { src: '/images/firstlook-role.png', pos: 'top', caption: 'Role creation - custom assessments built in a guided flow' },
     ],
     videoId: '5e2Sl3jXbmk',
     growth: [
@@ -56,9 +57,10 @@ export const projects = [
       'Zero paid acquisition. Every user came through organic channels - Facebook community groups, word of mouth, press coverage. The growth strategy was built into the product: shareable walks, community contributions, local relevance.',
       'AI collaboration shaped every major decision - from database architecture to partnership strategy. The BBC South West coverage and NSA collaboration came from strategically-timed outreach informed by AI-assisted positioning work.',
     ],
+    productColumns: 2,
     screenshots: [
-      { src: '/images/budapp-walks.png', caption: 'Walk recording with route tracking and community features' },
-      { src: '/images/budapp-route.png', caption: 'Detailed route view with difficulty ratings and dog-friendly info' },
+      { src: '/images/budapp-walks.png', aspect: 'portrait', pos: 'top', caption: 'Community walk discovery - real routes, difficulty and dog-friendly detail on a live map' },
+      { src: '/images/budapp-route.png', aspect: 'portrait', pos: 'top', caption: 'Every walk is a shareable record - conditions, features and turn-by-turn context' },
     ],
     videoId: 'U4Zdj4migcs',
     growth: [
@@ -96,15 +98,18 @@ export const projects = [
       'The interactive principles wheel became the centrepiece: a way to explore the core tenets of the art without reading walls of text. Every design decision was in service of the school\'s identity, not my portfolio.',
       'Built in React with attention to performance and mobile experience, because most prospective students would find it on their phone.',
     ],
+    productTitle: 'The Creative Direction',
+    productIntro: 'The emblem, the ink warrior, the whole visual language - the creative direction was mine, end to end. I studied the art, set the aesthetic, and executed it with AI rather than handing it to a studio. This is design taste applied, not a template dressed up.',
+    productColumns: 2,
     screenshots: [
-      { src: '/images/smallcircle-principles.png', caption: 'Interactive principles wheel exploring core tenets of Small Circle Jujitsu' },
-      { src: '/images/smallcircle-classes.png', caption: 'Class information with schedule and instructor details' },
-      { src: '/images/smallcircle-history.png', caption: 'Heritage section with historical context and lineage' },
+      { src: '/images/smallcircle-emblem.png', aspect: 'square', fit: 'contain', tone: 'dark', caption: 'Bespoke emblem - a brushstroke ensō carrying the kanji and the infinity loop of Small Circle, drawn straight from the school\'s philosophy' },
+      { src: '/images/smallcircle-inkwarrior.png', aspect: 'square', fit: 'contain', tone: 'dark', caption: 'Original sumi-e ink warrior - part of a visual system built to feel like the art itself: precise, traditional, alive' },
+      { src: '/images/smallcircle-principles.png', aspect: 'wide', pos: 'top', feature: true, caption: 'The interactive principles wheel - the centrepiece. Explore the core tenets by touch, no walls of text' },
     ],
     results: [
-      'Live site that serves as a genuine portfolio centrepiece',
+      'A genuine portfolio centrepiece - brand, build and interaction design in one',
       'Distinctive enough to stand apart from every other martial arts website',
-      'Client satisfaction - the site captures what makes the school different',
+      'Captures what makes the school different, not what every template makes them look the same',
     ],
     demonstratesList: [
       'Design taste and brand thinking that goes beyond templates',
@@ -129,9 +134,12 @@ export const projects = [
       'Learning through play isn\'t a marketing phrase here - it\'s the core architecture. Phonics concepts are embedded in game mechanics so children practice without feeling like they\'re studying.',
       'Accessibility as a core requirement shaped every decision from colour choices to interaction timing to how feedback is delivered.',
     ],
+    productColumns: 3,
     screenshots: [
-      { src: '/images/soundpals-gameplay.png', caption: 'Phonics game interface with multisensory feedback' },
-      { src: '/images/soundpals-progress.png', caption: 'Progress tracking designed for positive reinforcement' },
+      { src: '/images/SoundPals.character.png', aspect: 'band', fit: 'contain', tone: 'soft', feature: true, caption: 'Original character illustration - the friendly face of the app, drawn to feel warm and safe for children who find reading hard' },
+      { src: '/images/SoundPals.newpals.png', aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Collectible Sound Pals turn practice into something worth coming back for' },
+      { src: '/images/SoundPals.meetquinn.png', aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Multisensory phonics cards - see it, hear it, say it, with playful illustration throughout' },
+      { src: '/images/SoundPals.learning.png', aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Progress that reads as achievement, not correction - phases and sets that fill as children learn' },
     ],
     results: [
       'In active development - early-stage build',
@@ -150,7 +158,7 @@ export const projects = [
     demonstrates: 'Turning a practical organisational need into a useful tracking tool',
     tags: ['React', 'Multi-role', 'Curriculum Design'],
     liveUrl: null,
-    screenshot: '/images/ksa-hero.png',
+    screenshot: '/images/KSA-hero.png',
     problem: [
       'Kingsurf Academy needed to track student progression through a structured surf curriculum. Coaches needed to sign off skills, students needed to see their progress, and the head coach needed oversight across the entire school.',
       'The existing process was paper-based and fragmented. A student might work with three different coaches across a season, and nobody had a clear picture of where they were in their progression.',
@@ -160,10 +168,11 @@ export const projects = [
       'Badge and milestone-based progression gives students tangible markers of achievement. The curriculum structure was designed with the coaching team, not imposed from outside.',
       'Built in React with a focus on usability in outdoor conditions - large touch targets, high contrast, works on wet screens.',
     ],
+    productColumns: 2,
     screenshots: [
-      { src: '/images/ksa-passport.png', caption: 'Student surf passport showing progression through curriculum levels' },
-      { src: '/images/ksa-badges.png', caption: 'Badge progression with skill sign-off from coaches' },
-      { src: '/images/ksa-coach.png', caption: 'Coach dashboard for managing student progression and sessions' },
+      { src: '/images/KSA-learningobjectives.png', aspect: 'wide', pos: 'top', caption: 'Every skill broken into Learn, Practise, Succeed - students always know what "good" looks like' },
+      { src: '/images/KSA-coachsignoff.png', aspect: 'wide', pos: 'top', caption: 'Coach view - structured sign-off across the whole coaching team, no more lost paper' },
+      { src: '/images/KSA-surfpassportlowerhero.png', aspect: 'wide', pos: 'center', feature: true, caption: 'Surf-name sign-in - built for kids, styled for the ocean it lives beside' },
     ],
     results: [
       'Built for Kingsurf Academy - functional product in use',

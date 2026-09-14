@@ -3,6 +3,19 @@ import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 import { projects } from '../data/projects';
 import SEO from '../components/SEO';
 
+// Full literal class strings so Tailwind's JIT scanner includes them.
+const GRID_COLS = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-3' };
+const COL_SPAN = { 2: 'md:col-span-2', 3: 'md:col-span-3' };
+const ASPECTS = {
+  video: 'aspect-video',
+  wide: 'aspect-[16/9]',
+  band: 'aspect-[16/7]',
+  portrait: 'aspect-[4/5]',
+  tall: 'aspect-[9/16]',
+  phone: 'aspect-[9/18]',
+  square: 'aspect-square',
+};
+
 export default function ProjectDetail() {
   const { slug } = useParams();
   const index = projects.findIndex((p) => p.slug === slug);
@@ -151,28 +164,44 @@ export default function ProjectDetail() {
       {project.screenshots?.length > 0 && (
       <section className="py-12 border-t border-border bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-display font-bold text-ink mb-8">The Product</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {project.screenshots.map((shot, i) => (
-              <div key={i} className="rounded-xl overflow-hidden bg-canvas border border-border">
-                <div className="aspect-video relative">
-                  <img
-                    src={shot.src}
-                    alt={shot.caption}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextElementSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-canvas items-center justify-center hidden">
-                    <span className="text-muted text-sm px-4 text-center">{shot.caption}</span>
+          <h2 className="text-2xl font-display font-bold text-ink mb-3">{project.productTitle || 'The Product'}</h2>
+          {project.productIntro
+            ? <p className="text-body leading-relaxed mb-8 max-w-3xl">{project.productIntro}</p>
+            : <div className="mb-5" />}
+          <div className={`grid gap-6 ${GRID_COLS[project.productColumns] || 'md:grid-cols-2'}`}>
+            {project.screenshots.map((shot, i) => {
+              const aspect = ASPECTS[shot.aspect] || 'aspect-video';
+              const fit = shot.fit === 'contain' ? 'object-contain p-4' : 'object-cover';
+              const pos = shot.pos === 'top' ? 'object-top' : 'object-center';
+              const tone =
+                shot.tone === 'dark' ? 'bg-ink border-white/10'
+                : shot.tone === 'soft' ? 'bg-peach border-orange-100'
+                : 'bg-canvas border-border';
+              const span = shot.feature ? (COL_SPAN[project.productColumns] || '') : '';
+              const dark = shot.tone === 'dark';
+              return (
+                <figure key={i} className={`rounded-xl overflow-hidden border ${tone} ${span}`}>
+                  <div className={`${aspect} relative`}>
+                    <img
+                      src={shot.src}
+                      alt={shot.caption}
+                      className={`w-full h-full ${fit} ${pos}`}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="absolute inset-0 items-center justify-center hidden">
+                      <span className={`text-sm px-4 text-center ${dark ? 'text-white/50' : 'text-muted'}`}>{shot.caption}</span>
+                    </div>
                   </div>
-                </div>
-                <p className="p-4 text-sm text-body">{shot.caption}</p>
-              </div>
-            ))}
+                  {shot.caption && (
+                    <figcaption className={`p-4 text-sm ${dark ? 'text-gray-300' : 'text-body'}`}>{shot.caption}</figcaption>
+                  )}
+                </figure>
+              );
+            })}
           </div>
         </div>
       </section>

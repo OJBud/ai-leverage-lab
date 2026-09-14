@@ -1,7 +1,7 @@
 import { build } from 'vite';
 import { readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -34,7 +34,7 @@ async function prerender() {
     logLevel: 'warn',
   });
 
-  const { render } = await import(resolve(DIST, 'server/entry-server.js'));
+  const { render } = await import(pathToFileURL(resolve(DIST, 'server/entry-server.js')).href);
   const rawTemplate = readFileSync(resolve(DIST, 'index.html'), 'utf-8');
 
   // Strip template's default SEO tags that Helmet will replace per-page

@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
-import { Underline, Arrow, Compass, Rocket, Sparkle, Sprout } from '../components/HandDrawn';
+import { Underline, Arrow, Compass, Rocket, Sparkle, Sprout, Surfboard, BoxingGlove, Kettlebell } from '../components/HandDrawn';
 
 const credentials = [
   { stat: '20+ yrs', label: 'of technology marketing behind the work' },
-  { stat: '£0', label: 'ad spend - 1,900+ users grown organically' },
+  { stat: '1,900+', label: 'users grown for my own products, zero paid' },
   { stat: 'End to end', label: 'strategy, build and growth, one pair of hands' },
 ];
 
@@ -28,7 +28,9 @@ export default function About() {
         }}
       />
       {/* Hero */}
-      <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+      <section className="relative max-w-3xl mx-auto px-6 py-16 md:py-24">
+        <Kettlebell size={72} className="hidden md:block absolute top-20 right-0 opacity-50 -rotate-6 pointer-events-none" />
+        <BoxingGlove size={54} className="hidden md:block absolute top-8 right-24 opacity-40 rotate-12 pointer-events-none" />
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">The person behind the work...</p>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-6">
           Christian{' '}
@@ -142,21 +144,27 @@ export default function About() {
         </Link>
       </section>
 
-      {/* Beyond the desk - light personal close */}
-      <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
-        <Sprout size={66} className="mb-3" />
-        <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Beyond the desk...</p>
-        <h2 className="text-2xl font-display font-bold text-ink mb-6">The rest of it</h2>
-        <p className="text-body leading-relaxed mb-4">
-          I'm based in North Devon. Before marketing there was a science degree - biological
-          chemistry - which is probably why I like problems that have a right answer hiding in
-          the mess somewhere. Outside work you'll find me boxing, on a surfboard, or coaching,
-          having spent years in personal training and the martial arts.
-        </p>
-        <p className="text-body leading-relaxed">
-          None of it is filler. Thinking clearly when it's uncomfortable is a trained skill, and
-          it's the same one that keeps a build on track when the easy path is to cut a corner.
-        </p>
+      {/* Beyond the desk - warm personal close, scattered with the things he loves */}
+      <section className="relative overflow-hidden border-t border-border bg-peach">
+        <Surfboard size={128} className="hidden md:block absolute -top-3 right-12 opacity-60 rotate-12 pointer-events-none" />
+        <BoxingGlove size={96} className="hidden lg:block absolute bottom-10 right-44 opacity-50 -rotate-12 pointer-events-none" />
+        <Kettlebell size={84} className="hidden lg:block absolute top-28 right-72 opacity-40 pointer-events-none" />
+        <Surfboard size={62} className="md:hidden absolute top-5 right-5 opacity-45 rotate-12 pointer-events-none" />
+        <div className="relative max-w-3xl mx-auto px-6 py-14 md:py-20">
+          <Sprout size={66} className="mb-3" />
+          <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Beyond the desk...</p>
+          <h2 className="text-2xl font-display font-bold text-ink mb-6">The rest of it</h2>
+          <p className="text-body leading-relaxed mb-4">
+            I'm based in North Devon. Before marketing there was a science degree - biological
+            chemistry - which is probably why I like problems with a right answer hiding in the
+            mess somewhere. Outside work you'll find me boxing, on a surfboard, or coaching, after
+            years in personal training and the martial arts.
+          </p>
+          <p className="text-body leading-relaxed">
+            It all feeds the work. Thinking clearly when it's uncomfortable is a trained skill -
+            the same one that keeps a build on track when the easy path is to cut a corner.
+          </p>
+        </div>
       </section>
 
       {/* CTA */}
