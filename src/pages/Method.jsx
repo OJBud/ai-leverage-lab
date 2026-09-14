@@ -2,31 +2,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
+import ProcessExplorer from '../components/ProcessExplorer';
 import PersonalDoodle from '../components/PersonalDoodle';
 import { Underline, Sparkle } from '../components/HandDrawn';
-
-const processPoints = [
-  {
-    number: '01',
-    title: 'Deep scoping before a line of code',
-    desc: 'Every project starts with understanding the real problem - not just the brief. I pressure-test assumptions, map constraints, and define what "done" actually looks like before building anything.',
-  },
-  {
-    number: '02',
-    title: 'Strategy-informed decisions throughout',
-    desc: 'Architecture, technology, positioning, and go-to-market aren\'t separate workstreams. They\'re considered together, because a decision in one changes the constraints in another.',
-  },
-  {
-    number: '03',
-    title: 'Regular reviews with you',
-    desc: 'You see progress at every stage. Not a waterfall handover - working check-ins where we validate direction and catch misalignment early.',
-  },
-  {
-    number: '04',
-    title: 'A useful handover',
-    desc: 'You get a deployed product, not a folder of files. Clear documentation, access to everything, and a conversation about what comes next.',
-  },
-];
 
 const tools = [
   { name: 'Strategy & context', desc: 'One platform holds the full strategic context of every project and acts as a genuine thinking partner.' },
@@ -39,14 +17,14 @@ const tools = [
 
 export default function Method() {
   return (
-    <div className="pt-24">
+    <div className="pt-24 method-page">
       <SEO
         title={pageSeo['/method'].title}
         description={pageSeo['/method'].description}
         path="/method"
       />
       {/* Hero */}
-      <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+      <section className="method-intro max-w-3xl mx-auto px-6 py-16 md:py-24">
         <PersonalDoodle kind="ideas" className="site-doodle doodle-intro" />
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">The bit that makes it all work...</p>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">
@@ -70,21 +48,7 @@ export default function Method() {
         </p>
       </section>
 
-      {/* The Process */}
-      <section className="py-16 border-t border-border bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-display font-bold text-ink mb-10">The Process</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processPoints.map((step) => (
-              <div key={step.number}>
-                <span className="text-accent font-display font-bold text-3xl">{step.number}</span>
-                <h3 className="text-ink font-display font-bold text-sm mt-3 mb-2">{step.title}</h3>
-                <p className="text-body text-sm leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProcessExplorer />
 
       {/* Concrete example */}
       <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
@@ -104,7 +68,7 @@ export default function Method() {
       </section>
 
       {/* The System - compact */}
-      <section className="py-12 border-t border-border bg-white">
+      <section className="method-system py-12 border-t border-border bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <Sparkle size={54} className="mb-3" />
           <h2 className="text-2xl font-display font-bold text-ink mb-3">The System Behind It</h2>
@@ -113,7 +77,7 @@ export default function Method() {
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {tools.map((tool) => (
-              <div key={tool.name} className="bg-canvas border border-border rounded-xl p-5">
+              <div key={tool.name} className="method-tool bg-canvas border border-border rounded-xl p-5">
                 <h3 className="text-ink font-display font-bold text-sm mb-1.5">{tool.name}</h3>
                 <p className="text-body text-sm leading-relaxed">{tool.desc}</p>
               </div>

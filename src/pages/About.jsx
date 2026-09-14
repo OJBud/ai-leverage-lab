@@ -160,18 +160,25 @@ export default function About() {
       {/* Beyond the desk - warm personal close, scattered with the things he loves */}
       <section className="relative overflow-hidden border-t border-border bg-peach">
         <div className="relative max-w-3xl mx-auto px-6 py-14 md:py-20">
+          <ul className="personal-doodles" aria-label="The things that make me, me">
+            {[
+              ['surfing', 'In the sea'],
+              ['dog', 'Always Bud'],
+              ['boxing', 'In the ring'],
+              ['coding', 'At the keyboard'],
+              ['ideas', 'The next idea'],
+            ].map(([kind, label]) => (
+              <li key={kind}><PersonalDoodle kind={kind} /><span>{label}</span></li>
+            ))}
+          </ul>
           <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Beyond the desk...</p>
-          <div className="doodle-heading">
-            <h2 className="text-2xl font-display font-bold text-ink mb-6">The rest of it</h2>
-            <PersonalDoodle kind="surfing" className="site-doodle doodle-lean-right" />
-          </div>
+          <h2 className="text-2xl font-display font-bold text-ink mb-6">The rest of it</h2>
           <p className="text-body leading-relaxed mb-4">
             I'm based in North Devon. Before marketing there was a science degree - biological
             chemistry - which is probably why I like problems with a right answer hiding in the
             mess somewhere. Outside work you'll find me boxing, on a surfboard, or coaching, after
             years in personal training and the martial arts.
           </p>
-          <PersonalDoodle kind="boxing" size={68} className="site-doodle doodle-beside-copy" />
           <p className="text-body leading-relaxed">
             It all feeds the work. Thinking clearly when it's uncomfortable is a trained skill -
             the same one that keeps a build on track when the easy path is to cut a corner.

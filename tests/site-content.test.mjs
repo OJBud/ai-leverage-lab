@@ -29,7 +29,7 @@ test('Small Circle artwork uses cream, and enlargement is selective', () => {
 
 test('every published case-study image and the founder photo exist', () => {
   for (const project of projects) {
-    for (const src of [project.screenshot, ...project.screenshots.map((shot) => shot.src)]) {
+    for (const src of [project.screenshot, ...(project.headerImage ? [project.headerImage] : []), ...project.screenshots.map((shot) => shot.src)]) {
       assert.ok(existsSync(resolve(root, 'public', src.slice(1))), src);
     }
   }

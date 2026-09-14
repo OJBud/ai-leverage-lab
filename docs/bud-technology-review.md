@@ -34,3 +34,12 @@ No local terminal or interactive browser was available for this edit.
 - Founder should confirm public metrics, case-study claims and origin-story wording.
 - Company registration number and registered-office details have not been supplied; do not invent them.
 - Dedicated branded raster social-sharing artwork remains a follow-up.
+
+
+## Latest visual refinements
+- Restored the labelled, connected five-doodle group on About. Individual doodles remain on the other pages.
+- Method's process is now an interactive four-stage feature with native tab semantics, arrow/Home/End navigation, visible focus and no autoplay.
+- Services has a charcoal hero, three coloured section links, coloured capability cards, a dark retainer section and stronger pricing accents.
+- BudApp's editorial header uses the supplied beautiful boy.png, copied unchanged to public/images/beautiful-boy.png. Visually inspected: a 1920 x 865 photograph of Bud among bluebells. The full landscape composition is retained; About keeps the photograph of Christian and Bud. Product screenshots and sharing metadata remain separate.
+- The new BudApp header is about 796 KB. The separate, older About photograph still needs optimisation; its large upload could not be visually inspected through the connector.
+- Review process tab interaction, card height, mobile wrapping, connected doodles and the BudApp photo before merging. The original photo still needs web optimisation.

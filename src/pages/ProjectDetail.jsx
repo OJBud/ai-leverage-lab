@@ -100,6 +100,13 @@ export default function ProjectDetail() {
           </a>
         )}
 
+        {project.headerImage ? (
+          <figure className="project-story-photo">
+            <img src={project.headerImage} alt={project.headerAlt} width={project.headerWidth} height={project.headerHeight} decoding="async" fetchPriority="high" />
+            <figcaption>{project.headerCaption}</figcaption>
+          </figure>
+        ) : (
+          <>
         {/* Hero screenshot */}
         <div className="mt-10 rounded-2xl overflow-hidden bg-canvas border border-border">
           <div className="aspect-video relative">
@@ -117,6 +124,8 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
+          </>
+        )}
       </section>
 
       {/* The Problem */}

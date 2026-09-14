@@ -50,6 +50,11 @@ const allProjects = [
     tags: ['React', 'Capacitor', 'Firebase', 'iOS', 'Android'],
     liveUrl: 'https://budapp.co.uk',
     screenshot: '/images/budapp-hero.png',
+    headerImage: '/images/beautiful-boy.png',
+    headerAlt: 'Bud standing among bluebells on a woodland walk',
+    headerWidth: 1920,
+    headerHeight: 865,
+    headerCaption: 'Bud. The reason it all started.',
     problem: [
       'Dog owners want to discover walks, share routes, and connect with other walkers. Nothing existed that wasn\'t just a map app with a dog icon. The community aspect - the shared knowledge, the local recommendations, the sense of belonging - was missing entirely.',
       'Building a community platform as a solo founder with no funding meant every architectural and product decision had to be right first time. There was no margin for a costly pivot.',
