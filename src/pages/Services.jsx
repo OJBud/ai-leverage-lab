@@ -4,10 +4,11 @@ import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { serviceTiers, processSteps, faqs } from '../data/services';
 import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
-import { Underline, Sprout, Wrench, Lightbulb, Sparkle } from '../components/HandDrawn';
+import { Underline, Sprout, Wrench } from '../components/HandDrawn';
 
 const capabilityGroups = [
   {
+    id: 'marketing',
     title: 'Marketing & Growth',
     Icon: Sprout,
     items: [
@@ -19,11 +20,12 @@ const capabilityGroups = [
     ],
   },
   {
+    id: 'products',
     title: 'Product & Build',
     Icon: Wrench,
     items: [
       'AI product development - concept to shipped SaaS',
-      'Web & app builds - React, Flutter, Firebase, Supabase, Stripe',
+      'Websites, cross-platform apps and practical business tools',
       'Positioning, pricing & go-to-market',
       'Design - brand, UX, visual and interactive',
       'Solo operation of live, revenue-capable products',
@@ -36,6 +38,7 @@ function FaqItem({ faq }) {
   return (
     <div className="border-b border-border">
       <button
+        aria-expanded={open}
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left"
       >
@@ -79,7 +82,7 @@ export default function Services() {
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">
           What I Can{' '}
           <span className="relative inline-block">
-            Build
+            Do
             <Underline color="#FF6B2C" />
           </span>{' '}
           For You
@@ -100,7 +103,7 @@ export default function Services() {
         </p>
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {capabilityGroups.map((g) => (
-            <div key={g.title} className="bg-white border border-border rounded-2xl p-8">
+            <div key={g.title} id={g.id} className="bg-white border border-border rounded-2xl p-8">
               <g.Icon size={60} className="mb-4" />
               <h3 className="text-xl font-display font-bold text-ink mb-5">{g.title}</h3>
               <ul className="space-y-3">
@@ -123,8 +126,15 @@ export default function Services() {
         </div>
       </section>
 
+      <section className="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+        <div className="grid md:grid-cols-2 gap-10">
+          <div><p className="bud-eyebrow">ONGOING MARKETING SUPPORT</p><h2 className="text-3xl font-display font-bold text-ink mb-4">Someone to own the work.</h2><p className="text-body leading-relaxed">For SaaS companies and growing businesses that need experienced marketing thinking and hands-on delivery. Positioning, content, campaigns, partnerships and reporting, tied to an agreed set of priorities.</p></div>
+          <div className="bg-peach rounded-xl p-8"><h3 className="text-xl font-display font-bold text-ink mb-3">A scoped monthly retainer</h3><p className="text-body leading-relaxed mb-5">We agree the priorities, capacity and fee before starting. The work can include improving what you already have, not only launching something new.</p><Link to="/contact" className="bud-text-link">Discuss marketing support <ArrowRight size={16} /></Link></div>
+        </div>
+      </section>
+
       {/* Service Tiers */}
-      <section className="max-w-7xl mx-auto px-6 py-12 border-t border-border">
+      <section id="pricing" className="max-w-7xl mx-auto px-6 py-12 border-t border-border">
         <h2 className="text-2xl font-display font-bold text-ink mb-8">Ways to work together</h2>
         <div className="space-y-8">
           {serviceTiers.map((service) => {
@@ -132,6 +142,7 @@ export default function Services() {
             return (
               <div
                 key={service.name}
+                id={service.name === 'Website Build' ? 'websites' : undefined}
                 className={`border rounded-2xl p-8 md:p-10 hover:shadow-lg transition-shadow ${
                   isHighlighted
                     ? 'bg-peach border-orange-200'

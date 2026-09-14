@@ -1,486 +1,131 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
-import { serviceTiers } from '../data/services';
-import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
-import { Underline, Arrow, Lightbulb, Rocket, Sparkle, Compass } from '../components/HandDrawn';
+import IdeaWorkbench from '../components/IdeaWorkbench';
+import { pageSeo, SITE_URL, SITE_NAME } from '../data/seo';
+import { serviceTiers } from '../data/services';
+
+const offers = [
+  { number: '01', title: 'Marketing that moves things.', description: 'Positioning, campaigns, content and partnerships. Hands-on marketing support for SaaS companies and growing businesses.', detail: 'Strategy + ongoing execution', anchor: 'marketing', symbol: 'growth' },
+  { number: '02', title: 'Websites with a point of view.', description: 'A clear story, distinctive design and a site built around what your customers need to do next.', detail: 'Positioning + design + development', anchor: 'websites', symbol: 'website' },
+  { number: '03', title: 'Ideas made into products.', description: 'Apps, practical tools and first versions. Define the useful core, build it, and put it in front of real people.', detail: 'Scoping + UX + working software', anchor: 'products', symbol: 'product' },
+];
+const clientWork = [
+  { slug: 'small-circle', name: 'Small Circle Jujitsu', label: 'BRAND / WEBSITE / INTERACTION', image: '/images/smallcircle-hero.png', alt: 'Small Circle Jujitsu website design', text: 'Translating the character of a martial art into a distinctive digital experience.', tone: 'sand' },
+  { slug: 'soundpals', name: 'SoundPals', label: 'LEARNING / APP / ACCESSIBILITY', image: '/images/SoundPals.character.png', alt: 'A SoundPals character illustration', text: 'A phonics app designed to make learning feel like play. Currently in development.', tone: 'peach' },
+  { slug: 'ksa', name: 'KSA Surf Passport', label: 'COACHING / TOOL / PROGRESSION', image: '/images/KSA-hero.png', alt: 'KSA Surf Passport interface', text: 'A digital learning passport bringing structure to student progress and coach sign-off.', tone: 'blue' },
+];
+
+function OfferSketch({ type }) {
+  return (
+    <svg viewBox="0 0 96 76" width="96" height="76" fill="none" className="offer-sketch" aria-hidden="true">
+      {type === 'growth' ? <><path d="M10 60c19 2 18-24 37-19s19-17 37-28M68 12l17 0-1 17" /><path d="M14 69h69M24 64V53m22 11V49m22 15V35" /></>
+        : type === 'website' ? <><path d="M9 14c23-3 50-2 77 0l-2 49H11L9 14Zm3 13h71M18 20h1m6 0h1m6 0h1" /><path d="M21 39h29m-29 9h19m18-11h16v16H58V37Z" /></>
+        : <><path d="m48 8 31 17-31 17-31-17L48 8Zm0 34v27M17 25v27l31 17 31-17V25" /><path d="m32 16 31 18v14M87 8v11m-6-5h12" /></>}
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
     <>
-      <SEO
-        title={pageSeo['/'].title}
-        description={pageSeo['/'].description}
-        path="/"
-        jsonLd={[
-          {
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'AI Levels Lab',
-            url: 'https://ai-levels-lab.uk',
-          },
-          {
-            '@context': 'https://schema.org',
-            '@type': 'ProfessionalService',
-            name: 'AI Levels Lab',
-            url: 'https://ai-levels-lab.uk',
-            description: pageSeo['/'].description,
-            provider: {
-              '@type': 'Person',
-              name: 'Christian Jones',
-              url: 'https://ai-levels-lab.uk/about',
-            },
-            areaServed: 'GB',
-            serviceType: ['Marketing', 'Web Development', 'Product Development', 'Strategy'],
-          },
-        ]}
-      />
-      {/* Hero */}
-      <section className="min-h-[90vh] flex items-center bg-canvas relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 py-32 w-full relative">
-          {/* hand-drawn accents */}
-          <Lightbulb size={140} className="hidden md:block absolute top-8 right-6 opacity-90 -rotate-6 pointer-events-none" />
-          <Sparkle size={48} className="hidden md:block absolute top-56 right-52 opacity-80 pointer-events-none" />
-          <Rocket size={108} className="hidden md:block absolute bottom-12 right-14 opacity-80 rotate-12 pointer-events-none" />
-          <Sparkle size={30} className="hidden md:block absolute bottom-52 right-64 opacity-55 pointer-events-none" />
-          <div className="max-w-3xl fade-in-up">
-            <p className="font-hand text-2xl md:text-3xl text-accent mb-4 -rotate-2 origin-left">
-              Strategy, design &amp; development...
-            </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-ink mb-8 tracking-tight leading-[1.05]">
-              From idea<br />
-              to{' '}
-              <span className="relative inline-block">
-                <span className="text-accent">life.</span>
-                <Underline color="#FF6B2C" />
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-body max-w-xl mb-12 leading-relaxed">
-              Brands and products, brought to life. Deep expertise, amplified by AI - from first
-              conversation to launch.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-start">
-              <Link
-                to="/contact"
-                className="group bg-accent text-ink font-display font-bold px-8 py-4 rounded-full hover:bg-orange-600 hover:text-white transition-colors inline-flex items-center justify-center gap-2"
-              >
-                Start a conversation <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <a
-                href="#work"
-                className="px-8 py-4 rounded-full text-ink border border-ink/20 hover:border-ink transition-colors text-center font-medium"
-              >
-                See what's shipped
-              </a>
+      <SEO title={pageSeo['/'].title} description={pageSeo['/'].description} path="/" jsonLd={[
+        { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+        { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: SITE_NAME, legalName: 'Bud Technology Ltd', url: SITE_URL, description: pageSeo['/'].description, founder: { '@type': 'Person', name: 'Christian Jones' }, serviceType: ['Marketing', 'Website Design and Development', 'Product Development'] },
+      ]} />
+      <section className="bud-hero">
+        <div className="bud-shell hero-layout">
+          <div className="hero-copy">
+            <p className="bud-eyebrow">INDEPENDENT THINKING. HANDS-ON BUILDING.</p>
+            <h1>From idea<br />to <span className="ink-underline">life.</span></h1>
+            <p className="hero-description">I help founders and small teams shape, build and grow their businesses—with marketing, websites and digital products.</p>
+            <p className="hero-signature">Christian Jones. Human judgement, amplified by AI.</p>
+            <div className="bud-actions">
+              <Link className="bud-button" to="/contact">Tell me what you need <ArrowRight size={17} /></Link>
+              <a className="bud-text-link" href="#work">Explore the work <ArrowRight size={16} /></a>
             </div>
-            <p className="font-hand text-lg text-muted mt-6 ml-1">
-              ...expertise, amplified by AI.
-            </p>
           </div>
+          <IdeaWorkbench />
+        </div>
+        <div className="bud-shell hero-footnote"><span>Founder-led. North Devon. Working wherever you are.</span><a href="#services">Start with what you need <span aria-hidden="true">↓</span></a></div>
+      </section>
+
+      <section id="services" className="bud-section bud-offers">
+        <div className="bud-shell">
+          <div className="bud-section-heading">
+            <div><p className="bud-eyebrow">WHAT I DO</p><h2>Good thinking.<br /><span className="hand-accent">Made useful.</span></h2></div>
+            <p>You might need a better website. A product brought to life. Or someone to take ownership of your marketing. You work directly with me, from the first conversation onwards.</p>
+          </div>
+          <div className="offer-grid">
+            {offers.map((offer) => <article className="offer-card" key={offer.number}>
+              <div className="offer-card-top"><span className="bud-index">{offer.number}</span><OfferSketch type={offer.symbol} /></div>
+              <h3>{offer.title}</h3><p>{offer.description}</p><span className="offer-detail">{offer.detail}</span>
+              <Link to={'/services#' + offer.anchor} className="bud-text-link">How I can help <ArrowRight size={16} /></Link>
+            </article>)}
+          </div>
+          <p className="offer-bottom-note">Already have something live? I can help improve it, too. <Link to="/contact">Let’s talk.</Link></p>
         </div>
       </section>
 
-      {/* ── WORK ── */}
-      <section id="work" className="pt-20 md:pt-28 pb-0">
-        <div className="max-w-6xl mx-auto px-6 mb-16 fade-in-up">
-          <Sparkle size={50} className="mb-2" />
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-2">The Work</h2>
-          <p className="font-hand text-xl text-accent -rotate-1 origin-left">
-            Different problems. Different solutions.
-          </p>
-        </div>
-
-        {/* ── FirstLook ── */}
-        <div className="bg-ink text-white">
-          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="font-hand text-xl text-accent mb-2">Hiring is broken...</p>
-                <h3 className="text-3xl md:text-5xl font-display font-bold mt-1 mb-4 text-white">FirstLook</h3>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                  Recruiters drowning in AI-generated applications needed a way to spot
-                  real candidates before opening a single CV. FirstLook scores engagement,
-                  effort, and intent - so hiring managers see signal, not noise.
-                </p>
-                <div className="flex gap-8 mb-8">
-                  <div>
-                    <span className="text-accent font-display font-bold text-3xl">20</span>
-                    <p className="text-gray-400 text-sm">days to ship</p>
-                  </div>
-                  <div>
-                    <span className="text-accent font-display font-bold text-3xl">v3.1</span>
-                    <p className="text-gray-400 text-sm">scoring engine</p>
-                  </div>
-                  <div>
-                    <span className="text-accent font-display font-bold text-3xl">4</span>
-                    <p className="text-gray-400 text-sm">pricing tiers</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Link
-                    to="/work/firstlook"
-                    className="inline-flex items-center gap-1.5 text-accent font-medium hover:text-white transition-colors"
-                  >
-                    Read the full story <ArrowRight size={14} />
-                  </Link>
-                  <a
-                    href="https://firstlooknow.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    Visit live <ExternalLink size={14} />
-                  </a>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10">
-                  <div className="h-7 bg-gray-800 border-b border-white/10 flex items-center gap-1.5 px-3">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
-                  </div>
-                  <img
-                    src="/images/firstlook-dashboard.png"
-                    alt="FirstLook employer dashboard"
-                    className="w-full aspect-[16/10] object-cover object-top"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextElementSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="w-full aspect-[16/10] bg-gray-900 items-center justify-center hidden">
-                    <span className="text-gray-500 font-display font-bold text-xl">FirstLook Dashboard</span>
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4 max-w-[200px] hidden md:block">
-                  <img
-                    src="/images/firstlook-scoring.png"
-                    alt="Scoring engine"
-                    className="w-full rounded aspect-[4/3] object-cover"
-                    onError={(e) => {
-                      e.target.parentElement.style.display = 'none';
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
+      <section id="work" className="bud-section">
+        <div className="bud-shell">
+          <div className="bud-section-heading">
+            <div><p className="bud-eyebrow">FOUNDER VENTURES</p><h2>I build for myself,<br /><span className="hand-accent">as well as for you.</span></h2></div>
+            <p>BudApp and FirstLook put my own judgement to the test. Product decisions, launch, feedback and growth—not just the handover.</p>
           </div>
-        </div>
-
-        {/* ── BudApp ── */}
-        <div className="bg-canvas">
-          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-            <div className="grid md:grid-cols-5 gap-12 items-center">
-              <div className="md:col-span-2 flex justify-center">
-                <div className="relative w-[260px]">
-                  <div className="rounded-[2rem] overflow-hidden shadow-2xl border-[3px] border-gray-200 bg-white">
-                    <div className="h-6 bg-gray-100 flex items-center justify-center">
-                      <span className="w-14 h-1.5 rounded-full bg-gray-300" />
-                    </div>
-                    <img
-                      src="/images/budapp-walks.png"
-                      alt="BudApp walk tracking"
-                      loading="lazy"
-                      className="w-full aspect-[9/17] object-cover object-top"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextElementSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div className="w-full aspect-[9/17] bg-canvas items-center justify-center hidden">
-                      <span className="text-muted font-display font-bold">BudApp</span>
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-6 -right-6 w-[160px] rounded-lg shadow-xl overflow-hidden border border-border hidden md:block">
-                    <img
-                      src="/images/budapp-route.png"
-                      alt="Route detail"
-                      loading="lazy"
-                      className="w-full aspect-square object-cover"
-                      onError={(e) => {
-                        e.target.parentElement.style.display = 'none';
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="md:col-span-3">
-                <p className="font-hand text-xl text-accent mb-2">Community, not just a map...</p>
-                <h3 className="text-3xl md:text-5xl font-display font-bold text-ink mt-1 mb-4">BudApp</h3>
-                <p className="text-body text-lg leading-relaxed mb-8">
-                  Dog owners wanted to share walks, discover routes, and connect locally.
-                  Nothing existed beyond map apps with a dog icon. BudApp turned that gap
-                  into a community - cross-platform, zero ad spend, growing on word of mouth alone.
-                </p>
-                <div className="grid grid-cols-3 gap-4 mb-8">
-                  <div className="bg-white border border-border rounded-xl p-4 text-center">
-                    <span className="text-accent font-display font-bold text-2xl md:text-3xl">1,900+</span>
-                    <p className="text-muted text-xs mt-1">users</p>
-                  </div>
-                  <div className="bg-white border border-border rounded-xl p-4 text-center">
-                    <span className="text-accent font-display font-bold text-2xl md:text-3xl">£0</span>
-                    <p className="text-muted text-xs mt-1">ad spend</p>
-                  </div>
-                  <div className="bg-white border border-border rounded-xl p-4 text-center">
-                    <span className="text-accent font-display font-bold text-2xl md:text-3xl">75.5%</span>
-                    <p className="text-muted text-xs mt-1">retention</p>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="text-xs font-medium text-ink bg-peach border border-orange-200 px-3 py-1.5 rounded-full">BBC South West</span>
-                  <span className="text-xs font-medium text-ink bg-peach border border-orange-200 px-3 py-1.5 rounded-full">NSA collaboration</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Link
-                    to="/work/budapp"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
-                  >
-                    Read the full story <ArrowRight size={14} />
-                  </Link>
-                  <a
-                    href="https://budapp.co.uk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink transition-colors"
-                  >
-                    Visit live <ExternalLink size={14} />
-                  </a>
-                </div>
-              </div>
+          <article className="venture-card venture-bud">
+            <div className="venture-copy">
+              <span className="project-role">FOUNDED &amp; BUILT</span><h3>BudApp</h3>
+              <p className="venture-deck">Better walks.<br />Shared by people who care.</p>
+              <p>A dog-walking app shaped by the things a generic map misses: local knowledge, dog-friendly details and a community willing to share them.</p>
+              <dl className="venture-stats"><div><dt>1,900+</dt><dd>registered users</dd></div><div><dt>£0</dt><dd>paid acquisition</dd></div></dl>
+              <p className="venture-evidence">BBC coverage · National Sheep Association collaboration</p>
+              <div className="bud-actions"><Link to="/work/budapp" className="bud-text-link">Inside the project <ArrowRight size={16} /></Link><a href="https://budapp.co.uk" target="_blank" rel="noopener noreferrer" className="bud-text-link">Visit BudApp <ExternalLink size={14} /></a></div>
             </div>
-          </div>
-        </div>
-
-        {/* ── Small Circle ── */}
-        <div className="bg-white border-y border-border">
-          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <p className="font-hand text-xl text-accent mb-2">More than a gym website...</p>
-                <h3 className="text-3xl md:text-5xl font-display font-bold text-ink mt-1 mb-4">Small Circle Jujitsu</h3>
-                <p className="text-body text-lg leading-relaxed mb-6">
-                  A martial arts school needed more than a gym website with a class timetable.
-                  The brief was to translate precision, philosophy, and heritage into something
-                  you can feel on screen. Deep brand work first, then designed, built, and deployed end to end.
-                </p>
-                <p className="text-sm text-muted mb-8 leading-relaxed">
-                  The interactive principles wheel - the centrepiece - lets visitors explore core
-                  tenets without reading walls of text. Every colour, weight, and spacing decision
-                  serves the school's identity, not a template.
-                </p>
-                <div className="flex items-center gap-4">
-                  <Link
-                    to="/work/small-circle"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
-                  >
-                    See the project <ArrowRight size={14} />
-                  </Link>
-
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-xl overflow-hidden shadow-lg border border-border aspect-[3/4]">
-                  <img
-                    src="/images/smallcircle-hero.png"
-                    alt="Small Circle Jujitsu hero"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.parentElement.innerHTML = '<div class="w-full h-full bg-ink flex items-center justify-center"><span class="text-white/40 font-display font-bold text-lg text-center px-4">Small Circle</span></div>';
-                    }}
-                  />
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg border border-border aspect-[3/4]">
-                  <img
-                    src="/images/smallcircle-principles.png"
-                    alt="Interactive principles wheel"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.parentElement.innerHTML = '<div class="w-full h-full bg-ink flex items-center justify-center"><span class="text-white/40 font-display font-bold text-lg text-center px-4">Principles</span></div>';
-                    }}
-                  />
-                </div>
-              </div>
+            <div className="venture-visual bud-app-visual">
+              <span className="hand-accent visual-note">It started with a dog.</span>
+              <img src="/images/budapp-walks.png" alt="BudApp community walk discovery" loading="lazy" width="300" height="560" />
+              <span className="visual-caption">A real product, built around a real need.</span>
             </div>
-          </div>
-        </div>
-
-        {/* ── SoundPals + KSA ── */}
-        <div className="bg-canvas">
-          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white border border-border rounded-2xl p-8 md:p-10 flex flex-col">
-                <p className="font-hand text-lg text-accent mb-1">Learning through play...</p>
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-ink mb-4">SoundPals</h3>
-                <p className="text-body leading-relaxed mb-4 flex-1">
-                  A phonics app designed around how dyslexic children actually learn - multisensory
-                  feedback, game mechanics, progress that feels like achievement.
-                  Accessibility as architecture, not afterthought.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-5">
-                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">Education</span>
-                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">UX Design</span>
-                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">Accessibility</span>
-                </div>
-                <Link
-                  to="/work/soundpals"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
-                >
-                  Read the full story <ArrowRight size={14} />
-                </Link>
-              </div>
-
-              <div className="bg-white border border-border rounded-2xl p-8 md:p-10 flex flex-col">
-                <p className="font-hand text-lg text-accent mb-1">Paper to digital...</p>
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-ink mb-4">KSA Surf Passport</h3>
-                <p className="text-body leading-relaxed mb-4 flex-1">
-                  Kingsurf Academy ran student progression on paper. Three coaches, one season,
-                  no shared picture. This turned a fragmented process into a structured digital
-                  curriculum - coach sign-off, student tracking, management oversight.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-5">
-                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">React</span>
-                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">Multi-role</span>
-                  <span className="text-[11px] text-muted border border-border px-2 py-0.5 rounded-full">Curriculum Design</span>
-                </div>
-                <Link
-                  to="/work/ksa"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
-                >
-                  Read the full story <ArrowRight size={14} />
-                </Link>
-              </div>
+          </article>
+          <article className="venture-card venture-firstlook">
+            <div className="venture-copy">
+              <span className="project-role">CO-FOUNDED &amp; BUILT</span><h3>FirstLook</h3>
+              <p className="venture-deck">Look beyond<br />the polished application.</p>
+              <p>A hiring platform that brings effort and engagement signals into the first stage of screening. From positioning and product design to the working platform.</p>
+              <dl className="venture-stats"><div><dt>20 days</dt><dd>concept to working product</dd></div><div><dt>End to end</dt><dd>strategy through build</dd></div></dl>
+              <div className="bud-actions"><Link to="/work/firstlook" className="bud-text-link">Inside the project <ArrowRight size={16} /></Link><a href="https://firstlooknow.com" target="_blank" rel="noopener noreferrer" className="bud-text-link">Visit FirstLook <ExternalLink size={14} /></a></div>
             </div>
-          </div>
+            <div className="venture-visual firstlook-visual"><span className="hand-accent visual-note">From the question to the product.</span><img src="/images/firstlook-dashboard.png" alt="FirstLook employer dashboard" loading="lazy" width="680" height="425" /><span className="visual-caption">The actual interface. No concept mockups.</span></div>
+          </article>
         </div>
       </section>
 
-      {/* Method Teaser */}
-      <section className="py-20 md:py-28 px-6 bg-ink relative overflow-hidden">
-        <Compass size={124} className="hidden md:block absolute -top-2 right-8 opacity-25 pointer-events-none" />
-        <div className="max-w-3xl mx-auto fade-in-up relative">
-          <div className="grid md:grid-cols-5 gap-10 items-start">
-            <div className="md:col-span-3">
-              <p className="font-hand text-xl text-accent mb-3">How does all this get shipped so fast?</p>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-                Speed without<br />
-                <span className="relative inline-block">
-                  compromise.
-                  <Underline color="#FF6B2C" className="-bottom-1" />
-                </span>
-              </h2>
-              <p className="text-gray-300 text-lg leading-relaxed mb-4">
-                Every project here shipped faster than an agency would quote the discovery phase.
-                Not because corners were cut - because domain expertise plus the right system
-                eliminates the overhead that slows everything down.
-              </p>
-              <p className="text-gray-400 leading-relaxed mb-8">
-                Strategy, architecture, design, code, deployment. No handoffs. No lost context.
-                No meetings about meetings.
-              </p>
-              <Link
-                to="/method"
-                className="inline-flex items-center gap-2 text-accent font-medium hover:text-white transition-colors"
-              >
-                How the system works <Arrow color="#FF6B2C" size={28} className="inline-block" />
-              </Link>
-            </div>
-            <div className="md:col-span-2 space-y-4">
-              <div className="border border-white/10 rounded-xl p-5">
-                <span className="text-accent font-display font-bold text-2xl">20 days</span>
-                <p className="text-gray-400 text-sm mt-1">FirstLook: concept to working product</p>
-              </div>
-              <div className="border border-white/10 rounded-xl p-5">
-                <span className="text-accent font-display font-bold text-2xl">End to end</span>
-                <p className="text-gray-400 text-sm mt-1">Strategy through deployment, no handoffs</p>
-              </div>
-              <div className="border border-white/10 rounded-xl p-5">
-                <span className="text-accent font-display font-bold text-2xl">Zero ad spend</span>
-                <p className="text-gray-400 text-sm mt-1">Organic growth that compounds</p>
-              </div>
-            </div>
-          </div>
+      <section className="bud-section client-section">
+        <div className="bud-shell">
+          <div className="bud-section-heading"><div><p className="bud-eyebrow">CLIENT &amp; PARTNER WORK</p><h2>Different people.<br /><span className="hand-accent">Different possibilities.</span></h2></div><p>Each project starts with its audience. The result should feel like their world—not a template with their name on it.</p></div>
+          <div className="client-grid">{clientWork.map((project) => <article className="client-card" key={project.slug}>
+            <Link to={'/work/' + project.slug} className={'client-image client-image-' + project.tone} aria-label={'View ' + project.name}><img src={project.image} alt={project.alt} loading="lazy" width="540" height="380" /></Link>
+            <div className="client-copy"><span className="project-role">{project.label}</span><h3>{project.name}</h3><p>{project.text}</p><Link to={'/work/' + project.slug} className="bud-text-link">See the project <ArrowRight size={16} /></Link></div>
+          </article>)}</div>
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-16 px-6 bg-canvas">
-        <div className="max-w-4xl mx-auto">
-          <blockquote className="mb-10 fade-in-up">
-            <div className="text-accent text-6xl font-hand leading-none mb-2">&ldquo;</div>
-            <p className="text-ink text-xl md:text-2xl leading-relaxed max-w-2xl mb-4">
-              What I learned in that short meeting was that the answer to my questions
-              has as much to do with mindset as it does execution.
-            </p>
-            <cite className="text-muted text-sm not-italic">
-              - Amy Rose Bailey, Founder, CultureSmith Ltd
-            </cite>
-          </blockquote>
+      <section className="bud-section founder-section">
+        <div className="bud-shell founder-layout">
+          <div><p className="bud-eyebrow">THE PERSON YOU WORK WITH</p><h2>Commercial head.<br /><span className="hand-accent">Builder’s hands.</span></h2><p>I’m Christian. Twenty years in technology marketing now sit alongside hands-on product development. I think about who will use something, why they’ll care and how it will reach them—while I’m building it.</p><div className="bud-actions"><Link className="bud-text-link" to="/about">Meet the person behind Bud <ArrowRight size={16} /></Link><Link className="bud-text-link" to="/method">How I work <ArrowRight size={16} /></Link></div></div>
+          <blockquote><span className="quote-mark" aria-hidden="true">“</span><p>What I learned in that short meeting was that the answer to my questions has as much to do with mindset as it does execution.</p><cite>Amy Rose Bailey<br /><span>Founder, CultureSmith Ltd</span></cite></blockquote>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-14 fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-2">
-              Three ways to work together
-            </h2>
-            <p className="font-hand text-xl text-accent -rotate-1 origin-left">
-              Start small or go deep.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {serviceTiers.map((service) => (
-              <div
-                key={service.name}
-                className={`border rounded-2xl p-8 flex flex-col hover:shadow-lg transition-shadow ${
-                  service.name === 'Product Sprint'
-                    ? 'bg-peach border-orange-200'
-                    : 'bg-white border-border'
-                }`}
-              >
-                <h3 className="text-xl font-display font-bold text-ink mb-1">{service.name}</h3>
-                <p className="text-accent font-display font-bold text-lg mb-4">{service.price}</p>
-                <p className="text-body text-sm leading-relaxed flex-1">{service.shortDesc}</p>
-                <Link
-                  to="/contact"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-burnt hover:text-ink transition-colors"
-                >
-                  Enquire <ArrowRight size={14} />
-                </Link>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 text-muted hover:text-burnt transition-colors text-sm"
-            >
-              See full details and process <ArrowRight size={14} />
-            </Link>
-          </div>
+      <section className="bud-section">
+        <div className="bud-shell">
+          <div className="bud-section-heading"><div><p className="bud-eyebrow">A CLEAR WAY IN</p><h2>Start with<br /><span className="hand-accent">something useful.</span></h2></div><p>A focused session, a website or a first product. These are starting points, with scope agreed before work begins.</p></div>
+          <div className="price-grid">{serviceTiers.map((service) => <article className="price-card" key={service.name}><h3>{service.name}</h3><p className="price-value">{service.price}</p><p>{service.shortDesc}</p><Link to="/services#pricing" className="bud-text-link">Scope and details <ArrowRight size={16} /></Link></article>)}</div>
+          <div className="retainer-strip"><div><h3>Need ongoing marketing support?</h3><p>Hands-on campaigns, content and growth, on a scoped monthly retainer.</p></div><Link className="bud-text-link" to="/services#marketing">Talk through what fits <ArrowRight size={16} /></Link></div>
         </div>
       </section>
-
-      {/* Contact CTA */}
-      <section className="py-20 md:py-28 px-6 bg-accent">
-        <div className="max-w-2xl mx-auto text-center fade-in-up">
-          <Lightbulb size={78} color="#171A20" className="mx-auto mb-4 opacity-80" />
-          <p className="font-hand text-2xl text-ink/60 mb-2">Every project started as a conversation.</p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-ink mb-8">
-            Got an idea?
-          </h2>
-          <Link
-            to="/contact"
-            className="group bg-ink text-white font-display font-bold px-8 py-4 rounded-full hover:bg-gray-800 transition-colors inline-flex items-center gap-2"
-          >
-            Let's talk <Arrow color="#fff" size={24} className="inline-block group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </section>
+      <section className="bud-closing"><div className="bud-shell"><p className="bud-eyebrow">A GOOD PLACE TO START</p><h2>What are you<br /><span>working on?</span></h2><p>An idea, a sticking point, or something that could work harder.</p><Link to="/contact" className="bud-button bud-button-dark">Tell me about it <ArrowRight size={18} /></Link><span className="closing-note">You’ll be talking to me. Christian.</span></div></section>
     </>
   );
 }

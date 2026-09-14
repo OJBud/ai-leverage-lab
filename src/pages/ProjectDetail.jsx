@@ -72,6 +72,7 @@ export default function ProjectDetail() {
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 pb-12">
+        {project.relationship && <p className="bud-eyebrow">{project.relationship}</p>}
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">{project.name}</h1>
         <p className="text-xl text-body mb-6">{project.oneLiner}</p>
 

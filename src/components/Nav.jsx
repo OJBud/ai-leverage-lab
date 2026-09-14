@@ -1,88 +1,39 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import Brand from './Brand';
+
+const links = [
+  { name: 'What I do', path: '/services' },
+  { name: 'The work', path: '/#work' },
+  { name: 'About', path: '/about' },
+  { name: 'How I work', path: '/method' },
+];
 
 export default function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
-
-  useEffect(() => { setIsOpen(false); }, [location.pathname]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const handleWorkClick = (e) => {
-    if (isHome) {
-      e.preventDefault();
-      document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const links = [
-    { name: 'Work', path: isHome ? '#work' : '/#work', onClick: handleWorkClick },
-    { name: 'Method', path: '/method' },
-    { name: 'Services', path: '/services' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
-  const isActive = (path) => {
-    if (path === '#work' || path === '/#work') return false;
-    return location.pathname === path;
-  };
-
+  const [openAt, setOpenAt] = useState(null);
+  const currentLocation = location.pathname + location.hash;
+  const isOpen = openAt === currentLocation;
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all ${scrolled ? 'bg-canvas/95 backdrop-blur-md shadow-sm' : 'bg-canvas/80 backdrop-blur-sm'}`}>
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="text-lg font-display font-bold text-ink tracking-tight">
-          Bud Technology
-        </Link>
-
-        <div className="hidden md:flex gap-8 items-center">
-          {links.map((l) => (
-            <Link
-              key={l.name}
-              to={l.path}
-              onClick={l.onClick}
-              className={`text-sm font-medium transition-colors ${
-                isActive(l.path) ? 'text-accent' : 'text-body hover:text-ink'
-              }`}
-            >
-              {l.name}
-            </Link>
-          ))}
+    <>
+      <a className="bud-skip" href="#main-content">Skip to content</a>
+      <nav className="bud-nav" aria-label="Main navigation">
+        <div className="bud-shell bud-nav-inner">
+          <Link to="/" aria-label="Bud Technology home" onClick={() => setOpenAt(null)}><Brand /></Link>
+          <div className="bud-nav-links">
+            {links.map((link) => <Link key={link.path} to={link.path} aria-current={currentLocation === link.path ? 'page' : undefined}>{link.name}</Link>)}
+            <Link to="/contact" className="bud-nav-cta">Let’s talk <span aria-hidden="true">↗</span></Link>
+          </div>
+          <button type="button" className="bud-menu-toggle" aria-label={isOpen ? 'Close menu' : 'Open menu'} aria-expanded={isOpen} aria-controls="bud-mobile-navigation" onClick={() => setOpenAt(isOpen ? null : currentLocation)}>
+            {isOpen ? <X size={23} /> : <Menu size={23} />}
+          </button>
         </div>
-
-        <button
-          className="md:hidden text-ink"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className="md:hidden bg-canvas border-t border-border px-6 py-8 flex flex-col gap-6">
-          {links.map((l) => (
-            <Link
-              key={l.name}
-              to={l.path}
-              onClick={l.onClick}
-              className={`text-lg font-display font-semibold ${
-                isActive(l.path) ? 'text-accent' : 'text-ink'
-              }`}
-            >
-              {l.name}
-            </Link>
-          ))}
-        </div>
-      )}
-    </nav>
+        {isOpen && <div className="bud-mobile-menu" id="bud-mobile-navigation" onKeyDown={(event) => { if (event.key === 'Escape') setOpenAt(null); }}>
+          {links.map((link) => <Link key={link.path} to={link.path} onClick={() => setOpenAt(null)}>{link.name}</Link>)}
+          <Link to="/contact" onClick={() => setOpenAt(null)}>Let’s talk ↗</Link>
+        </div>}
+      </nav>
+    </>
   );
 }

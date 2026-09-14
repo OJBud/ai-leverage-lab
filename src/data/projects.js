@@ -1,6 +1,7 @@
 export const projects = [
   {
     slug: 'firstlook',
+    relationship: 'Founder venture · Co-founded and built',
     name: 'FirstLook',
     oneLiner: 'A hiring platform that fights AI-generated application spam',
     demonstrates: 'Full SaaS product - strategy, positioning, design, development, billing integration',
@@ -12,7 +13,7 @@ export const projects = [
       'The tools that exist focus on filtering after the damage is done. Nobody was asking the harder question: what if you could tell the difference before you even open the application?',
     ],
     approach: [
-      'I built FirstLook as a full SaaS platform from scratch - positioning, pricing strategy, scoring engine, Stripe billing, marketing site. Every decision from product architecture to go-to-market was mine.',
+      'I co-founded FirstLook and led the build of the platform: positioning, product design, scoring engine, billing integration and marketing site.',
       'The scoring engine went through multiple iterations. The first version was a deliberately simple scoring model. By v3.1, it routes through four distinct algorithms based on configuration, measuring engagement signals, effort indicators, and behavioural patterns that separate genuine candidates from spray-and-pray applications.',
       'AI was used throughout the build - not as a shortcut, but as a collaborator. Strategy was pressure-tested across multiple AI platforms before a line of code was written. The 20-day build sprint from concept to working product is documented in detail.',
     ],
@@ -42,10 +43,11 @@ export const projects = [
   },
   {
     slug: 'budapp',
+    relationship: 'Founder venture · Founded and built',
     name: 'BudApp',
     oneLiner: 'A community dog walking platform connecting owners and walkers',
     demonstrates: 'Cross-platform product built and operated solo, from zero to 1,900 users and press coverage',
-    tags: ['Flutter', 'Firebase', 'iOS', 'Android', 'PWA'],
+    tags: ['React', 'Capacitor', 'Firebase', 'iOS', 'Android'],
     liveUrl: 'https://budapp.co.uk',
     screenshot: '/images/budapp-hero.png',
     problem: [
@@ -53,7 +55,7 @@ export const projects = [
       'Building a community platform as a solo founder with no funding meant every architectural and product decision had to be right first time. There was no margin for a costly pivot.',
     ],
     approach: [
-      'I built BudApp cross-platform (web, Android, iOS) using Flutter and Firebase. The decision to go cross-platform from day one was strategic: dog owners use every device, and a web presence was essential for SEO and sharing. Solo operation from the first commit.',
+      'I built BudApp cross-platform (web, Android, iOS) using React, Capacitor and Firebase. The decision to go cross-platform from day one was strategic: dog owners use every device, and a web presence was essential for SEO and sharing. Solo operation from the first commit.',
       'Zero paid acquisition. Every user came through organic channels - Facebook community groups, word of mouth, press coverage. The growth strategy was built into the product: shareable walks, community contributions, local relevance.',
       'AI collaboration shaped every major decision - from database architecture to partnership strategy. The BBC South West coverage and NSA collaboration came from strategically-timed outreach informed by AI-assisted positioning work.',
     ],
@@ -83,6 +85,7 @@ export const projects = [
   },
   {
     slug: 'small-circle',
+    relationship: 'Client work · Brand and website',
     name: 'Small Circle Jujitsu',
     oneLiner: 'A distinctive website for a martial arts school in Fleet, Hampshire',
     demonstrates: 'Visual design, brand identity, interactive experiences, distinctive aesthetic',
@@ -119,12 +122,13 @@ export const projects = [
   },
   {
     slug: 'soundpals',
+    relationship: 'Client work · App in development',
     name: 'SoundPals',
     oneLiner: 'A learning app helping dyslexic children master phonics through play',
     demonstrates: 'Audience-specific UX design, educational product thinking, accessibility',
     tags: ['Education', 'UX Design', 'Accessibility'],
     liveUrl: null,
-    screenshot: '/images/soundpals-hero.png',
+    screenshot: '/images/SoundPals.character.png',
     problem: [
       'Dyslexic children need phonics support that works with how they learn, not against it. Most educational apps treat accessibility as a checkbox - a high-contrast mode or a larger font. That\'s not enough when the core learning mechanic doesn\'t match how your audience processes information.',
       'The gap isn\'t technology. It\'s empathy in the design process. Understanding that a child who struggles with reading needs to succeed through play, not through more reading.',
@@ -153,6 +157,7 @@ export const projects = [
   },
   {
     slug: 'ksa',
+    relationship: 'Partner work · Learning passport',
     name: 'KSA Surf Passport',
     oneLiner: 'A curriculum tracker turning surf coaching into structured progression',
     demonstrates: 'Turning a practical organisational need into a useful tracking tool',
@@ -160,7 +165,7 @@ export const projects = [
     liveUrl: null,
     screenshot: '/images/KSA-hero.png',
     problem: [
-      'Kingsurf Academy needed to track student progression through a structured surf curriculum. Coaches needed to sign off skills, students needed to see their progress, and the head coach needed oversight across the entire school.',
+      'Kingsley Surf Academy needed to track student progression through a structured surf curriculum. Coaches needed to sign off skills, students needed to see their progress, and the head coach needed oversight across the entire school.',
       'The existing process was paper-based and fragmented. A student might work with three different coaches across a season, and nobody had a clear picture of where they were in their progression.',
     ],
     approach: [
@@ -175,7 +180,7 @@ export const projects = [
       { src: '/images/KSA-surfpassportlowerhero.png', aspect: 'wide', pos: 'center', feature: true, caption: 'Surf-name sign-in - built for kids, styled for the ocean it lives beside' },
     ],
     results: [
-      'Built for Kingsurf Academy - functional product in use',
+      'Built for Kingsley Surf Academy - functional product in use',
       'Replaced fragmented paper-based tracking with a structured digital system',
       'Multi-role access working across coaches, students, and management',
     ],

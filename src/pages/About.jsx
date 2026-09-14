@@ -40,10 +40,22 @@ export default function About() {
           </span>
         </h1>
         <p className="text-xl text-body leading-relaxed">
-          Marketing operator and product builder. Two decades getting products in front of
+          Founder of Bud Technology. Marketing operator and product builder. Two decades getting products in front of
           the right people - and building the products themselves. Whatever you're launching,
           strategy and execution come from one pair of hands.
         </p>
+      </section>
+
+      {/* The name is personal; the original photo can be added here once accessible. */}
+      <section className="bud-section bud-origin">
+        <div className="bud-shell bud-origin-layout">
+          <div><p className="bud-eyebrow">WHY BUD TECHNOLOGY?</p><h2>It started<br /><span className="hand-accent">with my dog.</span></h2></div>
+          <div>
+            <p>Bud was my dog, and the inspiration for BudApp. What began with our walks became a product for other people and their dogs.</p>
+            <p>After losing him, carrying his name forward became even more important to me. Bud Technology brings my work under that name: the products I build, and the work I do with other people.</p>
+            <p className="origin-signature">His name. The next chapter.</p>
+          </div>
+        </div>
       </section>
 
       {/* Credentials strip */}
@@ -103,8 +115,8 @@ export default function About() {
           <p className="text-gray-300 leading-relaxed mb-4">
             Advising is one thing. Doing it with your own name on the line is another. So I built
             <span className="text-white font-medium"> BudApp</span> - a community dog-walking platform grown to
-            1,900+ users in six months with zero paid marketing, through organic social, local
-            Facebook communities and mission-aligned partnerships. Then
+            1,900+ users with zero paid marketing, through organic social, local
+            Facebook communities and mission-aligned partnerships. Then I co-founded
             <span className="text-white font-medium"> FirstLook</span>, an early-stage SaaS product taken from
             positioning to live, billing and all.
           </p>

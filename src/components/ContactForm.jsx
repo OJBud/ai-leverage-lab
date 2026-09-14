@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 // Public Web3Forms access key - safe to expose in client-side code.
@@ -59,8 +59,8 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
-      <input type="hidden" name="subject" value="New enquiry from AI Levels Lab" />
-      <input type="hidden" name="from_name" value="AI Levels Lab website" />
+      <input type="hidden" name="subject" value="New enquiry from Bud Technology" />
+      <input type="hidden" name="from_name" value="Bud Technology website" />
       {/* honeypot: bots tick this, humans never see it */}
       <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
       <div>
