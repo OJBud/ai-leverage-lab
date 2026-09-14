@@ -36,7 +36,7 @@ export default function Contact() {
           </span>
         </h1>
         <p className="text-body mb-10">
-          Whether you need marketing support, a better website, or a product brought to life — start here. You’ll be talking directly to me, Christian.
+          Whether you need marketing support, a better website, or a product brought to life - start here. You’ll be talking directly to me, Christian.
         </p>
 
         <ContactForm />

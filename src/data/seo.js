@@ -15,7 +15,7 @@ export const pageSeo = {
     description: 'Hands-on marketing support, website builds and product sprints. Explore ways to work with Christian Jones at Bud Technology.',
   },
   '/about': {
-    title: 'Christian Jones — the person behind Bud',
+    title: 'Christian Jones - the person behind Bud',
     description: 'Meet the founder of Bud Technology: marketing operator, product builder and the person behind BudApp. Discover the story behind the name.',
   },
   '/contact': {

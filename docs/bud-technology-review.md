@@ -1,50 +1,36 @@
-# Bud Technology — review handoff
+# Bud Technology - review handoff
 
 ## Scope
-- Existing domain, routes, hosting and enquiry destination retained.
-- Founder-led Bud Technology identity; no new subscriptions or dependencies.
-- Services precede portfolio. Founder ventures are distinct from client/partner work.
-- Real product screenshots, CSS composition and inline SVG illustrations; no invented product UI.
-- Existing prices preserved. Marketing retainer introduced without inventing a price.
-- About includes the reason for the Bud name; supplied photograph still pending access.
 
-## Photo
-The attachment “Bud and me.jpg” was not accessible to the editing session.
-No substitute was generated and no missing image URL is included.
-When the original is accessible, inspect it, remove location/device EXIF from a web copy,
-and add it to public/images/christian-and-bud.jpg. Retain the original separately.
-Place alongside the origin story in src/pages/About.jsx. Show both Christian and Bud
-without a tight crop; use a responsive image with natural height and a quiet caption.
-Do not retouch faces or convert the photograph into an AI illustration.
+Work stays on `polish/round-2`, draft PR #2. No merge to main or production promotion.
+Existing domain, dependencies, prices and contact destination are retained.
 
-## Verification completed
-- Checked all literal image paths in changed files against the repository tree.
-- Checked relative import destinations in changed JS/JSX files.
-- Checked service and portfolio anchor targets exist.
-- Checked changed files contain no old visible AI Levels Lab branding.
-- Preserved Web3Forms destination/access key and existing email contact.
-- No changes to main and no production publish.
+## Review refinements
 
-## Still required before merge
-The editing session has GitHub access but no terminal/browser runtime.
-Run:
-    npm ci
-    npm run build
-    npm run lint
+- Small Circle emblem and ink warrior now sit on cream in both gallery and expanded view.
+- Removed em-dashes from site copy and metadata.
+- Founder story uses the original "Bud and me" photograph from main, copied unchanged to the URL-safe `public/images/christian-and-bud.jpg`.
+- `budhero.png` is carried onto this branch for comparison, but is not placed without a visual inspection.
+- KSA source and assets remain, with `published: false`. Exported projects, previous/next navigation, prerender routes and sitemap all use the same published list. Direct unpublished routes show an unavailable page with noindex.
+- SoundPals remains visible, labelled as in development.
+- Eleven selected gallery images have an accessible native dialog with fit/zoom, original link, Escape, close and return focus. Decorative SoundPals character remains static.
+- About's ambiguous scattered symbols are replaced by a labelled SVG set for surfing, Bud, boxing, coding and ideas.
 
-Review desktop (1440 and 1024 px), tablet (768 px), and mobile (390 and 320 px):
-- Hero composition: no overlaps with text or horizontal overflow.
-- Mobile menu opens/closes; keyboard access and visible focus.
-- Cross-page work and services anchor links, back navigation and direct route refresh.
-- All five case studies and actual image rendering.
-- Reduced-motion setting and screen-reader navigation.
-- Contact validation and success/error behaviour (only submit a test with permission).
-- Home and inner-page titles, canonical URLs and social metadata.
-- Photo integration and approval of personal story.
-- Confirm company details for footer before production release.
+## Verification
 
-The generic sharing image currently uses the real BudApp hero, not the old AI Levels Lab
-sharing graphic. A branded 1200x630 PNG social card is a follow-up design item.
+Source checks cover relative imports, image paths, punctuation and publication filtering.
+The build now runs four dependency-free Node tests before Vite and prerendering.
+Read Netlify's commit status for the result of the current commit.
+No local terminal or interactive browser was available for this edit.
 
-The 1,900+ user count and existing prices are retained from source, not refreshed analytics.
-Other inherited case-study claims should be checked by the founder before publication.
+## Before merging
+
+- Review desktop and mobile at 1440, 1024, 768, 390 and 320px.
+- Open selected screenshots; test zoom/pan, close, Escape, tab containment, background scroll lock and return focus.
+- Confirm the photograph is the intended one and reads well beside the story. The connector could list the two large uploads but could not return viewable bytes; neither crop was visually inspected. The photo is uncropped and lazy-loaded, but the original is 6.6 MB. Optimise a web copy and strip unnecessary metadata when image processing is available, retaining the original.
+- Review the five personal drawings at mobile size.
+- Confirm KSA is absent from the homepage, service examples, case-study navigation and sitemap.
+- Test contact submission only with an authorised test; no enquiry was sent.
+- Founder should confirm public metrics, case-study claims and origin-story wording.
+- Company registration number and registered-office details have not been supplied; do not invent them.
+- Dedicated branded raster social-sharing artwork remains a follow-up.

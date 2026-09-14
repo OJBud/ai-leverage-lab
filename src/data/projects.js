@@ -1,4 +1,4 @@
-export const projects = [
+const allProjects = [
   {
     slug: 'firstlook',
     relationship: 'Founder venture · Co-founded and built',
@@ -19,9 +19,9 @@ export const projects = [
     ],
     productColumns: 3,
     screenshots: [
-      { src: '/images/firstlook-dashboard.png', pos: 'top', caption: 'Employer dashboard - candidate scoring and workflow in one place' },
-      { src: '/images/firstlook-scoring.png', pos: 'top', caption: 'Engagement scoring - effort, edits, pastes and tab-switches, not just a CV' },
-      { src: '/images/firstlook-role.png', pos: 'top', caption: 'Role creation - custom assessments built in a guided flow' },
+      { src: '/images/firstlook-dashboard.png', expandable: true, pos: 'top', caption: 'Employer dashboard - candidate scoring and workflow in one place' },
+      { src: '/images/firstlook-scoring.png', expandable: true, pos: 'top', caption: 'Engagement scoring - effort, edits, pastes and tab-switches, not just a CV' },
+      { src: '/images/firstlook-role.png', expandable: true, pos: 'top', caption: 'Role creation - custom assessments built in a guided flow' },
     ],
     videoId: '5e2Sl3jXbmk',
     growth: [
@@ -61,8 +61,8 @@ export const projects = [
     ],
     productColumns: 2,
     screenshots: [
-      { src: '/images/budapp-walks.png', aspect: 'portrait', pos: 'top', caption: 'Community walk discovery - real routes, difficulty and dog-friendly detail on a live map' },
-      { src: '/images/budapp-route.png', aspect: 'portrait', pos: 'top', caption: 'Every walk is a shareable record - conditions, features and turn-by-turn context' },
+      { src: '/images/budapp-walks.png', expandable: true, aspect: 'portrait', pos: 'top', caption: 'Community walk discovery - real routes, difficulty and dog-friendly detail on a live map' },
+      { src: '/images/budapp-route.png', expandable: true, aspect: 'portrait', pos: 'top', caption: 'Every walk is a shareable record - conditions, features and turn-by-turn context' },
     ],
     videoId: 'U4Zdj4migcs',
     growth: [
@@ -105,9 +105,9 @@ export const projects = [
     productIntro: 'The emblem, the ink warrior, the whole visual language - the creative direction was mine, end to end. I studied the art, set the aesthetic, and executed it with AI rather than handing it to a studio. This is design taste applied, not a template dressed up.',
     productColumns: 2,
     screenshots: [
-      { src: '/images/smallcircle-emblem.png', aspect: 'square', fit: 'contain', tone: 'dark', caption: 'Bespoke emblem - a brushstroke ensō carrying the kanji and the infinity loop of Small Circle, drawn straight from the school\'s philosophy' },
-      { src: '/images/smallcircle-inkwarrior.png', aspect: 'square', fit: 'contain', tone: 'dark', caption: 'Original sumi-e ink warrior - part of a visual system built to feel like the art itself: precise, traditional, alive' },
-      { src: '/images/smallcircle-principles.png', aspect: 'wide', pos: 'top', feature: true, caption: 'The interactive principles wheel - the centrepiece. Explore the core tenets by touch, no walls of text' },
+      { src: '/images/smallcircle-emblem.png', expandable: true, aspect: 'square', fit: 'contain', tone: 'cream', caption: 'Bespoke emblem - a brushstroke ensō carrying the kanji and the infinity loop of Small Circle, drawn straight from the school\'s philosophy' },
+      { src: '/images/smallcircle-inkwarrior.png', expandable: true, aspect: 'square', fit: 'contain', tone: 'cream', caption: 'Original sumi-e ink warrior - part of a visual system built to feel like the art itself: precise, traditional, alive' },
+      { src: '/images/smallcircle-principles.png', expandable: true, aspect: 'wide', pos: 'top', feature: true, caption: 'The interactive principles wheel - the centrepiece. Explore the core tenets by touch, no walls of text' },
     ],
     results: [
       'A genuine portfolio centrepiece - brand, build and interaction design in one',
@@ -141,9 +141,9 @@ export const projects = [
     productColumns: 3,
     screenshots: [
       { src: '/images/SoundPals.character.png', aspect: 'band', fit: 'contain', tone: 'soft', feature: true, caption: 'Original character illustration - the friendly face of the app, drawn to feel warm and safe for children who find reading hard' },
-      { src: '/images/SoundPals.newpals.png', aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Collectible Sound Pals turn practice into something worth coming back for' },
-      { src: '/images/SoundPals.meetquinn.png', aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Multisensory phonics cards - see it, hear it, say it, with playful illustration throughout' },
-      { src: '/images/SoundPals.learning.png', aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Progress that reads as achievement, not correction - phases and sets that fill as children learn' },
+      { src: '/images/SoundPals.newpals.png', expandable: true, aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Collectible Sound Pals turn practice into something worth coming back for' },
+      { src: '/images/SoundPals.meetquinn.png', expandable: true, aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Multisensory phonics cards - see it, hear it, say it, with playful illustration throughout' },
+      { src: '/images/SoundPals.learning.png', expandable: true, aspect: 'phone', fit: 'contain', tone: 'dark', caption: 'Progress that reads as achievement, not correction - phases and sets that fill as children learn' },
     ],
     results: [
       'In active development - early-stage build',
@@ -157,6 +157,7 @@ export const projects = [
   },
   {
     slug: 'ksa',
+    published: false, // Restore when the case study is ready for public viewing.
     relationship: 'Partner work · Learning passport',
     name: 'KSA Surf Passport',
     oneLiner: 'A curriculum tracker turning surf coaching into structured progression',
@@ -191,3 +192,6 @@ export const projects = [
     ],
   },
 ];
+
+// One publication list for cards, case-study navigation, prerendering and sitemap.
+export const projects = allProjects.filter((project) => project.published !== false);

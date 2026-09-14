@@ -13,7 +13,6 @@ const offers = [
 const clientWork = [
   { slug: 'small-circle', name: 'Small Circle Jujitsu', label: 'BRAND / WEBSITE / INTERACTION', image: '/images/smallcircle-hero.png', alt: 'Small Circle Jujitsu website design', text: 'Translating the character of a martial art into a distinctive digital experience.', tone: 'sand' },
   { slug: 'soundpals', name: 'SoundPals', label: 'LEARNING / APP / ACCESSIBILITY', image: '/images/SoundPals.character.png', alt: 'A SoundPals character illustration', text: 'A phonics app designed to make learning feel like play. Currently in development.', tone: 'peach' },
-  { slug: 'ksa', name: 'KSA Surf Passport', label: 'COACHING / TOOL / PROGRESSION', image: '/images/KSA-hero.png', alt: 'KSA Surf Passport interface', text: 'A digital learning passport bringing structure to student progress and coach sign-off.', tone: 'blue' },
 ];
 
 function OfferSketch({ type }) {
@@ -38,7 +37,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="bud-eyebrow">INDEPENDENT THINKING. HANDS-ON BUILDING.</p>
             <h1>From idea<br />to <span className="ink-underline">life.</span></h1>
-            <p className="hero-description">I help founders and small teams shape, build and grow their businesses—with marketing, websites and digital products.</p>
+            <p className="hero-description">I help founders and small teams shape, build and grow their businesses - with marketing, websites and digital products.</p>
             <p className="hero-signature">Christian Jones. Human judgement, amplified by AI.</p>
             <div className="bud-actions">
               <Link className="bud-button" to="/contact">Tell me what you need <ArrowRight size={17} /></Link>
@@ -71,7 +70,7 @@ export default function Home() {
         <div className="bud-shell">
           <div className="bud-section-heading">
             <div><p className="bud-eyebrow">FOUNDER VENTURES</p><h2>I build for myself,<br /><span className="hand-accent">as well as for you.</span></h2></div>
-            <p>BudApp and FirstLook put my own judgement to the test. Product decisions, launch, feedback and growth—not just the handover.</p>
+            <p>BudApp and FirstLook put my own judgement to the test. Product decisions, launch, feedback and growth - not just the handover.</p>
           </div>
           <article className="venture-card venture-bud">
             <div className="venture-copy">
@@ -103,7 +102,7 @@ export default function Home() {
 
       <section className="bud-section client-section">
         <div className="bud-shell">
-          <div className="bud-section-heading"><div><p className="bud-eyebrow">CLIENT &amp; PARTNER WORK</p><h2>Different people.<br /><span className="hand-accent">Different possibilities.</span></h2></div><p>Each project starts with its audience. The result should feel like their world—not a template with their name on it.</p></div>
+          <div className="bud-section-heading"><div><p className="bud-eyebrow">CLIENT &amp; PARTNER WORK</p><h2>Different people.<br /><span className="hand-accent">Different possibilities.</span></h2></div><p>Each project starts with its audience. The result should feel like their world - not a template with their name on it.</p></div>
           <div className="client-grid">{clientWork.map((project) => <article className="client-card" key={project.slug}>
             <Link to={'/work/' + project.slug} className={'client-image client-image-' + project.tone} aria-label={'View ' + project.name}><img src={project.image} alt={project.alt} loading="lazy" width="540" height="380" /></Link>
             <div className="client-copy"><span className="project-role">{project.label}</span><h3>{project.name}</h3><p>{project.text}</p><Link to={'/work/' + project.slug} className="bud-text-link">See the project <ArrowRight size={16} /></Link></div>
@@ -113,7 +112,7 @@ export default function Home() {
 
       <section className="bud-section founder-section">
         <div className="bud-shell founder-layout">
-          <div><p className="bud-eyebrow">THE PERSON YOU WORK WITH</p><h2>Commercial head.<br /><span className="hand-accent">Builder’s hands.</span></h2><p>I’m Christian. Twenty years in technology marketing now sit alongside hands-on product development. I think about who will use something, why they’ll care and how it will reach them—while I’m building it.</p><div className="bud-actions"><Link className="bud-text-link" to="/about">Meet the person behind Bud <ArrowRight size={16} /></Link><Link className="bud-text-link" to="/method">How I work <ArrowRight size={16} /></Link></div></div>
+          <div><p className="bud-eyebrow">THE PERSON YOU WORK WITH</p><h2>Commercial head.<br /><span className="hand-accent">Builder’s hands.</span></h2><p>I’m Christian. Twenty years in technology marketing now sit alongside hands-on product development. I think about who will use something, why they’ll care and how it will reach them - while I’m building it.</p><div className="bud-actions"><Link className="bud-text-link" to="/about">Meet the person behind Bud <ArrowRight size={16} /></Link><Link className="bud-text-link" to="/method">How I work <ArrowRight size={16} /></Link></div></div>
           <blockquote><span className="quote-mark" aria-hidden="true">“</span><p>What I learned in that short meeting was that the answer to my questions has as much to do with mindset as it does execution.</p><cite>Amy Rose Bailey<br /><span>Founder, CultureSmith Ltd</span></cite></blockquote>
         </div>
       </section>

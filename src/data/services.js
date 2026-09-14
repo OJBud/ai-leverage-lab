@@ -30,7 +30,7 @@ export const serviceTiers = [
     whatHappens: 'We define scope together (the Clarity Session is a good starting point). I build the first version. You get something real to test, sell, and iterate on.',
     bestFor: 'Founders who need a first version of something real.',
     timeline: '4–8 weeks depending on scope',
-    examples: 'FirstLook, KSA Surf Passport, SoundPals',
+    examples: 'FirstLook, BudApp, SoundPals',
     boundary: 'One core workflow, agreed deliverables. Hosting and ongoing development are separate conversations.',
   },
 ];

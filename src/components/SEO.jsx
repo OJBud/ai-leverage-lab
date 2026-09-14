@@ -4,7 +4,7 @@ import { SITE_URL, SITE_NAME } from '../data/seo';
 // Use a real project image until a branded raster sharing card is supplied.
 const DEFAULT_OG_IMAGE = '/images/budapp-hero.png';
 
-export default function SEO({ title, description, path = '/', ogImage, ogType = 'website', jsonLd }) {
+export default function SEO({ title, description, path = '/', ogImage, ogType = 'website', jsonLd, noindex = false }) {
   const fullTitle = title === SITE_NAME ? `${SITE_NAME} | Christian Jones` : `${title} | ${SITE_NAME}`;
   const canonicalUrl = `${SITE_URL}${path}`;
   const imageUrl = `${SITE_URL}${ogImage || DEFAULT_OG_IMAGE}`;
@@ -12,6 +12,7 @@ export default function SEO({ title, description, path = '/', ogImage, ogType = 
   return (
     <Helmet>
       <title>{fullTitle}</title>
+      {noindex && <meta name="robots" content="noindex, follow" />}
       <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
 

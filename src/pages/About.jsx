@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
-import { Underline, Arrow, Compass, Rocket, Sparkle, Sprout, Surfboard, BoxingGlove, Kettlebell } from '../components/HandDrawn';
+import { Underline, Arrow } from '../components/HandDrawn';
+import PersonalDoodle from '../components/PersonalDoodle';
 
 const credentials = [
   { stat: '20+ yrs', label: 'of technology marketing behind the work' },
@@ -29,8 +30,6 @@ export default function About() {
       />
       {/* Hero */}
       <section className="relative max-w-3xl mx-auto px-6 py-16 md:py-24">
-        <Kettlebell size={72} className="hidden md:block absolute top-20 right-0 opacity-50 -rotate-6 pointer-events-none" />
-        <BoxingGlove size={54} className="hidden md:block absolute top-8 right-24 opacity-40 rotate-12 pointer-events-none" />
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">The person behind the work...</p>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-6">
           Christian{' '}
@@ -46,11 +45,16 @@ export default function About() {
         </p>
       </section>
 
-      {/* The name is personal; the original photo can be added here once accessible. */}
+      {/* The original photograph is kept uncropped: the story and the people come first. */}
       <section className="bud-section bud-origin">
         <div className="bud-shell bud-origin-layout">
-          <div><p className="bud-eyebrow">WHY BUD TECHNOLOGY?</p><h2>It started<br /><span className="hand-accent">with my dog.</span></h2></div>
+          <figure className="bud-origin-photo">
+            <img src="/images/christian-and-bud.jpg" alt="Christian and his dog Bud together" loading="lazy" decoding="async" />
+            <figcaption>Me and Bud. Where it all began.</figcaption>
+          </figure>
           <div>
+            <p className="bud-eyebrow">WHY BUD TECHNOLOGY?</p>
+            <h2>It started<br /><span className="hand-accent">with my dog.</span></h2>
             <p>Bud was my dog, and the inspiration for BudApp. What began with our walks became a product for other people and their dogs.</p>
             <p>After losing him, carrying his name forward became even more important to me. Bud Technology brings my work under that name: the products I build, and the work I do with other people.</p>
             <p className="origin-signature">His name. The next chapter.</p>
@@ -87,7 +91,6 @@ export default function About() {
 
       {/* Two decades */}
       <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
-        <Compass size={66} className="mb-3" />
         <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Where the depth comes from...</p>
         <h2 className="text-2xl font-display font-bold text-ink mb-6">Two decades in the room</h2>
         <p className="text-body leading-relaxed mb-4">
@@ -107,7 +110,6 @@ export default function About() {
       {/* The founder turn */}
       <section className="py-12 md:py-16 border-t border-border bg-ink text-white">
         <div className="max-w-3xl mx-auto px-6">
-          <Rocket size={88} className="mb-3" />
           <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Then I started building...</p>
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-6">
             Why I build my own products
@@ -135,7 +137,6 @@ export default function About() {
 
       {/* How I work now */}
       <section className="max-w-3xl mx-auto px-6 py-12 md:py-16 border-t border-border">
-        <Sparkle size={58} className="mb-3" />
         <h2 className="text-2xl font-display font-bold text-ink mb-6">How I work now</h2>
         <p className="text-body leading-relaxed mb-4">
           AI didn't replace the expertise - it multiplied it. Twenty years of judgement about
@@ -158,12 +159,18 @@ export default function About() {
 
       {/* Beyond the desk - warm personal close, scattered with the things he loves */}
       <section className="relative overflow-hidden border-t border-border bg-peach">
-        <Surfboard size={128} className="hidden md:block absolute -top-3 right-12 opacity-60 rotate-12 pointer-events-none" />
-        <BoxingGlove size={96} className="hidden lg:block absolute bottom-10 right-44 opacity-50 -rotate-12 pointer-events-none" />
-        <Kettlebell size={84} className="hidden lg:block absolute top-28 right-72 opacity-40 pointer-events-none" />
-        <Surfboard size={62} className="md:hidden absolute top-5 right-5 opacity-45 rotate-12 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-6 py-14 md:py-20">
-          <Sprout size={66} className="mb-3" />
+          <ul className="personal-doodles" aria-label="The things that make me, me">
+            {[
+              ['surfing', 'In the sea'],
+              ['dog', 'Always Bud'],
+              ['boxing', 'In the ring'],
+              ['coding', 'At the keyboard'],
+              ['ideas', 'The next idea'],
+            ].map(([kind, label]) => (
+              <li key={kind}><PersonalDoodle kind={kind} /><span>{label}</span></li>
+            ))}
+          </ul>
           <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Beyond the desk...</p>
           <h2 className="text-2xl font-display font-bold text-ink mb-6">The rest of it</h2>
           <p className="text-body leading-relaxed mb-4">
