@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 import { projects } from '../data/projects';
 import SEO from '../components/SEO';
+import CaseStudyImage from '../components/CaseStudyImage';
 
 // Full literal class strings so Tailwind's JIT scanner includes them.
 const GRID_COLS = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-3' };
@@ -24,6 +25,7 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <div className="pt-24 min-h-screen flex items-center justify-center">
+        <SEO title="Project not available" description="This case study is not currently published." path={`/work/${slug}`} noindex />
         <div className="text-center">
           <h1 className="text-2xl font-display font-bold text-ink mb-4">Project not found</h1>
           <Link to="/#work" className="text-burnt hover:text-ink transition-colors">
@@ -72,6 +74,7 @@ export default function ProjectDetail() {
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 pb-12">
+        {project.relationship && <p className="bud-eyebrow">{project.relationship}</p>}
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">{project.name}</h1>
         <p className="text-xl text-body mb-6">{project.oneLiner}</p>
 
@@ -97,6 +100,13 @@ export default function ProjectDetail() {
           </a>
         )}
 
+        {project.headerImage ? (
+          <figure className="project-story-photo">
+            <img src={project.headerImage} alt={project.headerAlt} width={project.headerWidth} height={project.headerHeight} decoding="async" fetchPriority="high" />
+            <figcaption>{project.headerCaption}</figcaption>
+          </figure>
+        ) : (
+          <>
         {/* Hero screenshot */}
         <div className="mt-10 rounded-2xl overflow-hidden bg-canvas border border-border">
           <div className="aspect-video relative">
@@ -114,6 +124,8 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
+          </>
+        )}
       </section>
 
       {/* The Problem */}
@@ -175,6 +187,7 @@ export default function ProjectDetail() {
               const pos = shot.pos === 'top' ? 'object-top' : 'object-center';
               const tone =
                 shot.tone === 'dark' ? 'bg-ink border-white/10'
+                : shot.tone === 'cream' ? 'case-tone-cream border-border'
                 : shot.tone === 'soft' ? 'bg-peach border-orange-100'
                 : 'bg-canvas border-border';
               const span = shot.feature ? (COL_SPAN[project.productColumns] || '') : '';
@@ -182,19 +195,7 @@ export default function ProjectDetail() {
               return (
                 <figure key={i} className={`rounded-xl overflow-hidden border ${tone} ${span}`}>
                   <div className={`${aspect} relative`}>
-                    <img
-                      src={shot.src}
-                      alt={shot.caption}
-                      className={`w-full h-full ${fit} ${pos}`}
-                      loading="lazy"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextElementSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div className="absolute inset-0 items-center justify-center hidden">
-                      <span className={`text-sm px-4 text-center ${dark ? 'text-white/50' : 'text-muted'}`}>{shot.caption}</span>
-                    </div>
+                    <CaseStudyImage key={shot.src} shot={shot} className={`w-full h-full ${fit} ${pos}`} />
                   </div>
                   {shot.caption && (
                     <figcaption className={`p-4 text-sm ${dark ? 'text-gray-300' : 'text-body'}`}>{shot.caption}</figcaption>

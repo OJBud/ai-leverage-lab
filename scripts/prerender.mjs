@@ -1,3 +1,4 @@
+import { projects } from '../src/data/projects.js';
 import { build } from 'vite';
 import { readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { dirname, resolve } from 'path';
@@ -7,8 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const DIST = resolve(ROOT, 'dist');
 
-const projectsFile = readFileSync(resolve(ROOT, 'src/data/projects.js'), 'utf-8');
-const slugs = [...projectsFile.matchAll(/slug:\s*'([^']+)'/g)].map(m => m[1]);
+const slugs = projects.map((project) => project.slug);
 
 const routes = [
   '/',

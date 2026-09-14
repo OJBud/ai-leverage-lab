@@ -1,3 +1,4 @@
+import './bud.css';
 import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Nav from './components/Nav';
@@ -15,7 +16,7 @@ export default function App() {
       <ScrollToTop />
       <div className="min-h-screen bg-canvas text-body font-sans selection:bg-peach selection:text-ink flex flex-col">
         <Nav />
-        <main className="flex-1">
+        <main id="main-content" tabIndex={-1} className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/work/:slug" element={<ProjectDetail />} />

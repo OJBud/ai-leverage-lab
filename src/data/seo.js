@@ -1,25 +1,25 @@
+export const SITE_URL = 'https://ai-levels-lab.uk';
+export const SITE_NAME = 'Bud Technology';
+
 export const pageSeo = {
   '/': {
-    title: 'AI Levels Lab',
-    description: 'Marketing expertise, amplified by AI. Strategy, design and development - from first conversation to launch.',
+    title: 'Bud Technology',
+    description: 'Marketing, distinctive websites and digital products for founders and small teams. Founder-led by Christian Jones. Human judgement, amplified by AI.',
   },
   '/method': {
-    title: 'The Method',
-    description: 'A system that delivers what usually takes a team - direct access, strategic thinking, and AI-amplified execution.',
+    title: 'How I work',
+    description: 'Direct access to Christian Jones, clear scope and hands-on delivery. The thinking and process behind Bud Technology.',
   },
   '/services': {
-    title: 'Services and Pricing',
-    description: 'Clarity sessions, website builds, and product sprints - marketing, strategy, design and development from idea to shipped.',
+    title: 'Marketing, websites and products',
+    description: 'Hands-on marketing support, website builds and product sprints. Explore ways to work with Christian Jones at Bud Technology.',
   },
   '/about': {
-    title: 'About Christian Jones',
-    description: 'Marketing operator and product builder. Two decades of technology marketing, now building and shipping products with AI.',
+    title: 'Christian Jones - the person behind Bud',
+    description: 'Meet the founder of Bud Technology: marketing operator, product builder and the person behind BudApp. Discover the story behind the name.',
   },
   '/contact': {
-    title: 'Get in Touch',
-    description: 'Start a conversation about your next product, website, or idea.',
+    title: 'Start a conversation',
+    description: 'Talk to Christian Jones about marketing, your next website, or a digital product you want to bring to life.',
   },
 };
-
-export const SITE_URL = 'https://ai-levels-lab.uk';
-export const SITE_NAME = 'AI Levels Lab';

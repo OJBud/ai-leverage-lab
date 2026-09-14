@@ -4,10 +4,12 @@ import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { serviceTiers, processSteps, faqs } from '../data/services';
 import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
-import { Underline, Sprout, Wrench, Lightbulb, Sparkle } from '../components/HandDrawn';
+import PersonalDoodle from '../components/PersonalDoodle';
+import { Underline, Sprout, Wrench } from '../components/HandDrawn';
 
 const capabilityGroups = [
   {
+    id: 'marketing',
     title: 'Marketing & Growth',
     Icon: Sprout,
     items: [
@@ -19,11 +21,12 @@ const capabilityGroups = [
     ],
   },
   {
+    id: 'products',
     title: 'Product & Build',
     Icon: Wrench,
     items: [
       'AI product development - concept to shipped SaaS',
-      'Web & app builds - React, Flutter, Firebase, Supabase, Stripe',
+      'Websites, cross-platform apps and practical business tools',
       'Positioning, pricing & go-to-market',
       'Design - brand, UX, visual and interactive',
       'Solo operation of live, revenue-capable products',
@@ -36,6 +39,7 @@ function FaqItem({ faq }) {
   return (
     <div className="border-b border-border">
       <button
+        aria-expanded={open}
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left"
       >
@@ -51,7 +55,7 @@ function FaqItem({ faq }) {
 
 export default function Services() {
   return (
-    <div className="pt-24">
+    <div className="pt-24 services-page">
       <SEO
         title={pageSeo['/services'].title}
         description={pageSeo['/services'].description}
@@ -74,21 +78,28 @@ export default function Services() {
         }))}
       />
       {/* Hero */}
-      <section className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+      <section className="services-intro"><div className="bud-shell services-intro-layout"><div>
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">Let's build something...</p>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">
           What I Can{' '}
           <span className="relative inline-block">
-            Build
+            Do
             <Underline color="#FF6B2C" />
           </span>{' '}
           For You
         </h1>
         <p className="text-xl text-body">Marketing, strategy, design and development. From idea to shipped - and grown.</p>
-      </section>
+        </div>
+        <nav className="service-tickets" aria-label="Explore services">
+          <a className="service-ticket ticket-marketing" href="#marketing"><span>01 / FIND YOUR PEOPLE</span><strong>Marketing.</strong><ArrowRight aria-hidden="true" /><small>Positioning, campaigns and growth</small></a>
+          <a className="service-ticket ticket-websites" href="#websites"><span>02 / MAKE AN IMPRESSION</span><strong>Websites.</strong><ArrowRight aria-hidden="true" /><small>Your business, clearly expressed</small></a>
+          <a className="service-ticket ticket-products" href="#products"><span>03 / MAKE IT REAL</span><strong>Products.</strong><ArrowRight aria-hidden="true" /><small>One useful idea, brought to life</small></a>
+          <PersonalDoodle kind="coding" size={76} className="service-ticket-doodle" />
+        </nav>
+      </div></section>
 
       {/* Capabilities / Specialisms */}
-      <section className="max-w-6xl mx-auto px-6 py-12 md:py-16 border-t border-border">
+      <section className="services-capabilities max-w-6xl mx-auto px-6 py-12 md:py-16 border-t border-border">
         <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">The full range...</p>
         <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-3">
           Marketing and build, under one roof
@@ -100,7 +111,7 @@ export default function Services() {
         </p>
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {capabilityGroups.map((g) => (
-            <div key={g.title} className="bg-white border border-border rounded-2xl p-8">
+            <div key={g.title} id={g.id} className={`capability-card capability-${g.id} border rounded-2xl p-8`}>
               <g.Icon size={60} className="mb-4" />
               <h3 className="text-xl font-display font-bold text-ink mb-5">{g.title}</h3>
               <ul className="space-y-3">
@@ -123,8 +134,15 @@ export default function Services() {
         </div>
       </section>
 
+      <section className="services-retainer max-w-6xl mx-auto px-6 py-12 border-t border-border">
+        <div className="grid md:grid-cols-2 gap-10">
+          <div><p className="bud-eyebrow">ONGOING MARKETING SUPPORT</p><h2 className="text-3xl font-display font-bold text-ink mb-4">Someone to own the work.</h2><p className="text-body leading-relaxed">For SaaS companies and growing businesses that need experienced marketing thinking and hands-on delivery. Positioning, content, campaigns, partnerships and reporting, tied to an agreed set of priorities.</p></div>
+          <div className="bg-peach rounded-xl p-8"><h3 className="text-xl font-display font-bold text-ink mb-3">A scoped monthly retainer</h3><p className="text-body leading-relaxed mb-5">We agree the priorities, capacity and fee before starting. The work can include improving what you already have, not only launching something new.</p><Link to="/contact" className="bud-text-link">Discuss marketing support <ArrowRight size={16} /></Link></div>
+        </div>
+      </section>
+
       {/* Service Tiers */}
-      <section className="max-w-7xl mx-auto px-6 py-12 border-t border-border">
+      <section id="pricing" className="services-pricing max-w-7xl mx-auto px-6 py-12 border-t border-border">
         <h2 className="text-2xl font-display font-bold text-ink mb-8">Ways to work together</h2>
         <div className="space-y-8">
           {serviceTiers.map((service) => {
@@ -132,7 +150,8 @@ export default function Services() {
             return (
               <div
                 key={service.name}
-                className={`border rounded-2xl p-8 md:p-10 hover:shadow-lg transition-shadow ${
+                id={service.name === 'Website Build' ? 'websites' : undefined}
+                className={`service-package border rounded-2xl p-8 md:p-10 hover:shadow-lg transition-shadow ${
                   isHighlighted
                     ? 'bg-peach border-orange-200'
                     : 'bg-white border-border'
