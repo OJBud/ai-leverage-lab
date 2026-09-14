@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
-import { Underline, Compass, Sparkle, Lightbulb } from '../components/HandDrawn';
+import PersonalDoodle from '../components/PersonalDoodle';
+import { Underline, Sparkle } from '../components/HandDrawn';
 
 const processPoints = [
   {
@@ -46,7 +47,7 @@ export default function Method() {
       />
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
-        <Compass size={84} className="mb-4" />
+        <PersonalDoodle kind="ideas" className="site-doodle doodle-intro" />
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">The bit that makes it all work...</p>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">
           The{' '}
@@ -87,7 +88,7 @@ export default function Method() {
 
       {/* Concrete example */}
       <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
-        <Lightbulb size={62} className="mb-3" />
+        <PersonalDoodle kind="coding" size={68} className="site-doodle doodle-intro doodle-lean-right" />
         <h2 className="text-2xl font-display font-bold text-ink mb-6">How Judgement Shapes The Build</h2>
         <div className="bg-peach border border-orange-100 rounded-xl p-6 md:p-8 mb-6">
           <p className="text-ink leading-relaxed mb-4">

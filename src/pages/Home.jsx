@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
+import PersonalDoodle from '../components/PersonalDoodle';
 import IdeaWorkbench from '../components/IdeaWorkbench';
 import { pageSeo, SITE_URL, SITE_NAME } from '../data/seo';
 import { serviceTiers } from '../data/services';
@@ -74,7 +75,7 @@ export default function Home() {
           </div>
           <article className="venture-card venture-bud">
             <div className="venture-copy">
-              <span className="project-role">FOUNDED &amp; BUILT</span><h3>BudApp</h3>
+              <div className="doodle-heading"><div><span className="project-role">FOUNDED &amp; BUILT</span><h3>BudApp</h3></div><PersonalDoodle kind="dog" className="site-doodle" /></div>
               <p className="venture-deck">Better walks.<br />Shared by people who care.</p>
               <p>A dog-walking app shaped by the things a generic map misses: local knowledge, dog-friendly details and a community willing to share them.</p>
               <dl className="venture-stats"><div><dt>1,900+</dt><dd>registered users</dd></div><div><dt>£0</dt><dd>paid acquisition</dd></div></dl>
@@ -112,7 +113,7 @@ export default function Home() {
 
       <section className="bud-section founder-section">
         <div className="bud-shell founder-layout">
-          <div><p className="bud-eyebrow">THE PERSON YOU WORK WITH</p><h2>Commercial head.<br /><span className="hand-accent">Builder’s hands.</span></h2><p>I’m Christian. Twenty years in technology marketing now sit alongside hands-on product development. I think about who will use something, why they’ll care and how it will reach them - while I’m building it.</p><div className="bud-actions"><Link className="bud-text-link" to="/about">Meet the person behind Bud <ArrowRight size={16} /></Link><Link className="bud-text-link" to="/method">How I work <ArrowRight size={16} /></Link></div></div>
+          <div><p className="bud-eyebrow">THE PERSON YOU WORK WITH</p><div className="doodle-heading"><h2>Commercial head.<br /><span className="hand-accent">Builder’s hands.</span></h2><PersonalDoodle kind="coding" className="site-doodle doodle-lean-right" /></div><p>I’m Christian. Twenty years in technology marketing now sit alongside hands-on product development. I think about who will use something, why they’ll care and how it will reach them - while I’m building it.</p><div className="bud-actions"><Link className="bud-text-link" to="/about">Meet the person behind Bud <ArrowRight size={16} /></Link><Link className="bud-text-link" to="/method">How I work <ArrowRight size={16} /></Link></div></div>
           <blockquote><span className="quote-mark" aria-hidden="true">“</span><p>What I learned in that short meeting was that the answer to my questions has as much to do with mindset as it does execution.</p><cite>Amy Rose Bailey<br /><span>Founder, CultureSmith Ltd</span></cite></blockquote>
         </div>
       </section>

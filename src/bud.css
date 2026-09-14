@@ -217,11 +217,6 @@ a, button { -webkit-tap-highlight-color:transparent; }
 .bud-origin-photo img { display:block; width:100%; height:auto; border-radius:2px; }
 .bud-origin-photo figcaption { padding:14px 5px 18px; font-family:'Caveat',cursive; font-size:25px; line-height:1.2; color:#a83913; }
 .bud-origin-layout h2 { margin-bottom:24px; }
-.personal-doodles { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; margin:0 0 42px; padding:0; list-style:none; }
-.personal-doodles li { display:flex; flex-direction:column; align-items:center; gap:8px; color:#b83a12; }
-.personal-doodles li:nth-child(odd) svg { transform:rotate(-4deg); }
-.personal-doodles li:nth-child(even) svg { transform:rotate(3deg); }
-.personal-doodles span { font:22px/1.15 'Caveat',cursive; text-align:center; }
 .case-image-trigger,.case-image-static { display:block; width:100%; height:100%; }
 .case-image-trigger { position:relative; padding:0; border:0; background:transparent; cursor:zoom-in; text-align:left; color:inherit; }
 .case-image-trigger:disabled { cursor:default; }
@@ -242,13 +237,25 @@ a, button { -webkit-tap-highlight-color:transparent; }
 .case-lightbox-stage.is-zoomed img { width:150%; max-width:none; max-height:none; margin:0; }
 .case-lightbox-caption { flex-shrink:0; max-height:100px; overflow:auto; margin:0; padding:12px 20px 16px; border-top:1px solid #ddd6c9; font-size:14px; line-height:1.6; background:#fcfaf5; }
 @media(max-width:600px) {
-  .personal-doodles { grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px 8px; }
-  .personal-doodles svg { width:72px; height:72px; }
-  .personal-doodles span { font-size:20px; }
   .case-lightbox-toolbar { padding:8px; }
   .case-lightbox-toolbar>span { display:none; }
   .case-lightbox-actions { width:100%; justify-content:space-between; gap:4px; }
   .case-lightbox-actions button,.case-lightbox-actions a { padding:8px; font-size:12px; }
   .case-lightbox-stage { padding:10px; }
   .case-lightbox-caption { padding:10px 12px; font-size:13px; }
+}
+
+
+/* Individual personal sketches live beside relevant copy, with room to breathe. */
+.site-doodle { display:block; flex-shrink:0; color:#c94b22; opacity:.82; transform:rotate(-5deg); pointer-events:none; user-select:none; }
+.doodle-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:22px; }
+.doodle-heading > .site-doodle { width:72px; height:78px; margin-top:4px; }
+.doodle-lean-right { transform:rotate(7deg); }
+.doodle-intro { margin:0 0 22px 4px; }
+.doodle-beside-copy { float:right; margin:0 0 16px 28px; }
+@media(max-width:600px) {
+  .doodle-heading { display:block; }
+  .doodle-heading > .site-doodle { width:48px; height:54px; margin:0 0 18px auto; }
+  .doodle-intro { width:64px; height:70px; margin-bottom:18px; }
+  .doodle-beside-copy { width:54px; height:60px; margin-left:18px; }
 }
