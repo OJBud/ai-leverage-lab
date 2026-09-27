@@ -85,7 +85,7 @@ export const projects = [
     oneLiner: 'A distinctive website for a martial arts school in Fleet, Hampshire',
     demonstrates: 'Visual design, brand identity, interactive experiences, distinctive aesthetic',
     tags: ['React', 'Design', 'Brand', 'Interactive'],
-    liveUrl: 'https://smallcircle-fleet.vercel.app',
+    liveUrl: 'https://www.jujitsufleet.co.uk',
     screenshot: '/images/smallcircle-hero.png',
     problem: [
       'A martial arts school needed a website that captured the precision, philosophy, and heritage of Small Circle Jujitsu. Not a generic gym site with stock photos and a class timetable - something that reflected the discipline itself.',
@@ -102,7 +102,7 @@ export const projects = [
       { src: '/images/smallcircle-history.png', caption: 'Heritage section with historical context and lineage' },
     ],
     results: [
-      'Live site that serves as a genuine portfolio centrepiece',
+      'Live at jujitsufleet.co.uk - a real client site on its own domain',
       'Distinctive enough to stand apart from every other martial arts website',
       'Client satisfaction - the site captures what makes the school different',
     ],

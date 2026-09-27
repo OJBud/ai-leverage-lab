@@ -277,7 +277,7 @@ export default function Home() {
                     See the project <ArrowRight size={14} />
                   </Link>
                   <a
-                    href="https://smallcircle-fleet.vercel.app"
+                    href="https://www.jujitsufleet.co.uk"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink transition-colors"
