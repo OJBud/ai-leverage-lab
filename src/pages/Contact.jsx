@@ -1,7 +1,8 @@
 import ContactForm from '../components/ContactForm';
 import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
-import { Underline, Chat, Sparkle } from '../components/HandDrawn';
+import PersonalDoodle from '../components/PersonalDoodle';
+import { Underline } from '../components/HandDrawn';
 
 export default function Contact() {
   return (
@@ -23,10 +24,7 @@ export default function Contact() {
         }}
       />
       <section className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        <div className="relative inline-block mb-4">
-          <Chat size={96} className="-rotate-3" />
-          <Sparkle size={28} className="absolute -top-1 left-28 opacity-70" />
-        </div>
+        <PersonalDoodle kind="ideas" className="site-doodle doodle-intro doodle-lean-right" />
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">Every project starts here...</p>
         <h1 className="text-4xl md:text-5xl font-display font-bold text-ink mb-4">
           Tell me what you want to{' '}
@@ -36,7 +34,7 @@ export default function Contact() {
           </span>
         </h1>
         <p className="text-body mb-10">
-          Whether it's a product, a website, or an idea you're not sure about yet - start here.
+          Whether you need marketing support, a better website, or a product brought to life - start here. You’ll be talking directly to me, Christian.
         </p>
 
         <ContactForm />

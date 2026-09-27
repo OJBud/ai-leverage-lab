@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { pageSeo } from '../data/seo';
 import SEO from '../components/SEO';
-import { Underline, Arrow, Compass, Rocket, Sparkle, Sprout } from '../components/HandDrawn';
+import { Underline, Arrow } from '../components/HandDrawn';
+import PersonalDoodle from '../components/PersonalDoodle';
 
 const credentials = [
   { stat: '20+ yrs', label: 'of technology marketing behind the work' },
-  { stat: '£0', label: 'ad spend - 1,900+ users grown organically' },
+  { stat: '1,900+', label: 'users grown for my own products, zero paid' },
   { stat: 'End to end', label: 'strategy, build and growth, one pair of hands' },
 ];
 
@@ -28,7 +29,7 @@ export default function About() {
         }}
       />
       {/* Hero */}
-      <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+      <section className="relative max-w-3xl mx-auto px-6 py-16 md:py-24">
         <p className="font-hand text-2xl text-accent mb-3 -rotate-1 origin-left">The person behind the work...</p>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-6">
           Christian{' '}
@@ -38,10 +39,27 @@ export default function About() {
           </span>
         </h1>
         <p className="text-xl text-body leading-relaxed">
-          Marketing operator and product builder. Two decades getting products in front of
+          Founder of Bud Technology. Marketing operator and product builder. Two decades getting products in front of
           the right people - and building the products themselves. Whatever you're launching,
           strategy and execution come from one pair of hands.
         </p>
+      </section>
+
+      {/* The original photograph is kept uncropped: the story and the people come first. */}
+      <section className="bud-section bud-origin">
+        <div className="bud-shell bud-origin-layout">
+          <figure className="bud-origin-photo">
+            <img src="/images/christian-and-bud.jpg" alt="Christian and his dog Bud together" loading="lazy" decoding="async" />
+            <figcaption>Me and Bud. Where it all began.</figcaption>
+          </figure>
+          <div>
+            <p className="bud-eyebrow">WHY BUD TECHNOLOGY?</p>
+            <h2>It started<br /><span className="hand-accent">with my dog.</span></h2>
+            <p>Bud was my dog, and the inspiration for BudApp. What began with our walks became a product for other people and their dogs.</p>
+            <p>After losing him, carrying his name forward became even more important to me. Bud Technology brings my work under that name: the products I build, and the work I do with other people.</p>
+            <p className="origin-signature">His name. The next chapter.</p>
+          </div>
+        </div>
       </section>
 
       {/* Credentials strip */}
@@ -73,7 +91,6 @@ export default function About() {
 
       {/* Two decades */}
       <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
-        <Compass size={66} className="mb-3" />
         <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Where the depth comes from...</p>
         <h2 className="text-2xl font-display font-bold text-ink mb-6">Two decades in the room</h2>
         <p className="text-body leading-relaxed mb-4">
@@ -93,7 +110,6 @@ export default function About() {
       {/* The founder turn */}
       <section className="py-12 md:py-16 border-t border-border bg-ink text-white">
         <div className="max-w-3xl mx-auto px-6">
-          <Rocket size={88} className="mb-3" />
           <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Then I started building...</p>
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-6">
             Why I build my own products
@@ -101,8 +117,8 @@ export default function About() {
           <p className="text-gray-300 leading-relaxed mb-4">
             Advising is one thing. Doing it with your own name on the line is another. So I built
             <span className="text-white font-medium"> BudApp</span> - a community dog-walking platform grown to
-            1,900+ users in six months with zero paid marketing, through organic social, local
-            Facebook communities and mission-aligned partnerships. Then
+            1,900+ users with zero paid marketing, through organic social, local
+            Facebook communities and mission-aligned partnerships. Then I co-founded
             <span className="text-white font-medium"> FirstLook</span>, an early-stage SaaS product taken from
             positioning to live, billing and all.
           </p>
@@ -121,7 +137,6 @@ export default function About() {
 
       {/* How I work now */}
       <section className="max-w-3xl mx-auto px-6 py-12 md:py-16 border-t border-border">
-        <Sparkle size={58} className="mb-3" />
         <h2 className="text-2xl font-display font-bold text-ink mb-6">How I work now</h2>
         <p className="text-body leading-relaxed mb-4">
           AI didn't replace the expertise - it multiplied it. Twenty years of judgement about
@@ -142,21 +157,33 @@ export default function About() {
         </Link>
       </section>
 
-      {/* Beyond the desk - light personal close */}
-      <section className="max-w-3xl mx-auto px-6 py-12 border-t border-border">
-        <Sprout size={66} className="mb-3" />
-        <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Beyond the desk...</p>
-        <h2 className="text-2xl font-display font-bold text-ink mb-6">The rest of it</h2>
-        <p className="text-body leading-relaxed mb-4">
-          I'm based in North Devon. Before marketing there was a science degree - biological
-          chemistry - which is probably why I like problems that have a right answer hiding in
-          the mess somewhere. Outside work you'll find me boxing, on a surfboard, or coaching,
-          having spent years in personal training and the martial arts.
-        </p>
-        <p className="text-body leading-relaxed">
-          None of it is filler. Thinking clearly when it's uncomfortable is a trained skill, and
-          it's the same one that keeps a build on track when the easy path is to cut a corner.
-        </p>
+      {/* Beyond the desk - warm personal close, scattered with the things he loves */}
+      <section className="relative overflow-hidden border-t border-border bg-peach">
+        <div className="relative max-w-3xl mx-auto px-6 py-14 md:py-20">
+          <ul className="personal-doodles" aria-label="The things that make me, me">
+            {[
+              ['surfing', 'In the sea'],
+              ['dog', 'Always Bud'],
+              ['boxing', 'In the ring'],
+              ['coding', 'At the keyboard'],
+              ['ideas', 'The next idea'],
+            ].map(([kind, label]) => (
+              <li key={kind}><PersonalDoodle kind={kind} /><span>{label}</span></li>
+            ))}
+          </ul>
+          <p className="font-hand text-xl text-accent mb-2 -rotate-1 origin-left">Beyond the desk...</p>
+          <h2 className="text-2xl font-display font-bold text-ink mb-6">The rest of it</h2>
+          <p className="text-body leading-relaxed mb-4">
+            I'm based in North Devon. Before marketing there was a science degree - biological
+            chemistry - which is probably why I like problems with a right answer hiding in the
+            mess somewhere. Outside work you'll find me boxing, on a surfboard, or coaching, after
+            years in personal training and the martial arts.
+          </p>
+          <p className="text-body leading-relaxed">
+            It all feeds the work. Thinking clearly when it's uncomfortable is a trained skill -
+            the same one that keeps a build on track when the easy path is to cut a corner.
+          </p>
+        </div>
       </section>
 
       {/* CTA */}

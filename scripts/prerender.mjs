@@ -1,14 +1,14 @@
+import { projects } from '../src/data/projects.js';
 import { build } from 'vite';
 import { readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const DIST = resolve(ROOT, 'dist');
 
-const projectsFile = readFileSync(resolve(ROOT, 'src/data/projects.js'), 'utf-8');
-const slugs = [...projectsFile.matchAll(/slug:\s*'([^']+)'/g)].map(m => m[1]);
+const slugs = projects.map((project) => project.slug);
 
 const routes = [
   '/',
@@ -34,7 +34,7 @@ async function prerender() {
     logLevel: 'warn',
   });
 
-  const { render } = await import(resolve(DIST, 'server/entry-server.js'));
+  const { render } = await import(pathToFileURL(resolve(DIST, 'server/entry-server.js')).href);
   const rawTemplate = readFileSync(resolve(DIST, 'index.html'), 'utf-8');
 
   // Strip template's default SEO tags that Helmet will replace per-page

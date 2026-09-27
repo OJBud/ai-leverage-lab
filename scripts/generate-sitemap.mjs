@@ -1,12 +1,12 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { projects } from '../src/data/projects.js';
+import { writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
-const projectsFile = readFileSync(resolve(ROOT, 'src/data/projects.js'), 'utf-8');
-const slugs = [...projectsFile.matchAll(/slug:\s*'([^']+)'/g)].map(m => m[1]);
+const slugs = projects.map((project) => project.slug);
 
 const SITE_URL = 'https://ai-levels-lab.uk';
 const today = new Date().toISOString().split('T')[0];
@@ -15,7 +15,7 @@ const staticRoutes = ['/', '/method', '/services', '/about', '/contact'];
 const projectRoutes = slugs.map(s => `/work/${s}`);
 
 const urls = [
-  ...staticRoutes.map((path, i) => ({
+  ...staticRoutes.map((path) => ({
     loc: `${SITE_URL}${path}`,
     priority: path === '/' ? '1.0' : '0.8',
   })),

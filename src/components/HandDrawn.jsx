@@ -153,6 +153,36 @@ export function Wrench(props) {
   );
 }
 
+export function Surfboard(props) {
+  return (
+    <Sketch {...props}>
+      <path d="M12 2.2 C14.6 6.5, 15 12, 12 21.8 C9 12, 9.4 6.5, 12 2.2 Z" />
+      <path d="M12 4 L12 19.6" />
+      <path d="M12 19.8 L10.7 22" />
+    </Sketch>
+  );
+}
+
+export function BoxingGlove(props) {
+  return (
+    <Sketch {...props}>
+      <path d="M6.6 9.2 C6.6 6, 8.6 4.2, 11.6 4.2 C14.9 4.2, 16.9 6.5, 16.9 9.7 L16.9 13.6 C16.9 15.9, 15.3 17.5, 12.9 17.5 L9.6 17.5 C7.9 17.5, 6.6 16.1, 6.6 14.3 Z" />
+      <path d="M6.7 11.6 C5 11.4, 4.2 12.5, 4.6 14 C5 15.2, 6.4 15.1, 6.7 14.3" />
+      <path d="M9.6 17.5 L9.6 20 C9.6 20.9, 10.3 21.5, 11.1 21.5 L12.9 21.5 C13.7 21.5, 14.4 20.9, 14.4 20 L14.4 17.5" />
+      <path d="M11.9 5.6 L11.9 9.2" />
+    </Sketch>
+  );
+}
+
+export function Kettlebell(props) {
+  return (
+    <Sketch {...props}>
+      <path d="M8.8 9 C8.8 5.9, 10.2 4.4, 12 4.4 C13.8 4.4, 15.2 5.9, 15.2 9" />
+      <path d="M8.6 9 C7 9.7, 6 11.6, 6 14.1 C6 17.7, 8.7 20.2, 12 20.2 C15.3 20.2, 18 17.7, 18 14.1 C18 11.6, 17 9.7, 15.4 9 Z" />
+    </Sketch>
+  );
+}
+
 export function Squiggle({ className = '', color = '#FF6B2C', width = 120, strokeWidth = 2.5 }) {
   return (
     <svg viewBox="0 0 120 12" fill="none" width={width} height={width * 0.1} className={className} aria-hidden="true">

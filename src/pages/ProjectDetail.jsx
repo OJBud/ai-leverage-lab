@@ -2,6 +2,20 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 import { projects } from '../data/projects';
 import SEO from '../components/SEO';
+import CaseStudyImage from '../components/CaseStudyImage';
+
+// Full literal class strings so Tailwind's JIT scanner includes them.
+const GRID_COLS = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-3' };
+const COL_SPAN = { 2: 'md:col-span-2', 3: 'md:col-span-3' };
+const ASPECTS = {
+  video: 'aspect-video',
+  wide: 'aspect-[16/9]',
+  band: 'aspect-[16/7]',
+  portrait: 'aspect-[4/5]',
+  tall: 'aspect-[9/16]',
+  phone: 'aspect-[9/18]',
+  square: 'aspect-square',
+};
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -11,6 +25,7 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <div className="pt-24 min-h-screen flex items-center justify-center">
+        <SEO title="Project not available" description="This case study is not currently published." path={`/work/${slug}`} noindex />
         <div className="text-center">
           <h1 className="text-2xl font-display font-bold text-ink mb-4">Project not found</h1>
           <Link to="/#work" className="text-burnt hover:text-ink transition-colors">
@@ -59,6 +74,7 @@ export default function ProjectDetail() {
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 pb-12">
+        {project.relationship && <p className="bud-eyebrow">{project.relationship}</p>}
         <h1 className="text-4xl md:text-6xl font-display font-bold text-ink mb-4">{project.name}</h1>
         <p className="text-xl text-body mb-6">{project.oneLiner}</p>
 
@@ -84,6 +100,13 @@ export default function ProjectDetail() {
           </a>
         )}
 
+        {project.headerImage ? (
+          <figure className="project-story-photo">
+            <img src={project.headerImage} alt={project.headerAlt} width={project.headerWidth} height={project.headerHeight} decoding="async" fetchPriority="high" />
+            <figcaption>{project.headerCaption}</figcaption>
+          </figure>
+        ) : (
+          <>
         {/* Hero screenshot */}
         <div className="mt-10 rounded-2xl overflow-hidden bg-canvas border border-border">
           <div className="aspect-video relative">
@@ -101,6 +124,8 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
+          </>
+        )}
       </section>
 
       {/* The Problem */}
@@ -132,10 +157,7 @@ export default function ProjectDetail() {
       {/* The Explainer (self-produced video) */}
       {project.videoId && (
         <section className="max-w-4xl mx-auto px-6 py-12 border-t border-border">
-          <h2 className="text-2xl font-display font-bold text-ink mb-2">The Explainer</h2>
-          <p className="text-muted text-sm mb-6">
-            Produced solo with Claude Design - marketing execution, not outsourced.
-          </p>
+          <h2 className="text-2xl font-display font-bold text-ink mb-5">The Explainer</h2>
           <div className="aspect-video rounded-2xl overflow-hidden border border-border bg-ink">
             <iframe
               className="w-full h-full"
@@ -154,28 +176,33 @@ export default function ProjectDetail() {
       {project.screenshots?.length > 0 && (
       <section className="py-12 border-t border-border bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-display font-bold text-ink mb-8">The Product</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {project.screenshots.map((shot, i) => (
-              <div key={i} className="rounded-xl overflow-hidden bg-canvas border border-border">
-                <div className="aspect-video relative">
-                  <img
-                    src={shot.src}
-                    alt={shot.caption}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextElementSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-canvas items-center justify-center hidden">
-                    <span className="text-muted text-sm px-4 text-center">{shot.caption}</span>
+          <h2 className="text-2xl font-display font-bold text-ink mb-3">{project.productTitle || 'The Product'}</h2>
+          {project.productIntro
+            ? <p className="text-body leading-relaxed mb-8 max-w-3xl">{project.productIntro}</p>
+            : <div className="mb-5" />}
+          <div className={`grid gap-6 ${GRID_COLS[project.productColumns] || 'md:grid-cols-2'}`}>
+            {project.screenshots.map((shot, i) => {
+              const aspect = ASPECTS[shot.aspect] || 'aspect-video';
+              const fit = shot.fit === 'contain' ? 'object-contain p-4' : 'object-cover';
+              const pos = shot.pos === 'top' ? 'object-top' : 'object-center';
+              const tone =
+                shot.tone === 'dark' ? 'bg-ink border-white/10'
+                : shot.tone === 'cream' ? 'case-tone-cream border-border'
+                : shot.tone === 'soft' ? 'bg-peach border-orange-100'
+                : 'bg-canvas border-border';
+              const span = shot.feature ? (COL_SPAN[project.productColumns] || '') : '';
+              const dark = shot.tone === 'dark';
+              return (
+                <figure key={i} className={`rounded-xl overflow-hidden border ${tone} ${span}`}>
+                  <div className={`${aspect} relative`}>
+                    <CaseStudyImage key={shot.src} shot={shot} className={`w-full h-full ${fit} ${pos}`} />
                   </div>
-                </div>
-                <p className="p-4 text-sm text-body">{shot.caption}</p>
-              </div>
-            ))}
+                  {shot.caption && (
+                    <figcaption className={`p-4 text-sm ${dark ? 'text-gray-300' : 'text-body'}`}>{shot.caption}</figcaption>
+                  )}
+                </figure>
+              );
+            })}
           </div>
         </div>
       </section>
