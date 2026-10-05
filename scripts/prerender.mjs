@@ -45,7 +45,7 @@ async function prerender() {
     .replace(/<meta\s+property="og:[^"]*"[^>]*\/>\s*/g, '')
     .replace(/<meta\s+name="twitter:[^"]*"[^>]*\/>\s*/g, '');
 
-  for (const route of routes) {
+  for (const route of [...routes, '/404.html']) {
     console.log(`  Prerendering ${route}`);
     const { html, headTags } = render(route);
 
@@ -58,6 +58,12 @@ async function prerender() {
 
     // Inject rendered HTML into the root div
     page = page.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
+
+    // Netlify serves this file with HTTP 404 for unknown paths.
+    if (route === '/404.html') {
+      writeFileSync(resolve(DIST, '404.html'), page);
+      continue;
+    }
 
     const outDir = route === '/'
       ? DIST
