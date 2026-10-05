@@ -9,18 +9,18 @@ const ROOT = resolve(__dirname, '..');
 const slugs = projects.map((project) => project.slug);
 
 const SITE_URL = 'https://ai-levels-lab.uk';
-const today = new Date().toISOString().split('T')[0];
+// Omit lastmod until genuine page modification dates are available.
 
 const staticRoutes = ['/', '/method', '/services', '/about', '/contact'];
 const projectRoutes = slugs.map(s => `/work/${s}`);
 
 const urls = [
   ...staticRoutes.map((path) => ({
-    loc: `${SITE_URL}${path}`,
+    loc: `${SITE_URL}${path === '/' ? '/' : `${path}/`}`,
     priority: path === '/' ? '1.0' : '0.8',
   })),
   ...projectRoutes.map(path => ({
-    loc: `${SITE_URL}${path}`,
+    loc: `${SITE_URL}${path === '/' ? '/' : `${path}/`}`,
     priority: '0.7',
   })),
 ];
@@ -29,7 +29,6 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(u => `  <url>
     <loc>${u.loc}</loc>
-    <lastmod>${today}</lastmod>
     <priority>${u.priority}</priority>
   </url>`).join('\n')}
 </urlset>

@@ -7,7 +7,8 @@ const DEFAULT_OG_ALT = 'Bud Technology. From idea to life. Marketing. Websites. 
 
 export default function SEO({ title, description, path = '/', ogImage, ogImageAlt, ogType = 'website', jsonLd, noindex = false }) {
   const fullTitle = title === SITE_NAME ? `${SITE_NAME} | Christian Jones` : `${title} | ${SITE_NAME}`;
-  const canonicalUrl = `${SITE_URL}${path}`;
+  const canonicalPath = path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`;
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
   const imageUrl = `${SITE_URL}${ogImage || DEFAULT_OG_IMAGE}`;
 
   const imageAlt = ogImageAlt || (ogImage ? fullTitle : DEFAULT_OG_ALT);
@@ -17,7 +18,7 @@ export default function SEO({ title, description, path = '/', ogImage, ogImageAl
       <title>{fullTitle}</title>
       {noindex && <meta name="robots" content="noindex, follow" />}
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonicalUrl} />
+      {!noindex && <link rel="canonical" href={canonicalUrl} />}
 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

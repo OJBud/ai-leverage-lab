@@ -52,12 +52,12 @@ export default function ProjectDetail() {
           '@type': 'CreativeWork',
           name: project.name,
           description: project.oneLiner,
-          url: `https://ai-levels-lab.uk/work/${project.slug}`,
+          url: `https://ai-levels-lab.uk/work/${project.slug}/`,
           image: `https://ai-levels-lab.uk${project.screenshot}`,
           author: {
             '@type': 'Person',
             name: 'Christian Jones',
-            url: 'https://ai-levels-lab.uk/about',
+            url: 'https://ai-levels-lab.uk/about/',
           },
           keywords: project.tags.join(', '),
         }}
