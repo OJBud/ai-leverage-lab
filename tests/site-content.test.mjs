@@ -70,6 +70,9 @@ test('sprint terms, legal name and proof stay within the locked decisions', () =
   assert.match(whiteballCopy, /\bhim\b/);
   assert.doesNotMatch(whiteballCopy, /\bshe\b|\bherself\b|\bher\b/i);
   assert.match(whiteballCopy, /call centre/);
+  assert.match(whiteballCopy, /scrolling panel|four situations/);
+  assert.match(whiteballCopy, /The situation changes/);
+  assert.doesNotMatch(whiteballCopy, /four kinds of work|menu of services|four services/i);
   assert.match(whiteballCopy, /35\+/);
   assert.match(whiteballCopy, /Bud Technologies/);
   assert.doesNotMatch(whiteballCopy, /KPMG|Deloitte|Netflix|Apple|Puk Gaming|ModernB2B|testimonial|37 enterprise|paying customers/i);

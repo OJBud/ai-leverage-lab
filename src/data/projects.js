@@ -141,6 +141,7 @@ const allProjects = [
     approach: [
       'The homepage is the brief: "I get decision-makers talking." Then it is Kerry. One person, personally involved. He learns the business, makes the calls, and stays with it through to the meeting.',
       'I was not going to dress that up. No department behind him, no page trying to look bigger than the man on the phone. If he is the practice, the site should sound like him.',
+      'Further down, a panel scrolls through four situations you might use him for. A new account. A new market. A familiar name gone quiet. A meeting with the person who decides. One service: Kerry getting that decision-maker into the room. The situation changes. He does not.',
     ],
     productTitle: 'The person, not the brochure',
     productIntro: 'Kerry, on the page. One man, commercially serious, direct. These are the live screens, and they had to feel like the person who picks up the phone.',
@@ -148,7 +149,7 @@ const allProjects = [
     screenshots: [
       { src: '/images/whiteball-personal.png', expandable: true, aspect: 'wide', fit: 'contain', caption: 'You get him. His face, his name, and the fact that the calls are personally made.' },
       { src: '/images/whiteball-method.png', expandable: true, aspect: 'wide', fit: 'contain', caption: 'He starts with the person who can say yes. Judgement on the phone, not a script for a team.' },
-      { src: '/images/whiteball-work.png', expandable: true, aspect: 'wide', fit: 'contain', feature: true, caption: 'Still one practice. The point is the meeting with someone who decides, not a menu of services.' },
+      { src: '/images/whiteball-work.png', expandable: true, aspect: 'wide', fit: 'contain', feature: true, caption: 'One service, four situations. A new account, a new market, a familiar name gone quiet, or a meeting with the person who decides. What he does stays the same.' },
     ],
     results: [
       'Live at whiteballmedia.com, and it sounds like Kerry',
