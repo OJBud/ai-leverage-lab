@@ -23,7 +23,7 @@ test('Small Circle artwork uses cream, and enlargement is selective', () => {
     assert.equal(shot.tone, 'cream');
     assert.equal(shot.expandable, true);
   }
-  assert.equal(projects.flatMap((project) => project.screenshots).filter((shot) => shot.expandable).length, 11);
+  assert.equal(projects.flatMap((project) => project.screenshots).filter((shot) => shot.expandable).length, 12);
   const projectSource = readFileSync(resolve(root, 'src/data/projects.js'), 'utf8');
   assert.match(projectSource, /slug: 'soundpals',\n\s+published: false/);
 });
@@ -70,6 +70,11 @@ test('sprint terms, legal name and proof stay within the locked decisions', () =
   assert.match(whiteballCopy, /\bhim\b/);
   assert.doesNotMatch(whiteballCopy, /\bshe\b|\bherself\b|\bher\b/i);
   assert.match(whiteballCopy, /call centre/);
+  assert.match(whiteballCopy, /You can't cross a chasm in two small jumps/);
+  assert.match(whiteballCopy, /David Lloyd George/);
+  assert.match(whiteballCopy, /orange brushstroke/);
+  assert.match(whiteballCopy, /whiteball-chasm\.png/);
+  assert.equal(whiteball.screenshots[0].src, '/images/whiteball-chasm.png');
   assert.match(whiteballCopy, /scrolling panel|four situations/);
   assert.match(whiteballCopy, /The situation changes/);
   assert.doesNotMatch(whiteballCopy, /four kinds of work|menu of services|four services/i);
