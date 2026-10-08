@@ -4,7 +4,7 @@ const allProjects = [
     relationship: 'Founder venture · Co-founded and built',
     name: 'FirstLook',
     oneLiner: 'A hiring platform that fights AI-generated application spam',
-    demonstrates: 'A live, launched hiring product: strategy, positioning, design and the build',
+    demonstrates: 'Full SaaS product - strategy, positioning, design, development, billing integration',
     tags: ['React', 'Supabase', 'Stripe', 'SaaS'],
     liveUrl: 'https://firstlooknow.com',
     screenshot: '/images/firstlook-hero.png',
@@ -29,14 +29,16 @@ const allProjects = [
       'LinkedIn is the primary channel: entering the live industry debate rather than broadcasting features (one CMO hiring-scenario post cleared 13k+ impressions), reinforced by earned media including a Recruiter.co.uk feature with wire-service pickup. Positioning first, distribution by design - the marketing discipline behind the build.',
     ],
     results: [
-      'Live and launched',
+      'Live product with Stripe billing active',
       'Press coverage in Recruiter.co.uk with wire service pickup',
+      'Real paying signups - Foodzie (Yue Hang Lee) was the first external user',
+      'Pricing validated: Free / £79 Starter / £199 Pro / £49 Pay-Per-Role',
       'Concept to working product in 20 days',
     ],
     demonstratesList: [
-      'A hiring product taken from the question through to a live launch',
-      'End-to-end product work: strategy, design, development and go-to-market',
-      'A scoring engine with more than one way to read a candidate',
+      'End-to-end SaaS capability: strategy, design, development, billing, go-to-market',
+      'Complex scoring engine architecture with multiple algorithm routing',
+      'Solo operation of a revenue-generating B2B platform',
     ],
   },
   {
@@ -133,11 +135,11 @@ const allProjects = [
     liveUrl: 'https://whiteballmedia.com',
     screenshot: '/images/whiteball-hero.png',
     problem: [
-      'White Ball Media is Kerry Ball\'s practice. She gets decision-makers talking: CEOs, CFOs, and the other senior people a business actually wants a meeting with.',
-      'The site is for companies that need that conversation started. Kerry does the work herself. The homepage says 35+ years of experience, and that every call is personally made.',
+      'White Ball Media is Kerry Ball\'s practice. He gets decision-makers talking: CEOs, CFOs, and the other senior people a business actually wants a meeting with.',
+      'The site is for companies that need that conversation started. Kerry does the work himself. The homepage says 35+ years of experience, and that every call is personally made.',
     ],
     approach: [
-      'The live site leads with that offer. It says you work directly with Kerry: she learns the business, makes the calls, and stays involved from the first approach to the meeting.',
+      'The live site leads with that offer. It says you work directly with Kerry: he learns the business, makes the calls, and stays involved from the first approach to the meeting.',
       'The approach on the site is three steps. Understand the business. Earn their attention. Make the introduction when there is a commercial fit. Under that sit four kinds of work: executive meetings, target accounts, new markets, and existing relationships that have gone quiet.',
       'The footer of whiteballmedia.com says the site was thoughtfully built by Bud Technology, and links back here.',
     ],
@@ -145,7 +147,7 @@ const allProjects = [
     productIntro: 'Screens from whiteballmedia.com, as the site stands. A finished site, and it is live.',
     productColumns: 2,
     screenshots: [
-      { src: '/images/whiteball-personal.png', expandable: true, aspect: 'wide', fit: 'contain', caption: 'Kerry Ball, White Ball Media. The site says you work directly with her, and that every call is personally made.' },
+      { src: '/images/whiteball-personal.png', expandable: true, aspect: 'wide', fit: 'contain', caption: 'Kerry Ball, White Ball Media. The site says you work directly with him, and that every call is personally made.' },
       { src: '/images/whiteball-method.png', expandable: true, aspect: 'wide', fit: 'contain', caption: 'Three steps on the site: know the business, earn attention, then make the introduction.' },
       { src: '/images/whiteball-work.png', expandable: true, aspect: 'wide', fit: 'contain', feature: true, caption: 'Four kinds of work the site sets out: executive meetings, target accounts, new markets, and existing relationships.' },
     ],
@@ -163,6 +165,7 @@ const allProjects = [
   },
   {
     slug: 'soundpals',
+    published: false, // Restore when the case study is ready for public viewing.
     relationship: 'Client work · App in development',
     name: 'SoundPals',
     oneLiner: 'A learning app helping dyslexic children master phonics through play',

@@ -8,12 +8,12 @@ import { serviceTiers } from '../src/data/services.js';
 const root = resolve(import.meta.dirname, '..');
 
 test('only published case studies are exposed', () => {
-  assert.deepEqual(projects.map((project) => project.slug), ['firstlook', 'budapp', 'small-circle', 'whiteball-media', 'soundpals']);
-  assert.ok(!projects.some((project) => project.slug === 'ksa'));
+  assert.deepEqual(projects.map((project) => project.slug), ['firstlook', 'budapp', 'small-circle', 'whiteball-media']);
+  assert.ok(!projects.some((project) => project.slug === 'ksa' || project.slug === 'soundpals'));
   for (const script of ['scripts/prerender.mjs', 'scripts/generate-sitemap.mjs']) {
     assert.match(readFileSync(resolve(root, script), 'utf8'), /import \{ projects \} from/);
   }
-  assert.doesNotMatch(readFileSync(resolve(root, 'src/pages/Home.jsx'), 'utf8'), /slug: 'ksa'/);
+  assert.doesNotMatch(readFileSync(resolve(root, 'src/pages/Home.jsx'), 'utf8'), /slug: 'ksa'|soundpals|SoundPals/);
   assert.doesNotMatch(readFileSync(resolve(root, 'src/data/services.js'), 'utf8'), /KSA/);
 });
 
@@ -23,9 +23,9 @@ test('Small Circle artwork uses cream, and enlargement is selective', () => {
     assert.equal(shot.tone, 'cream');
     assert.equal(shot.expandable, true);
   }
-  const pals = projects.find((project) => project.slug === 'soundpals');
-  assert.notEqual(pals.screenshots[0].expandable, true);
-  assert.equal(projects.flatMap((project) => project.screenshots).filter((shot) => shot.expandable).length, 14);
+  assert.equal(projects.flatMap((project) => project.screenshots).filter((shot) => shot.expandable).length, 11);
+  const projectSource = readFileSync(resolve(root, 'src/data/projects.js'), 'utf8');
+  assert.match(projectSource, /slug: 'soundpals',\n\s+published: false/);
 });
 
 test('every published case-study image and the founder photo exist', () => {
@@ -51,18 +51,11 @@ test('sprint terms, legal name and proof stay within the locked decisions', () =
   assert.match(terms, /iOS or Android store release is not included/);
   assert.match(terms, /Hosting/);
   assert.match(terms, /No service level agreement/);
-  assert.deepEqual(sprint.examples.map((example) => example.label), ['BudApp', 'FirstLook']);
-  assert.match(sprint.examples[1].note, /co-founded/);
-  assert.doesNotMatch(sprint.examples[1].note, /solo|paying|revenue/i);
+  assert.equal(sprint.examples, 'BudApp, FirstLook');
+  assert.doesNotMatch(JSON.stringify(serviceTiers), /SoundPals/);
   assert.equal(clarity.price, '£150');
   assert.match(`${clarity.shortDesc} ${clarity.whatYouGet}`, /60–90 minutes/);
   assert.match(`${clarity.shortDesc} ${clarity.whatYouGet}`, /30 days/);
-
-  const first = projects.find((project) => project.slug === 'firstlook');
-  const firstCopy = JSON.stringify(first);
-  assert.match(firstCopy, /co-founded/i);
-  assert.match(firstCopy, /Live and launched/);
-  assert.doesNotMatch(firstCopy, /solo|paying|revenue|Foodzie/i);
 
   const bud = projects.find((project) => project.slug === 'budapp');
   assert.match(bud.tags.join(' '), /iOS/);
@@ -73,12 +66,12 @@ test('sprint terms, legal name and proof stay within the locked decisions', () =
   assert.equal(whiteball.liveUrl, 'https://whiteballmedia.com');
   const whiteballCopy = JSON.stringify(whiteball);
   assert.match(whiteballCopy, /Kerry Ball/);
+  assert.match(whiteballCopy, /\bhe\b/);
+  assert.match(whiteballCopy, /\bhim\b/);
+  assert.doesNotMatch(whiteballCopy, /\bshe\b|\bherself\b|\bher\b/i);
   assert.match(whiteballCopy, /finished and live/i);
   assert.match(whiteballCopy, /Thoughtfully built by Bud Technology/i);
   assert.doesNotMatch(whiteballCopy, /KPMG|Deloitte|testimonial|37 enterprise|paying customers/i);
-
-  const pals = projects.find((project) => project.slug === 'soundpals');
-  assert.match(pals.relationship, /in development/i);
   assert.doesNotMatch(JSON.stringify(sprint), /SoundPals/);
 
   const footer = readFileSync(resolve(root, 'src/components/Footer.jsx'), 'utf8');

@@ -119,7 +119,8 @@ export default function About() {
             <span className="text-white font-medium"> BudApp</span> - a community dog-walking platform grown to
             1,900+ users with zero paid marketing, through organic social, local
             Facebook communities and mission-aligned partnerships. Then I co-founded
-            <span className="text-white font-medium"> FirstLook</span>, a hiring product that is live and launched.
+            <span className="text-white font-medium"> FirstLook</span>, an early-stage SaaS product taken from
+            positioning to live, billing and all.
           </p>
           <p className="text-gray-400 leading-relaxed">
             Every growth lever on those products is the marketing I've done for clients for twenty

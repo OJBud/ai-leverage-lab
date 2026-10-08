@@ -29,7 +29,7 @@ const capabilityGroups = [
       'Websites, cross-platform apps and practical business tools',
       'Positioning, pricing & go-to-market',
       'Design - brand, UX, visual and interactive',
-      'One working workflow, live as a web app',
+      'Solo operation of live, revenue-capable products',
     ],
   },
 ];

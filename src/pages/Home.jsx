@@ -14,7 +14,6 @@ const offers = [
 const clientWork = [
   { slug: 'small-circle', name: 'Small Circle Jujitsu', label: 'BRAND / WEBSITE / INTERACTION', image: '/images/smallcircle-hero.png', alt: 'Small Circle Jujitsu website design', text: 'Translating the character of a martial art into a distinctive digital experience.', tone: 'sand' },
   { slug: 'whiteball-media', name: 'White Ball Media', label: 'WEBSITE / B2B / LIVE', image: '/images/whiteball-hero.png', alt: 'White Ball Media homepage, with the line I get decision-makers talking', text: 'A finished, live site for Kerry Ball\'s executive appointment-setting practice. For businesses that need a conversation with a senior decision-maker.', tone: 'ink' },
-  { slug: 'soundpals', name: 'SoundPals', label: 'LEARNING / APP / ACCESSIBILITY', image: '/images/SoundPals.character.png', alt: 'A SoundPals character illustration', text: 'A phonics app designed to make learning feel like play. Currently in development.', tone: 'peach' },
 ];
 
 function OfferSketch({ type }) {
@@ -95,7 +94,6 @@ export default function Home() {
               <p className="venture-deck">Look beyond<br />the polished application.</p>
               <p>A hiring platform that brings effort and engagement signals into the first stage of screening. From positioning and product design to the working platform.</p>
               <dl className="venture-stats"><div><dt>20 days</dt><dd>concept to working product</dd></div><div><dt>End to end</dt><dd>strategy through build</dd></div></dl>
-              <p className="venture-evidence">Live and launched. I co-founded it.</p>
               <div className="bud-actions"><Link to="/work/firstlook" className="bud-text-link">Inside the project <ArrowRight size={16} /></Link><a href="https://firstlooknow.com" target="_blank" rel="noopener noreferrer" className="bud-text-link">Visit FirstLook <ExternalLink size={14} /></a></div>
             </div>
             <div className="venture-visual firstlook-visual"><span className="hand-accent visual-note">From the question to the product.</span><img src="/images/firstlook-dashboard.png" alt="FirstLook employer dashboard" loading="lazy" width="680" height="425" /><span className="visual-caption">The actual interface. No concept mockups.</span></div>

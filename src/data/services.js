@@ -42,10 +42,7 @@ export const serviceTiers = [
     ],
     bestFor: 'Non-technical founders, domain experts and small organisations who need one thing that works. Not a platform on day one, and not a team to manage.',
     timeline: '4–8 weeks',
-    examples: [
-      { href: '/work/budapp', label: 'BudApp', note: 'a product I built and shipped on web, iOS and Android' },
-      { href: '/work/firstlook', label: 'FirstLook', note: 'a live, launched hiring product I co-founded' },
-    ],
+    examples: 'BudApp, FirstLook',
   },
 ];
 
