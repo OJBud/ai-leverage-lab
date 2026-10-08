@@ -70,7 +70,7 @@ test('sprint terms, legal name and proof stay within the locked decisions', () =
   assert.match(whiteballCopy, /\bhim\b/);
   assert.doesNotMatch(whiteballCopy, /\bshe\b|\bherself\b|\bher\b/i);
   assert.match(whiteballCopy, /finished and live/i);
-  assert.match(whiteballCopy, /Thoughtfully built by Bud Technology/i);
+  assert.match(whiteballCopy, /Thoughtfully built by Bud Technologies/i);
   assert.doesNotMatch(whiteballCopy, /KPMG|Deloitte|testimonial|37 enterprise|paying customers/i);
   assert.doesNotMatch(JSON.stringify(sprint), /SoundPals/);
 
@@ -81,6 +81,22 @@ test('sprint terms, legal name and proof stay within the locked decisions', () =
   assert.doesNotMatch(footer, /Bud Technology Ltd/);
   assert.match(home, /legalName: 'Bud Technologies Ltd'/);
   assert.doesNotMatch(home, /Bud Technology Ltd/);
+});
+
+test('public copy names the company Bud Technologies', () => {
+  function check(directory) {
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      const path = resolve(directory, entry.name);
+      if (entry.isDirectory()) check(path);
+      else if (/\.(js|jsx|css|html)$/.test(entry.name)) {
+        assert.doesNotMatch(readFileSync(path, 'utf8'), /Bud Technology(?!s)/, path);
+      }
+    }
+  }
+  check(resolve(root, 'src'));
+  assert.doesNotMatch(readFileSync(resolve(root, 'index.html'), 'utf8'), /Bud Technology(?!s)/);
+  assert.match(readFileSync(resolve(root, 'src/components/Footer.jsx'), 'utf8'), /Bud Technologies Ltd/);
+  assert.match(readFileSync(resolve(root, 'src/components/Brand.jsx'), 'utf8'), /Bud Technologies/);
 });
 
 test('site source contains no em-dashes or encoded em-dashes', () => {

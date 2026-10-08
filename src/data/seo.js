@@ -1,18 +1,18 @@
 export const SITE_URL = 'https://ai-levels-lab.uk';
-export const SITE_NAME = 'Bud Technology';
+export const SITE_NAME = 'Bud Technologies';
 
 export const pageSeo = {
   '/': {
-    title: 'Bud Technology',
+    title: 'Bud Technologies',
     description: 'Marketing, distinctive websites and digital products for founders and small teams. Founder-led by Christian Jones. Human judgement, amplified by AI.',
   },
   '/method': {
     title: 'How I work',
-    description: 'Direct access to Christian Jones, clear scope and hands-on delivery. The thinking and process behind Bud Technology.',
+    description: 'Direct access to Christian Jones, clear scope and hands-on delivery. The thinking and process behind Bud Technologies.',
   },
   '/services': {
     title: 'Marketing, websites and products',
-    description: 'Hands-on marketing support, website builds and product sprints. Explore ways to work with Christian Jones at Bud Technology.',
+    description: 'Hands-on marketing support, website builds and product sprints. Explore ways to work with Christian Jones at Bud Technologies.',
   },
   '/about': {
     title: 'Christian Jones - the person behind Bud',

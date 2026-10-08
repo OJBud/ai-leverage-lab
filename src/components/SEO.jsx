@@ -3,7 +3,7 @@ import { SITE_URL, SITE_NAME } from '../data/seo';
 
 // Versioned branded card for general pages; case studies can supply their own image.
 const DEFAULT_OG_IMAGE = '/og/bud-technology-share-v1.png';
-const DEFAULT_OG_ALT = 'Bud Technology. From idea to life. Marketing. Websites. Digital products.';
+const DEFAULT_OG_ALT = 'Bud Technologies. From idea to life. Marketing. Websites. Digital products.';
 
 export default function SEO({ title, description, path = '/', ogImage, ogImageAlt, ogType = 'website', jsonLd, noindex = false }) {
   const fullTitle = title === SITE_NAME ? `${SITE_NAME} | Christian Jones` : `${title} | ${SITE_NAME}`;

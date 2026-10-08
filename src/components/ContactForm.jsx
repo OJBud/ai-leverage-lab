@@ -59,8 +59,8 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
-      <input type="hidden" name="subject" value="New enquiry from Bud Technology" />
-      <input type="hidden" name="from_name" value="Bud Technology website" />
+      <input type="hidden" name="subject" value="New enquiry from Bud Technologies" />
+      <input type="hidden" name="from_name" value="Bud Technologies website" />
       {/* honeypot: bots tick this, humans never see it */}
       <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
       <div>

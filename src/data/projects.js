@@ -141,7 +141,7 @@ const allProjects = [
     approach: [
       'The live site leads with that offer. It says you work directly with Kerry: he learns the business, makes the calls, and stays involved from the first approach to the meeting.',
       'The approach on the site is three steps. Understand the business. Earn their attention. Make the introduction when there is a commercial fit. Under that sit four kinds of work: executive meetings, target accounts, new markets, and existing relationships that have gone quiet.',
-      'The footer of whiteballmedia.com says the site was thoughtfully built by Bud Technology, and links back here.',
+      'The footer of whiteballmedia.com says the site was thoughtfully built by Bud Technologies, and links back here.',
     ],
     productTitle: 'The live site',
     productIntro: 'Screens from whiteballmedia.com, as the site stands. A finished site, and it is live.',
@@ -155,12 +155,12 @@ const allProjects = [
       'Finished and live at whiteballmedia.com',
       'Written for businesses that need a conversation with a senior decision-maker',
       'Described on the site as one person, personally involved: Kerry Ball',
-      'The live site credits the build to Bud Technology',
+      'The live site credits the build to Bud Technologies',
     ],
     demonstratesList: [
       'A complete website for a specialist practice, finished and live',
       'A plain offer: who it is for, and what working together looks like',
-      'A project the live site itself credits to Bud Technology',
+      'A project the live site itself credits to Bud Technologies',
     ],
   },
   {
