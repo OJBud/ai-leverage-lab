@@ -69,9 +69,13 @@ test('sprint terms, legal name and proof stay within the locked decisions', () =
   assert.match(whiteballCopy, /\bhe\b/);
   assert.match(whiteballCopy, /\bhim\b/);
   assert.doesNotMatch(whiteballCopy, /\bshe\b|\bherself\b|\bher\b/i);
-  assert.match(whiteballCopy, /finished and live/i);
-  assert.match(whiteballCopy, /Thoughtfully built by Bud Technologies/i);
-  assert.doesNotMatch(whiteballCopy, /KPMG|Deloitte|testimonial|37 enterprise|paying customers/i);
+  assert.match(whiteballCopy, /call centre/);
+  assert.match(whiteballCopy, /scrolling panel|four situations/);
+  assert.match(whiteballCopy, /The situation changes/);
+  assert.doesNotMatch(whiteballCopy, /four kinds of work|menu of services|four services/i);
+  assert.match(whiteballCopy, /35\+/);
+  assert.match(whiteballCopy, /Bud Technologies/);
+  assert.doesNotMatch(whiteballCopy, /KPMG|Deloitte|Netflix|Apple|Puk Gaming|ModernB2B|testimonial|37 enterprise|paying customers/i);
   assert.doesNotMatch(JSON.stringify(sprint), /SoundPals/);
 
   const footer = readFileSync(resolve(root, 'src/components/Footer.jsx'), 'utf8');
@@ -81,6 +85,8 @@ test('sprint terms, legal name and proof stay within the locked decisions', () =
   assert.doesNotMatch(footer, /Bud Technology Ltd/);
   assert.match(home, /legalName: 'Bud Technologies Ltd'/);
   assert.doesNotMatch(home, /Bud Technology Ltd/);
+  assert.match(home, /Translating the man who gets the meeting into a site that feels like him, not a call centre/);
+  assert.doesNotMatch(home, /executive appointment-setting practice/);
 });
 
 test('public copy names the company Bud Technologies', () => {
