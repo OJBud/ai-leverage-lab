@@ -1,4 +1,4 @@
-/* Bud Technology: an editorial studio identity built around real work. */
+/* Bud Technologies: an editorial studio identity built around real work. */
 :root { --bud-ink:#171a20; --bud-paper:#faf8f4; --bud-orange:#ff6b2c; --bud-line:#dedbd3; --bud-body:#4b5058; }
 html { scroll-behavior:smooth; scroll-padding-top:100px; }
 * { box-sizing:border-box; }
@@ -109,6 +109,7 @@ a, button { -webkit-tap-highlight-color:transparent; }
 .client-image-sand { background:#eeeade; }
 .client-image-peach { background:#fff0e6; }
 .client-image-blue { background:#e3edf0; }
+.client-image-ink { background:#1c1b19; }
 .client-copy { padding:24px 3px 0; display:flex; flex-direction:column; flex:1; align-items:flex-start; }
 .client-copy .project-role { color:#6b6257; font-size:9px; margin-bottom:11px; }
 .client-copy h3 { font-size:25px; letter-spacing:-.04em; font-weight:600; margin-bottom:13px; }

@@ -39,7 +39,7 @@ export default function About() {
           </span>
         </h1>
         <p className="text-xl text-body leading-relaxed">
-          Founder of Bud Technology. Marketing operator and product builder. Two decades getting products in front of
+          Founder of Bud Technologies Ltd. Marketing operator and product builder. Two decades getting products in front of
           the right people - and building the products themselves. Whatever you're launching,
           strategy and execution come from one pair of hands.
         </p>
@@ -53,10 +53,10 @@ export default function About() {
             <figcaption>Me and Bud. Where it all began.</figcaption>
           </figure>
           <div>
-            <p className="bud-eyebrow">WHY BUD TECHNOLOGY?</p>
+            <p className="bud-eyebrow">WHY BUD TECHNOLOGIES?</p>
             <h2>It started<br /><span className="hand-accent">with my dog.</span></h2>
             <p>Bud was my dog, and the inspiration for BudApp. What began with our walks became a product for other people and their dogs.</p>
-            <p>After losing him, carrying his name forward became even more important to me. Bud Technology brings my work under that name: the products I build, and the work I do with other people.</p>
+            <p>After losing him, carrying his name forward became even more important to me. Bud Technologies Ltd brings my work under that name: the products I build, and the work I do with other people.</p>
             <p className="origin-signature">His name. The next chapter.</p>
           </div>
         </div>

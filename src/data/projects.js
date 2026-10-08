@@ -126,7 +126,46 @@ const allProjects = [
     ],
   },
   {
+    slug: 'whiteball-media',
+    relationship: 'Finished website · Live',
+    name: 'White Ball Media',
+    oneLiner: 'A live site for Kerry Ball\'s executive B2B appointment setting',
+    demonstrates: 'A finished website, live, for a one-person appointment-setting practice',
+    tags: ['Website', 'B2B', 'Live'],
+    liveUrl: 'https://whiteballmedia.com',
+    screenshot: '/images/whiteball-hero.png',
+    problem: [
+      'White Ball Media is Kerry Ball\'s practice. He gets decision-makers talking: CEOs, CFOs, and the other senior people a business actually wants a meeting with.',
+      'The site is for companies that need that conversation started. Kerry does the work himself. The homepage says 35+ years of experience, and that every call is personally made.',
+    ],
+    approach: [
+      'The live site leads with that offer. It says you work directly with Kerry: he learns the business, makes the calls, and stays involved from the first approach to the meeting.',
+      'The approach on the site is three steps. Understand the business. Earn their attention. Make the introduction when there is a commercial fit. Under that sit four kinds of work: executive meetings, target accounts, new markets, and existing relationships that have gone quiet.',
+      'The footer of whiteballmedia.com says the site was thoughtfully built by Bud Technologies, and links back here.',
+    ],
+    productTitle: 'The live site',
+    productIntro: 'Screens from whiteballmedia.com, as the site stands. A finished site, and it is live.',
+    productColumns: 2,
+    screenshots: [
+      { src: '/images/whiteball-personal.png', expandable: true, aspect: 'wide', fit: 'contain', caption: 'Kerry Ball, White Ball Media. The site says you work directly with him, and that every call is personally made.' },
+      { src: '/images/whiteball-method.png', expandable: true, aspect: 'wide', fit: 'contain', caption: 'Three steps on the site: know the business, earn attention, then make the introduction.' },
+      { src: '/images/whiteball-work.png', expandable: true, aspect: 'wide', fit: 'contain', feature: true, caption: 'Four kinds of work the site sets out: executive meetings, target accounts, new markets, and existing relationships.' },
+    ],
+    results: [
+      'Finished and live at whiteballmedia.com',
+      'Written for businesses that need a conversation with a senior decision-maker',
+      'Described on the site as one person, personally involved: Kerry Ball',
+      'The live site credits the build to Bud Technologies',
+    ],
+    demonstratesList: [
+      'A complete website for a specialist practice, finished and live',
+      'A plain offer: who it is for, and what working together looks like',
+      'A project the live site itself credits to Bud Technologies',
+    ],
+  },
+  {
     slug: 'soundpals',
+    published: false, // Restore when the case study is ready for public viewing.
     relationship: 'Client work · App in development',
     name: 'SoundPals',
     oneLiner: 'A learning app helping dyslexic children master phonics through play',

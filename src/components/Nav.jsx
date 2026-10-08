@@ -20,7 +20,7 @@ export default function Nav() {
       <a className="bud-skip" href="#main-content">Skip to content</a>
       <nav className="bud-nav" aria-label="Main navigation">
         <div className="bud-shell bud-nav-inner">
-          <Link to="/" aria-label="Bud Technology home" onClick={() => setOpenAt(null)}><Brand /></Link>
+          <Link to="/" aria-label="Bud Technologies home" onClick={() => setOpenAt(null)}><Brand /></Link>
           <div className="bud-nav-links">
             {links.map((link) => <Link key={link.path} to={link.path} aria-current={currentLocation === link.path ? 'page' : undefined}>{link.name}</Link>)}
             <Link to="/contact" className="bud-nav-cta">Let’s talk <span aria-hidden="true">↗</span></Link>
