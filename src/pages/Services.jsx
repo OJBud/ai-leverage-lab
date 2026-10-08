@@ -29,7 +29,7 @@ const capabilityGroups = [
       'Websites, cross-platform apps and practical business tools',
       'Positioning, pricing & go-to-market',
       'Design - brand, UX, visual and interactive',
-      'Solo operation of live, revenue-capable products',
+      'One working workflow, live as a web app',
     ],
   },
 ];
@@ -161,6 +161,7 @@ export default function Services() {
                   <div>
                     <h3 className="text-2xl font-display font-bold text-ink">{service.name}</h3>
                     <p className="text-accent font-display font-bold text-xl">{service.price}</p>
+                    {service.priceNote && <p className="text-body text-sm mt-1 max-w-xl">{service.priceNote}</p>}
                     <p className="text-body text-sm mt-1">{service.shortDesc}</p>
                   </div>
                   <div className="flex items-center gap-3 self-start">
@@ -197,12 +198,37 @@ export default function Services() {
                       </>
                     )}
 
+                    {service.terms && (
+                      <>
+                        <h4 className="text-sm font-bold text-ink mb-2">The terms</h4>
+                        <ul className="space-y-2 mb-4">
+                          {service.terms.map((term) => (
+                            <li key={term} className="flex items-start gap-3 text-body text-sm leading-relaxed">
+                              <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" />
+                              {term}
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+
                     <h4 className="text-sm font-bold text-ink mb-2">Best for</h4>
                     <p className="text-body text-sm leading-relaxed">{service.bestFor}</p>
 
                     {service.examples && (
                       <p className="text-xs text-muted mt-3">
-                        Examples: {service.examples}
+                        Examples:{' '}
+                        {Array.isArray(service.examples)
+                          ? service.examples.map((example, index) => (
+                            <span key={example.href || example.label}>
+                              {index > 0 && ', '}
+                              {example.href
+                                ? <Link to={example.href} className="underline underline-offset-2 hover:text-ink">{example.label}</Link>
+                                : example.label}
+                              {example.note ? ` (${example.note})` : ''}
+                            </span>
+                          ))
+                          : service.examples}
                       </p>
                     )}
                   </div>

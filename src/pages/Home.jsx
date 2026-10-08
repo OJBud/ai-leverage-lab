@@ -9,10 +9,11 @@ import { serviceTiers } from '../data/services';
 const offers = [
   { number: '01', title: 'Marketing that moves things.', description: 'Positioning, campaigns, content and partnerships. Hands-on marketing support for SaaS companies and growing businesses.', detail: 'Strategy + ongoing execution', anchor: 'marketing', symbol: 'growth' },
   { number: '02', title: 'Websites with a point of view.', description: 'A clear story, distinctive design and a site built around what your customers need to do next.', detail: 'Positioning + design + development', anchor: 'websites', symbol: 'website' },
-  { number: '03', title: 'Ideas made into products.', description: 'Apps, practical tools and first versions. Define the useful core, build it, and put it in front of real people.', detail: 'Scoping + UX + working software', anchor: 'products', symbol: 'product' },
+  { number: '03', title: 'Ideas made into products.', description: 'One working workflow, live as a web app. Agree the useful core, build it, and put it in front of real people.', detail: '4–8 weeks · £5,500 fixed', anchor: 'products', symbol: 'product' },
 ];
 const clientWork = [
   { slug: 'small-circle', name: 'Small Circle Jujitsu', label: 'BRAND / WEBSITE / INTERACTION', image: '/images/smallcircle-hero.png', alt: 'Small Circle Jujitsu website design', text: 'Translating the character of a martial art into a distinctive digital experience.', tone: 'sand' },
+  { slug: 'whiteball-media', name: 'White Ball Media', label: 'WEBSITE / B2B / LIVE', image: '/images/whiteball-hero.png', alt: 'White Ball Media homepage, with the line I get decision-makers talking', text: 'A finished, live site for Kerry Ball\'s executive appointment-setting practice. For businesses that need a conversation with a senior decision-maker.', tone: 'ink' },
   { slug: 'soundpals', name: 'SoundPals', label: 'LEARNING / APP / ACCESSIBILITY', image: '/images/SoundPals.character.png', alt: 'A SoundPals character illustration', text: 'A phonics app designed to make learning feel like play. Currently in development.', tone: 'peach' },
 ];
 
@@ -31,7 +32,7 @@ export default function Home() {
     <>
       <SEO title={pageSeo['/'].title} description={pageSeo['/'].description} path="/" jsonLd={[
         { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
-        { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: SITE_NAME, legalName: 'Bud Technology Ltd', url: SITE_URL, description: pageSeo['/'].description, founder: { '@type': 'Person', name: 'Christian Jones' }, serviceType: ['Marketing', 'Website Design and Development', 'Product Development'] },
+        { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: SITE_NAME, legalName: 'Bud Technologies Ltd', url: SITE_URL, description: pageSeo['/'].description, founder: { '@type': 'Person', name: 'Christian Jones' }, serviceType: ['Marketing', 'Website Design and Development', 'Product Development'] },
       ]} />
       <section className="bud-hero">
         <div className="bud-shell hero-layout">
@@ -94,6 +95,7 @@ export default function Home() {
               <p className="venture-deck">Look beyond<br />the polished application.</p>
               <p>A hiring platform that brings effort and engagement signals into the first stage of screening. From positioning and product design to the working platform.</p>
               <dl className="venture-stats"><div><dt>20 days</dt><dd>concept to working product</dd></div><div><dt>End to end</dt><dd>strategy through build</dd></div></dl>
+              <p className="venture-evidence">Live and launched. I co-founded it.</p>
               <div className="bud-actions"><Link to="/work/firstlook" className="bud-text-link">Inside the project <ArrowRight size={16} /></Link><a href="https://firstlooknow.com" target="_blank" rel="noopener noreferrer" className="bud-text-link">Visit FirstLook <ExternalLink size={14} /></a></div>
             </div>
             <div className="venture-visual firstlook-visual"><span className="hand-accent visual-note">From the question to the product.</span><img src="/images/firstlook-dashboard.png" alt="FirstLook employer dashboard" loading="lazy" width="680" height="425" /><span className="visual-caption">The actual interface. No concept mockups.</span></div>
@@ -122,6 +124,7 @@ export default function Home() {
         <div className="bud-shell">
           <div className="bud-section-heading"><div><p className="bud-eyebrow">A CLEAR WAY IN</p><h2>Start with<br /><span className="hand-accent">something useful.</span></h2></div><p>A focused session, a website or a first product. These are starting points, with scope agreed before work begins.</p></div>
           <div className="price-grid">{serviceTiers.map((service) => <article className="price-card" key={service.name}><h3>{service.name}</h3><p className="price-value">{service.price}</p><p>{service.shortDesc}</p><Link to="/services#pricing" className="bud-text-link">Scope and details <ArrowRight size={16} /></Link></article>)}</div>
+          <p className="offer-bottom-note">The Product Sprint is £5,500 fixed: one workflow, live as a web app. £3,500 is only for a genuinely small workflow that comes out of the Clarity Session. That £150 session comes off the sprint if you book within 30 days. Half up front, half at go-live. <Link to="/services#pricing">The full terms</Link></p>
           <div className="retainer-strip"><div><h3>Need ongoing marketing support?</h3><p>Hands-on campaigns, content and growth, on a scoped monthly retainer.</p></div><Link className="bud-text-link" to="/services#marketing">Talk through what fits <ArrowRight size={16} /></Link></div>
         </div>
       </section>

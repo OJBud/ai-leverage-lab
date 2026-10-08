@@ -3,11 +3,12 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { projects } from '../src/data/projects.js';
+import { serviceTiers } from '../src/data/services.js';
 
 const root = resolve(import.meta.dirname, '..');
 
 test('only published case studies are exposed', () => {
-  assert.deepEqual(projects.map((project) => project.slug), ['firstlook', 'budapp', 'small-circle', 'soundpals']);
+  assert.deepEqual(projects.map((project) => project.slug), ['firstlook', 'budapp', 'small-circle', 'whiteball-media', 'soundpals']);
   assert.ok(!projects.some((project) => project.slug === 'ksa'));
   for (const script of ['scripts/prerender.mjs', 'scripts/generate-sitemap.mjs']) {
     assert.match(readFileSync(resolve(root, script), 'utf8'), /import \{ projects \} from/);
@@ -24,7 +25,7 @@ test('Small Circle artwork uses cream, and enlargement is selective', () => {
   }
   const pals = projects.find((project) => project.slug === 'soundpals');
   assert.notEqual(pals.screenshots[0].expandable, true);
-  assert.equal(projects.flatMap((project) => project.screenshots).filter((shot) => shot.expandable).length, 11);
+  assert.equal(projects.flatMap((project) => project.screenshots).filter((shot) => shot.expandable).length, 14);
 });
 
 test('every published case-study image and the founder photo exist', () => {
@@ -34,6 +35,59 @@ test('every published case-study image and the founder photo exist', () => {
     }
   }
   assert.ok(existsSync(resolve(root, 'public/images/christian-and-bud.jpg')));
+});
+
+test('sprint terms, legal name and proof stay within the locked decisions', () => {
+  const sprint = serviceTiers.find((service) => service.name === 'Product Sprint');
+  const clarity = serviceTiers.find((service) => service.name === 'Clarity Session');
+  assert.equal(sprint.price, '£5,500');
+  assert.match(sprint.priceNote, /£3,500/);
+  assert.match(sprint.priceNote, /Clarity Session/);
+  assert.doesNotMatch(sprint.price, /3,500/);
+  const terms = sprint.terms.join(' ');
+  assert.match(terms, /half up front, half at go-live/i);
+  assert.match(terms, /own the code once the final half is paid/i);
+  assert.match(terms, /30 days/);
+  assert.match(terms, /iOS or Android store release is not included/);
+  assert.match(terms, /Hosting/);
+  assert.match(terms, /No service level agreement/);
+  assert.deepEqual(sprint.examples.map((example) => example.label), ['BudApp', 'FirstLook']);
+  assert.match(sprint.examples[1].note, /co-founded/);
+  assert.doesNotMatch(sprint.examples[1].note, /solo|paying|revenue/i);
+  assert.equal(clarity.price, '£150');
+  assert.match(`${clarity.shortDesc} ${clarity.whatYouGet}`, /60–90 minutes/);
+  assert.match(`${clarity.shortDesc} ${clarity.whatYouGet}`, /30 days/);
+
+  const first = projects.find((project) => project.slug === 'firstlook');
+  const firstCopy = JSON.stringify(first);
+  assert.match(firstCopy, /co-founded/i);
+  assert.match(firstCopy, /Live and launched/);
+  assert.doesNotMatch(firstCopy, /solo|paying|revenue|Foodzie/i);
+
+  const bud = projects.find((project) => project.slug === 'budapp');
+  assert.match(bud.tags.join(' '), /iOS/);
+  assert.match(bud.tags.join(' '), /Android/);
+
+  const whiteball = projects.find((project) => project.slug === 'whiteball-media');
+  assert.equal(whiteball.name, 'White Ball Media');
+  assert.equal(whiteball.liveUrl, 'https://whiteballmedia.com');
+  const whiteballCopy = JSON.stringify(whiteball);
+  assert.match(whiteballCopy, /Kerry Ball/);
+  assert.match(whiteballCopy, /finished and live/i);
+  assert.match(whiteballCopy, /Thoughtfully built by Bud Technology/i);
+  assert.doesNotMatch(whiteballCopy, /KPMG|Deloitte|testimonial|37 enterprise|paying customers/i);
+
+  const pals = projects.find((project) => project.slug === 'soundpals');
+  assert.match(pals.relationship, /in development/i);
+  assert.doesNotMatch(JSON.stringify(sprint), /SoundPals/);
+
+  const footer = readFileSync(resolve(root, 'src/components/Footer.jsx'), 'utf8');
+  const home = readFileSync(resolve(root, 'src/pages/Home.jsx'), 'utf8');
+  assert.match(footer, /Bud Technologies Ltd/);
+  assert.match(footer, /17455486/);
+  assert.doesNotMatch(footer, /Bud Technology Ltd/);
+  assert.match(home, /legalName: 'Bud Technologies Ltd'/);
+  assert.doesNotMatch(home, /Bud Technology Ltd/);
 });
 
 test('site source contains no em-dashes or encoded em-dashes', () => {
