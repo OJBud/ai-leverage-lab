@@ -13,7 +13,7 @@ const offers = [
 ];
 const clientWork = [
   { slug: 'small-circle', name: 'Small Circle Jujitsu', label: 'BRAND / WEBSITE / INTERACTION', image: '/images/smallcircle-hero.png', alt: 'Small Circle Jujitsu website design', text: 'Translating the character of a martial art into a distinctive digital experience.', tone: 'sand' },
-  { slug: 'whiteball-media', name: 'White Ball Media', label: 'WEBSITE / B2B / LIVE', image: '/images/whiteball-hero.png', alt: 'White Ball Media homepage, with the line I get decision-makers talking', text: 'A finished, live site for Kerry Ball\'s executive appointment-setting practice. For businesses that need a conversation with a senior decision-maker.', tone: 'ink' },
+  { slug: 'whiteball-media', name: 'White Ball Media', label: 'WEBSITE / ONE PERSON / DIRECT', image: '/images/whiteball-hero.png', alt: 'White Ball Media homepage, with the line I get decision-makers talking', text: 'Translating the man who gets the meeting into a site that feels like him, not a call centre.', tone: 'ink' },
 ];
 
 function OfferSketch({ type }) {
